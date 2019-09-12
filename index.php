@@ -1,4 +1,5 @@
 <?php 
     
-    // Pagina Home Principal    
+    // Pagina principal     
+    //novo comentário
     include 'View/home.php';
