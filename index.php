@@ -1,4 +1,4 @@
 <?php 
     
-    // Pagina principal     
+    // Pagina Home Principal    
     include 'View/home.php';
