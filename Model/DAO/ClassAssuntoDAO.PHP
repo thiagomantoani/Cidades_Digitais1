@@ -39,7 +39,7 @@ class ClassAssuntoDAO {
     public function apagarAssunto(ClassAssunto $apagarAssunto) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "DELETE FROM assunto_cd WHERE cod_assunto = ?";
+            $sql = "DELETE FROM assunto WHERE cod_assunto = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $apagarAssunto->getCod_assunto());
            
