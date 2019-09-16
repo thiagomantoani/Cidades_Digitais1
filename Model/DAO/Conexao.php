@@ -8,7 +8,7 @@ abstract class Conexao {
         $pass = '';
         try {
             $pdo = new PDO($dsn, $user, $pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //setando atributos acessando metodos diretamente usando o ::
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  //setando atributos acessando metodos diretamente usando o ::
             return $pdo;
         } catch (PDOException $exc) {
             echo $exc->getMessage();

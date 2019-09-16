@@ -1,13 +1,8 @@
 <?php
 
-/**
- * Description of ClassMunicipioDAO
- *
- * @author Carol
- */
 require_once 'Conexao.php';
 class ClassMunicipioDAO {
-
+    
     public function cadastrar(ClassMunicipio $cadastrarMunicipio) {
         try {
             $pdo = Conexao::getInstance();
