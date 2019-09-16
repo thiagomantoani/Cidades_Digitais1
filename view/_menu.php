@@ -7,6 +7,7 @@
     "Etapa" => '<i class="fas fa-align-justify"></i>',
     "Uacom" => '<i class="fas fa-phone-volume"></i>',
     "Usuario" =>'<i class="fas fa-user-tie"></i>',
+    "Assunto" =>'<i class="fas fa-user-tie"></i>'
   ];
 
   //echo $_SERVER['REQUEST_URI'];

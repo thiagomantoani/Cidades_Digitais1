@@ -65,7 +65,7 @@
                   <tbody>
                   <?php
                   //var_dump($array_dados);
-                 // die();
+                  //die();
                     foreach ($array_dados as $key => $value) {
                         ?>
                         <tr>
@@ -157,6 +157,7 @@
                       placeholder=""
                       type="number" 
                       class="form-control"
+                      maxlength=""
                       id="recipient-populacao">
                   </div>
 
@@ -200,6 +201,7 @@
                       placeholder=""
                       type="number" 
                       class="form-control"
+                      maxlength="11"
                       id="recipient-dist_capital">
                   </div>
 
@@ -210,7 +212,7 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="45" 
+                      maxlength="100" 
                       id="recipient-endereco">
                   </div>
 
@@ -219,9 +221,9 @@
                     <input 
                       name="numero"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      maxlength="10" 
+                      maxlength="" 
                       id="recipient-numero">
                   </div>
 
@@ -252,9 +254,9 @@
                     <input 
                       name="idhm"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      maxlength="5" 
+                      maxlength="" 
                       id="recipient-idhm">
                   </div>
 
@@ -265,7 +267,7 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="19" 
+                      maxlength="10" 
                       id="recipient-latitude">
                   </div>
 
@@ -276,7 +278,7 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="19" 
+                      maxlength="10" 
                       id="recipient-longitude">
                   </div>
                 </div>
