@@ -105,6 +105,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
+                   
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
                       <option value="">Selecionar municipio</option>
                       <?php 
@@ -115,6 +116,7 @@
                         }
                       ?>
                     </select>
+                    
                   </div>
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_lote" class="col-form-label">Código Lote:</label>

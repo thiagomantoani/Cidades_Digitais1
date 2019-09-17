@@ -133,7 +133,7 @@
                     <input 
                       name="cod_ibge"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
                       maxlength="7" 
                       id="recipient-cod_ibge">
