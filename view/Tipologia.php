@@ -3,7 +3,7 @@
     include_once("_cabecalho.php");
 
     // Buscar todos os cadastros no banco
-    require_once("../Controller/ControleListarAssunto.php");
+    require_once("../Controller/ControleListarTipologia.php");
     // $array_dados
     ?>
     
@@ -15,12 +15,12 @@
                 <i class="fas fa-globe-asia"></i>
             </span>
             <span>
-            <h3 class="mb-0">Assunto</h3>
+            <h3 class="mb-0">Tipologia</h3>
             <small>Descrição</small>
             </span>
             </div>
             <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cadastrar-assunto-modal-lg">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cadastrar-tipologia-modal-lg">
                 <i class="far fa-plus-square"></i>
                 Cadastrar
                 </button>
@@ -43,7 +43,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Codigo Assunto</th>
+                      <th scope="col">Codigo da Tipologia</th>
                       <th scope="col">Descrição</th>
                     </tr>
                   </thead>
@@ -54,12 +54,12 @@
                     foreach($array_dados as $key => $value) {
                         ?>
                         <tr>
-                          <td><?php echo $value['cod_assunto'] ?></td>
+                          <td><?php echo $value['cod_tipologia'] ?></td>
                           <td><?php echo $value['descricao'] ?></td>
                           <td> 
                             <span class="d-flex">
                               <button type="button" class="btn btn-warning mr-1">Editar</button> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarAssunto.php?cod_assunto=<?php echo $value['cod_assunto'] ?>')" class="btn btn-danger">Excluir</button> 
+                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarTipologia.php?cod_tipologia=<?php echo $value['cod_tipologia'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
                         </tr>
@@ -76,33 +76,33 @@
 
 
     <!-- Modal de Cadastro -->
-    <div class="modal fade cadastrar-assunto-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myAssuntoModalLabel" aria-hidden="true">
+    <div class="modal fade cadastrar-tipologia-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myTipologiaModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           
           <div class="modal-header">
-            <h5 class="modal-title" id="myAssuntoModalLabel">
+            <h5 class="modal-title" id="myTipologiaModalLabel">
               <i class="far fa-plus-square"></i>
-              Cadastrar Assunto
+              Cadastrar Tipologia
             </h5>
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleAssunto.php" method="post">
+          <form action="../Controller/ControleTipologia.php" method="post">
 
             <div class="modal-body">
 
                 <!-- Input cod_assunto -->
                 <div class="form-row">
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_assunto" class="col-form-label">Código assunto:</label>
+                    <label for="recipient-cod_tipologia" class="col-form-label">Código Tipologia:</label>
                     <input 
-                      name="cod_assunto"
+                      name="cod_tipologia"
                       placeholder=""
                       type="number" 
                       class="form-control"
-                      maxlength="11" 
-                      id="recipient-cod_assunto">
+                      maxlength="" 
+                      id="recipient-cod_tipologia">
                   </div>
 
                  

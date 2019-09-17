@@ -10,7 +10,8 @@
     "Assunto" =>'<i class="fas fa-user-tie"></i>',
     "Cd" =>'<i class="fas fa-user-tie"></i>',
     "Modulo" =>'<i class="fas fa-user-tie"></i>',
-    "Processo" =>'<i class="fas fa-user-tie"></i>'
+    "Processo" =>'<i class="fas fa-user-tie"></i>',
+    "Tipologia" =>'<i class="fas fa-user-tie"></i>'
   ];
 
   //echo $_SERVER['REQUEST_URI'];
