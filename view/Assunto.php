@@ -50,7 +50,7 @@
                   <tbody>
                   <?php
                   //var_dump($array_dados);
-                 //die();
+                  //die();
                     foreach($array_dados as $key => $value) {
                         ?>
                         <tr>
