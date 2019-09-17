@@ -3,7 +3,7 @@
     include_once("_cabecalho.php");
 
     // Buscar todos os cadastros no banco
-    require_once("../Controller/ControleListarTelefone.php");
+    require_once("../Controller/ControleListarModulo.php");
     // $array_dados
     ?>
     
@@ -15,12 +15,12 @@
                 <i class="fas fa-globe-asia"></i>
             </span>
             <span>
-            <h3 class="mb-0">Assunto</h3>
+            <h3 class="mb-0">Modulo</h3>
             <small>Descrição</small>
             </span>
             </div>
             <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cadastrar-assunto-modal-lg">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cadastrar-modulo-modal-lg">
                 <i class="far fa-plus-square"></i>
                 Cadastrar
                 </button>
@@ -43,8 +43,11 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Codigo Assunto</th>
-                      <th scope="col">Descrição</th>
+                      <th scope="col">Codigo Modulo</th>
+                      <th scope="col">Categoria 1</th>
+                      <th scope="col">Categoria 2</th>
+                      <th scope="col">Categoria 3</th>
+                      <th scope="col">Descricao</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -54,12 +57,15 @@
                     foreach($array_dados as $key => $value) {
                         ?>
                         <tr>
-                          <td><?php echo $value['cod_assunto'] ?></td>
+                          <td><?php echo $value['cod_modulo'] ?></td>
+                          <td><?php echo $value['categoria_1'] ?></td>
+                          <td><?php echo $value['categoria_2'] ?></td>
+                          <td><?php echo $value['categoria_3'] ?></td>
                           <td><?php echo $value['descricao'] ?></td>
                           <td> 
                             <span class="d-flex">
                               <button type="button" class="btn btn-warning mr-1">Editar</button> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarAssunto.php?cod_assunto=<?php echo $value['cod_assunto'] ?>')" class="btn btn-danger">Excluir</button> 
+                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarModulo.php?cod_modulo=<?php echo $value['cod_modulo'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
                         </tr>
@@ -76,38 +82,66 @@
 
 
     <!-- Modal de Cadastro -->
-    <div class="modal fade cadastrar-assunto-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myAssuntoModalLabel" aria-hidden="true">
+    <div class="modal fade cadastrar-modulo-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModuloModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           
           <div class="modal-header">
-            <h5 class="modal-title" id="myAssuntoModalLabel">
+            <h5 class="modal-title" id="myModuloModalLabel">
               <i class="far fa-plus-square"></i>
-              Cadastrar Assunto
+              Cadastrar Modulo
             </h5>
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleAssunto.php" method="post">
+          <form action="../Controller/ControleModulo.php" method="post">
 
             <div class="modal-body">
 
                 <!-- Input cod_assunto -->
                 <div class="form-row">
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_assunto" class="col-form-label">Código assunto:</label>
+                    <label for="recipient-cod_modulo" class="col-form-label">Código modulo:</label>
                     <input 
-                      name="cod_assunto"
+                      name="cod_modulo"
                       placeholder=""
                       type="number" 
                       class="form-control"
                       maxlength="11" 
                       id="recipient-cod_assunto">
                   </div>
-
-                 
                   <div class="form-group col-md-12">
-                    <label for="recipient-descricao" class="col-form-label">Descricao:</label>
+                    <label for="recipient-categoria_1" class="col-form-label">categoria_1:</label>
+                    <input 
+                      name="categoria_1"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      ]maxlength="45"
+                      id="recipient-categoria_1">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="recipient-categoria_2" class="col-form-label">categoria_2:</label>
+                    <input 
+                      name="categoria_2"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      ]maxlength="45"
+                      id="recipient-categoria_2">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="recipient-categoria_3" class="col-form-label">categoria_3:</label>
+                    <input 
+                      name="categoria_3"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      ]maxlength="45"
+                      id="recipient-categoria_3">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="recipient-descricao" class="col-form-label">descricao:</label>
                     <input 
                       name="descricao"
                       placeholder=""
@@ -124,10 +158,7 @@
                 Cadastrar
               </button>
             </div>
-
           </form>
-
-        
         </div>
       </div>
     </div>

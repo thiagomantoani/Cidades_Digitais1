@@ -100,9 +100,5 @@ class ClassMunicipio {
     function setLongitude($longitude) {
         $this->longitude = $longitude;
     }
-
-
-   
-
     
 }
