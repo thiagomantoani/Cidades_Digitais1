@@ -67,8 +67,9 @@
                         <td><?php echo $value['delay'] ?></td>
                         <td><?php echo $value['setor_resp'] ?></td>
                         <td> 
-                          <span class="d-flex">
-                            <button type="button" class="btn btn-warning mr-1">Editar</button> <button type="button" class="btn btn-danger">Excluir</button> 
+                        <span class="d-flex">
+                          <button type="button" class="btn btn-warning mr-1">Editar</button> 
+                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarEtapa.php?cod_etapa=<?php echo $value['cod_etapa'] ?>')" class="btn btn-danger">Excluir</button> 
                           </span>
                         </td>
 
