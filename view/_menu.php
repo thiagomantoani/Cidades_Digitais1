@@ -13,6 +13,7 @@
     "Processo" =>'<i class="fas fa-user-tie"></i>',
     "Lote" =>'<i class="fas fa-user-tie"></i>',
     "Tipologia" => '<i class = "fas fa-user-tie"> </i>'
+
   ];
 
   //echo $_SERVER['REQUEST_URI'];
