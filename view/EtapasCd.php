@@ -16,7 +16,7 @@
               <i class="fas fa-list-ol"></i>
             </span>
             <span>
-              <h3 class="mb-0">Etapas</h3>
+              <h3 class="mb-0">Etapas CD</h3>
               <small>Descrição</small>
             </span>
           </div>
@@ -108,24 +108,30 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <input 
-                      name="cod_ibge"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_ibge">
+                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
+                      <option value="">Selecionar municipio</option>
+                      <?php 
+                        foreach($array_selectMunicipios as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
 
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_etapa" class="col-form-label">Código Etapa:</label>
-                    <input 
-                      name="cod_etapa"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength=""
-                      id="recipient-nome_municipio">
+                    <select name="cod_etapa" class="form-control" id="recipient-cod_etapa">
+                      <option value="">Código Etapa</option>
+                      <?php 
+                        foreach($array_selectEtapa as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_etapa'] ?>"><?= $valor['cod_etapa'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
 
                   <div class="form-group col-md-12">

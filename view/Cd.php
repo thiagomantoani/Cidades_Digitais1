@@ -5,6 +5,7 @@
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarCd.php");
     // $array_dados
+    require_once("../Controller/ControleCdSelect.php");
     ?>
     
     <!-- Conteudo -->
@@ -54,8 +55,8 @@
                   </thead>
                   <tbody>
                   <?php
-                  //var_dump($array_dados);
-                 //die();
+                  //svar_dump($array_dados);
+                  //die();
                     foreach($array_dados as $key => $value) {
                         ?>
                         <tr>
@@ -88,7 +89,6 @@
     <div class="modal fade cadastrar-Cd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myCdModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          
           <div class="modal-header">
             <h5 class="modal-title" id="myCdModalLabel">
               <i class="far fa-plus-square"></i>
@@ -105,9 +105,8 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                   
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Selecionar municipio</option>
+                      <option value="">Municipio</option>
                       <?php 
                         foreach($array_selectMunicipios as $chave => $valor){
                         ?>
@@ -120,43 +119,28 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_lote" class="col-form-label">Código Lote:</label>
-                    <input 
-                      name="cod_lote"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      ]maxlength="45"
-                      id="recipient-cod_lote">
+                    <select name="cod_lote" class="form-control" id="recipient-cod_ibge">
+                      <option value="">Código Lote</option>
+                      <?php 
+                        foreach($array_selectLotes as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_lote'] ?>"><?= $valor['cod_lote'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="recipient-os_pe" class="col-form-label">Os_Pe:</label>
-                    <input 
-                      name="os_pe"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      ]maxlength="45"
-                      id="recipient-os_pe">
+                    <input name="os_pe"placeholder=""type="text" class="form-control"maxlength="45"id="recipient-os_pe">
                   </div>
                   <div class="form-group col-md-12">
                     <label for="recipient-data_pe" class="col-form-label">Data_pe:</label>
-                    <input 
-                      name="data_pe"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      ]maxlength="45"
-                      id="recipient-data_pe">
+                    <input name="data_pe" placeholder=""type="text" class="form-control"maxlength="45"id="recipient-data_pe">
                   </div>
                   <div class="form-group col-md-12">
                     <label for="recipient-os_imp" class="col-form-label">os_imp:</label>
-                    <input 
-                      name="os_imp"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      ]maxlength="45"
-                      id="recipient-os_imp">
+                    <input name="os_imp"placeholder=""type="text" class="form-control"maxlength="45"id="recipient-os_imp">
                   </div>
                   <div class="form-group col-md-12">
                     <label for="recipient-data_imp" class="col-form-label">data_imp:</label>

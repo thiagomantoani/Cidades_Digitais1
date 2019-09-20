@@ -19,7 +19,7 @@ $novaettapa->setDepende($depende);
 $novaettapa->setDelay($delay);
 $novaettapa->setSetor_resp($setor_resp);
 
-$classEtapaDAO = new ClassEtapasDAO();
+$classEtapaDAO = new ClassEtapaDAO();
 $etapa = $classEtapaDAO->cadastrar($novaettapa);
 
 //var_dump($etapa);

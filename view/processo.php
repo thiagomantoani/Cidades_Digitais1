@@ -109,7 +109,7 @@
                       <?php 
                         foreach($array_selectMunicipios as $chave => $valor){
                         ?>
-                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor[''] ?></option>
+                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['cod_municipio'] ?></option>
                         <?php 
                         }
                       ?>

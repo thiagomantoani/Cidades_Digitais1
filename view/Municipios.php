@@ -109,10 +109,6 @@
 
     </main>
 
-
-
-
-
     <!-- Modal de Cadastro -->
     <div class="modal fade cadastrar-municipios-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myMunicipiosModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
