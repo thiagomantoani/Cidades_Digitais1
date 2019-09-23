@@ -12,7 +12,8 @@
     "Modulo" =>'<i class="fas fa-user-tie"></i>',
     "Processo" =>'<i class="fas fa-user-tie"></i>',
     "Lote" =>'<i class="fas fa-user-tie"></i>',
-    "Tipologia" => '<i class = "fas fa-user-tie"> </i>'
+    "Tipologia" => '<i class = "fas fa-user-tie"> </i>',
+    "Contato" => '<i class = "fas fa-user-tie"> </i>'
 
   ];
 
