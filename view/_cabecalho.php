@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="<?php echo URL ?>View/css/bootstrap.css">
 
     <title>Cidades Digitais</title>
+      <style>
+      iframe {
+      width: 100% !important;
+      height: 100vh !important;
+      }
+    </style>
   </head>
   <body>
 
