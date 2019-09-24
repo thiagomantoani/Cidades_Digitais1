@@ -2,18 +2,18 @@
   $arrayMenu = [
     "Home" => '<i class="fas fa-columns"></i>',
     "Municipios" => '<i class="fas fa-globe-asia"></i>',
-    "EtapasCd" => '<i class="fas fa-list-ol"></i>',
+    "Etapas Cidades Digitais" => '<i class="fas fa-list-ol"></i>',
     "Prefeitos" => '<i class="fas fa-user-tie"></i>',
     "Etapa" => '<i class="fas fa-align-justify"></i>',
     "Uacom" => '<i class="fas fa-phone-volume"></i>',
-    "Usuario" =>'<i class="fas fa-user-tie"></i>',
-    "Assunto" =>'<i class="fas fa-user-tie"></i>',
-    "Cd" =>'<i class="fas fa-user-tie"></i>',
-    "Modulo" =>'<i class="fas fa-user-tie"></i>',
-    "Processo" =>'<i class="fas fa-user-tie"></i>',
-    "Lote" =>'<i class="fas fa-user-tie"></i>',
-    "Tipologia" => '<i class = "fas fa-user-tie"> </i>',
-    "Contato" => '<i class = "fas fa-user-tie"> </i>'
+    "Usuario" =>'<i class="fas fa-user"></i>',
+    "Assunto" =>'<i class="fas fa-book-open"></i>',
+    "Cidades Digitais" =>'<i class="fas fa-wifi"></i>',
+    "Modulo" =>'<i class="fas fa-window-maximize"></i>',
+    "Processo" =>'<i class="fas fa-chalkboard-teacher"></i>',
+    "Lote" =>'<i class="fas fa-clone"></i>',
+    "Tipologia" => '<i class="fab fa-elementor"></i>',
+    "Contato" => '<i class="far fa-address-book"></i>'
 
   ];
 

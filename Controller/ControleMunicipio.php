@@ -41,8 +41,8 @@ $novoMunicipio->setLongitude($longitude);
 $classMunicipioDAO = new ClassMunicipioDAO();
 $municipio = $classMunicipioDAO->cadastrar($novoMunicipio);
 
-//var_dump($municipio);
-//die();
+var_dump($municipio);
+die();
 
 if($municipio == TRUE){
     $_SESSION['msg'] = '

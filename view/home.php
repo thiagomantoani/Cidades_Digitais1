@@ -2,7 +2,7 @@
     // cabeçalho
     include_once("_cabecalho.php");
     ?>
-
+    
     <!-- Conteudo -->
     <main id="main">
 
@@ -16,23 +16,23 @@
               <small>Descrição</small>
             </span>
           </div>
-          <div class="col-md-6 text-right">
-            <button type="button" class="btn btn-success">
-              <i class="far fa-plus-square"></i>
-              Cadastrar
-            </button>
-          </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div id="conteudoExterno" class="col-12">
             Conteúdo
           </div>
+          <p onclick="carregar('')"></p>
         </div>
-
     </main>
 
     <?php
     // Rodape
     include_once('_rodape.php');
+    
 ?>
+<script>
+  function carregar(pagina){
+    $('#conteudoExterno').load(pagina)
+  }
+</script>

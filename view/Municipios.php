@@ -254,9 +254,9 @@
                     <input 
                       name="idhm"
                       placeholder=""
-                      type="number" 
+                      type="text" 
                       class="form-control"
-                      maxlength="" 
+                      maxlength="5" 
                       id="recipient-idhm">
                   </div>
 
@@ -277,7 +277,7 @@
                       name="longitude"
                       placeholder=""
                       type="text" 
-                      class="form-control"
+                      class="form-control cordenadas"
                       maxlength="10" 
                       id="recipient-longitude">
                   </div>

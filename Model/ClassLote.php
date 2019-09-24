@@ -41,8 +41,8 @@ class ClassLote {
     function setDt_inicio_vig($dt_inicio_vig) {
         $this->dt_inicio_vig = $dt_inicio_vig;
     }
-    function setDt_inicio_vig($dt_inicio_vig) {
-        $this->dt_inicio_vig = $dt_inicio_vig;
+    function setDt_fim_vig($dt_fim_vig) {
+        $this->dt_fim_vig = $dt_fim_vig;
     }
 	function setDt_reajuste($dt_reajuste) {
         $this->dt_reajuste = $dt_reajuste;

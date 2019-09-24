@@ -130,7 +130,7 @@
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
                       <option value="">Selecionar Município</option>
                       <?php 
-                        foreach($array_selectCd as $chave => $valor){
+                        foreach($array_selectMunicipios as $chave => $valor){
                         ?>
                         <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
                         <?php 

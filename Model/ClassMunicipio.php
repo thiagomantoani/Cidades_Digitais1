@@ -92,13 +92,13 @@ class ClassMunicipio {
         $this->bairro = $bairro;
     }
     function setIdhm($idhm) {
-        $this->idhm = $idhm;
+        $this->idhm = str_replace(',','.',$idhm);
     }
     function setLatitude($latitude) {
-        $this->latitude = $latitude;
+        $this->latitude = str_replace(',','.',$latitude);
     }
     function setLongitude($longitude) {
-        $this->longitude = $longitude;
+        $this->longitude = str_replace(',','.',$longitude);
     }
     
 }

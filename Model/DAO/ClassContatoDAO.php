@@ -5,7 +5,7 @@
  */
 require_once 'Conexao.php';
 class ClassContatoDAO {
-  //  var_dump($cadastrarContato);
+   // var_dump($cadastrarContato);
     //die();
     public function cadastrar(ClassContato $cadastrarContato) {
         try {

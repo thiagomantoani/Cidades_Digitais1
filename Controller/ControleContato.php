@@ -23,7 +23,8 @@ $novoContato->setFuncao($funcao);
 
 $classContatoDAO = new ClassContatoDAO();
 $contato = $classContatoDAO->cadastrar($novoContato);
-
+var_dump($contato);
+die();
 if($contato == TRUE){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">
