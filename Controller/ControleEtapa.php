@@ -31,7 +31,7 @@ if($etapa == TRUE){
         </div>
     ';
     header('Location:../View/EtapaCd.php');
-} else {
+} else { 
     $_SESSION['msg'] = '
         <div class="alert alert-danger" role="alert">
             Erro! Cadastro não realizado .
