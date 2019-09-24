@@ -64,9 +64,9 @@
                         <td><?php echo $value['cod_lote'] ?></td>
                         <td><?php echo $value['cnpj'] ?></td>
                         <td><?php echo $value['contrato'] ?></td>
-                        <td><?php echo $value['dt_inicio_vig '] ?></td>
+                        <td><?php echo $value['dt_inicio_vig'] ?></td>
                         <td><?php echo $value['dt_final_vig'] ?></td>
-                        <td><?php echo $value['dt_reajuste '] ?></td>
+                        <td><?php echo $value['dt_reajuste'] ?></td>
                         <td> 
                           <span class="d-flex">
                             <button type="button" class="btn btn-warning mr-1">Editar</button> 

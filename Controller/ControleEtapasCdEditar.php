@@ -10,6 +10,8 @@ $dt_inicio = @$_POST['dt_inicio'];
 $dt_fim = @$_POST['dt_fim'];
 $responsavel = @$_POST['responsavel'];
 
+
+
 $novaetapa = new ClassEtapas();
 $novaetapa->setCod_ibge($cod_ibge);
 $novaetapa->setCod_etapa($cod_etapa);
@@ -20,21 +22,22 @@ $novaetapa->setResponsavel($responsavel);
 $classEtapasDAO = new ClassEtapasDAO();
 $etapas = $classEtapasDAO->cadastrar($novaetapa);
 
-var_dump($etapas);
-die;
+
+//var_dump($municipio);
+//die();
+
 if($etapas == TRUE){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">
-            Cadastro realizado com sucesso!
+        Editado com sucesso!
         </div>
     ';
     header('Location:../View/EtapasCd.php');
 } else {
     $_SESSION['msg'] = '
         <div class="alert alert-danger" role="alert">
-            Erro! Cadastro não realizado .
+        Erro! Não foi possível atualizar os dados . '.$etapas.'
         </div>
     ';
     header('Location:../View/EtapasCd.php');
 }
-

@@ -30,13 +30,13 @@ if($etapa == TRUE){
             Cadastro realizado com sucesso!
         </div>
     ';
-    header('Location:../View/EtapaCd.php');
+    header('Location:../View/Etapa.php');
 } else { 
     $_SESSION['msg'] = '
         <div class="alert alert-danger" role="alert">
             Erro! Cadastro não realizado .
         </div>
     ';
-    header('Location:../View/EtapaCd.php');
+    header('Location:../View/Etapa.php');
 }
 
