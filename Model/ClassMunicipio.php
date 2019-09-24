@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Description of ClassMunicipio
  *
@@ -102,9 +100,5 @@ class ClassMunicipio {
     function setLongitude($longitude) {
         $this->longitude = $longitude;
     }
-
-
-   
-
     
 }

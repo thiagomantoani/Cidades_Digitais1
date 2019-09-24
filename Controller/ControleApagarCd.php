@@ -1,19 +1,19 @@
 <?php
 session_start();
 
-$cod_etapa = @$_GET["cod_etapa"]; // id unico da tabela, chave primaria
+$cod_ibge = @$_GET["cod_ibge"]; // id unico da tabela, chave primaria
 
-if (empty($cod_etapa)) {
-	header('Location:../View/Etapa.php');
+if (empty($cod_igbe)) {
+	header('Location:../View/Cd.php');
 }
 
-require_once '../Model/ClassEtapa.php';
-require_once '../Model/DAO/ClassEtapaDAO.php';
-$apagarEtapa = new ClassEtapaDAO(); // instanciando um objeto
-$etapa = new ClassEtapa();
-$etapa->setCod_etapa($cod_etapa);
+require_once '../Model/ClassCd.php';
+require_once '../Model/DAO/ClassCdDAO.php';
+$apagarCd = new ClassCdDAO(); // instanciando um objeto
+$cd = new ClassCd();
+$cd->setCod_igbe($cod_igbe);
 
-$resultado = $apagarEtapa->apagarEtapa($etapa); // chamando metodo para listar todos os usuários do banco
+$resultado = $apagarCd->apagarCd($cd); // chamando metodo para listar todos os usuários do banco
 
 if($resultado) { // se existir algum municipio no banco então passar o array de dados para a variavel $array_dados
     $_SESSION['msg'] = '
@@ -21,7 +21,7 @@ if($resultado) { // se existir algum municipio no banco então passar o array de
             Registro apagado com sucesso!
         </div>
     ';
-    header('Location:../View/Etapa.php');
+    header('Location:../View/Cd.php');
 } else {
     // se não receber nenhum dado do banco de dados, então definir um array vazio para variavel $array_dados
 	$_SESSION['msg'] = '
@@ -29,5 +29,5 @@ if($resultado) { // se existir algum municipio no banco então passar o array de
 			Erro! Não foi possível apagar o registro.
 		</div>
 	';
-    header('Location:../View/Etapa.php');
+    header('Location:../View/Cd.php');
 }
