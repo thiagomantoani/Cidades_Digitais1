@@ -24,6 +24,10 @@
           </div>
           <p onclick="carregar('')"></p>
         </div>
+        <div>
+    <iframe src="https://app.powerbi.com/view?r=eyJrIjoiYjVlMmZmZmEtYmExOS00NTlmLWIxMjYtYjMxMzFmZWJiZDY0IiwidCI6Ijg4MGRkN2YxLWQwMmMtNGUxOS04MTVmLTQ2NDlkMzNmNWM2MyJ9" scrolling="no" frameborder="no"></iframe>
+    </div>
+
     </main>
 
     <?php
