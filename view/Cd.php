@@ -5,7 +5,7 @@
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarCd.php");
     // $array_dados
-    require_once("../Controller/ControleCdSelect.php");
+//    require_once("../Controller/ControleCdSelect.php");
     ?>
     
     <!-- Conteudo -->
@@ -16,7 +16,7 @@
                 <i class="fas fa-globe-asia"></i>
             </span>
             <span>
-            <h3 class="mb-0">CD</h3>
+            <h3 class="mb-0">Cidades Digitais</h3>
             <small>Descrição</small>
             </span>
             </div>
@@ -46,10 +46,10 @@
                     <tr>
                       <th scope="col">Codigo IBGE</th>
                       <th scope="col">Código Lote</th>
-                      <th scope="col">os_pe</th>
-                      <th scope="col">Data_pe</th>
-                      <th scope="col">Os_imp</th>
-                      <th scope="col">Data_imp</th>
+                      <th scope="col">Ordem de Serviço P.E </th>
+                      <th scope="col">Data P.E</th>
+                      <th scope="col">Ordem Serviço Implantação</th>
+                      <th scope="col">Data implatação</th>
                       <th scope="col">Ação</th>
                     </tr>
                   </thead>
@@ -131,19 +131,40 @@
                     </select>
                   </div>
                   <div class="form-group col-md-12">
-                    <label for="recipient-os_pe" class="col-form-label">Os_Pe:</label>
-                    <input name="os_pe"placeholder=""type="text" class="form-control"maxlength="45"id="recipient-os_pe">
+                    <label for="recipient-os_pe" class="col-form-label">Ordem de Serviço P.E:</label>
+                    <input
+                    name="os_pe"
+                    placeholder=""
+                    type="text"
+                    class="form-control"
+                    maxlength="45"
+                    id="recipient-os_pe">
                   </div>
+
                   <div class="form-group col-md-12">
-                    <label for="recipient-data_pe" class="col-form-label">Data_pe:</label>
-                    <input name="data_pe" placeholder=""type="text" class="form-control"maxlength="45"id="recipient-data_pe">
+                    <label for="recipient-data_pe" class="col-form-label">Data P.E:</label>
+                    <input
+                    name="data_pe"
+                    placeholder=""
+                    type="text"
+                    class="form-control"
+                    maxlength="45"
+                    id="recipient-data_pe">
                   </div>
+
                   <div class="form-group col-md-12">
-                    <label for="recipient-os_imp" class="col-form-label">os_imp:</label>
-                    <input name="os_imp"placeholder=""type="text" class="form-control"maxlength="45"id="recipient-os_imp">
+                    <label for="recipient-os_imp" class="col-form-label">Ordem de Serviço Implantação:</label>
+                    <input
+                    name="os_imp"
+                    placeholder=""
+                    type="text"
+                    class="form-control"
+                    maxlength="45"
+                    id="recipient-os_imp">
                   </div>
+
                   <div class="form-group col-md-12">
-                    <label for="recipient-data_imp" class="col-form-label">data_imp:</label>
+                    <label for="recipient-data_imp" class="col-form-label">Data Implantação:</label>
                     <input 
                       name="data_imp"
                       placeholder=""
@@ -152,7 +173,9 @@
                       ]maxlength="45"
                       id="recipient-data_imp">
                   </div>
+
                 </div>
+
             </div>
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
