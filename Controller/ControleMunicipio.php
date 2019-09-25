@@ -21,7 +21,7 @@ $longitude = @$_POST['longitude'];
 
 
 
-$novoMunicipio = new ClassMunicipio();
+$novoMunicipio = new ClassMunicipio ();
 $novoMunicipio->setCod_ibge($cod_ibge);
 $novoMunicipio->setNome_municipio($nome_municipio);
 $novoMunicipio->setPopulacao($populacao);
@@ -41,8 +41,8 @@ $novoMunicipio->setLongitude($longitude);
 $classMunicipioDAO = new ClassMunicipioDAO();
 $municipio = $classMunicipioDAO->cadastrar($novoMunicipio);
 
-var_dump($municipio);
-die();
+//var_dump($municipio);
+//die();
 
 if($municipio == TRUE){
     $_SESSION['msg'] = '
