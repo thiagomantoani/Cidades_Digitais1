@@ -5,7 +5,7 @@
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarCd.php");
     // $array_dados
-//    require_once("../Controller/ControleCdSelect.php");
+    require_once("../Controller/ControleMunicipioSelect.php");
     ?>
     
     <!-- Conteudo -->
