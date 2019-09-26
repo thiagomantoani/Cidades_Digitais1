@@ -5,10 +5,7 @@
         Cidades Digitais
       </p>
     </footer>
-
 </div>
-
-
     <!-- JavaScript (Opcional) -->
     <script>
       function apagarDados(linkApagar) {

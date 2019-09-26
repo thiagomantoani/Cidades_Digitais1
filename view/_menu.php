@@ -13,7 +13,8 @@
     "Processo" =>'<i class="fas fa-chalkboard-teacher"></i>',
     "Lote" =>'<i class="fas fa-clone"></i>',
     "Tipologia" => '<i class="fab fa-elementor"></i>',
-    "Contato" => '<i class="far fa-address-book"></i>'
+    "Contato" => '<i class="far fa-address-book"></i>',
+    "Telefone" => '<i class="far fa-address-book"></i>'
 
   ];
 
