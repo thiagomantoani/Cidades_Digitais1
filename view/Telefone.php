@@ -52,8 +52,8 @@
                   <tbody>
                   <?php
 
-                  //var_dump($array_dados);
-                  //die();
+                 // var_dump($array_dados);
+                 // die();
 
                     foreach($array_dados as $key => $value) {
                         ?>
@@ -122,7 +122,7 @@
                       ]maxlength=""
                       id="recipient-cod_contato">
                   </div>
-                </div>
+              
 
                 <div class="form-group col-md-12">
                     <label for="recipient-telefone" class="col-form-label">Telefone:</label>
@@ -134,7 +134,7 @@
                       ]maxlength="11"
                       id="recipient-telefone">
                   </div>
-                </div>
+                  
                 
                 <div class="form-group col-md-12">
                     <label for="recipient-tipo" class="col-form-label">Tipo:</label>
@@ -147,7 +147,6 @@
                       id="recipient-tipo">
                   </div>
                 </div>
-                
 
             </div>
             <div class="modal-footer">
@@ -156,6 +155,7 @@
                 Cadastrar
               </button>
             </div>
+            
 
           </form>
 

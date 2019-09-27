@@ -1,5 +1,5 @@
 <?php
-require_once '../Model/DAO/ClasstelefoneDAO.php';
+require_once '../Model/DAO/ClassTelefoneDAO.php';
 $listar = new ClassTelefoneDAO();
 $dados = $listar->listarTelefone();
 

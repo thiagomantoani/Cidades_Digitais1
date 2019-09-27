@@ -1,8 +1,7 @@
 <?php
 require_once 'Conexao.php';
 class ClassTelefoneDAO {
-  //  var_dump($cadastrarTelefone);
-    //die();
+
     public function cadastrar(ClassTelefone $cadastrarTelefone) {
         try {
             $pdo = Conexao::getInstance();
