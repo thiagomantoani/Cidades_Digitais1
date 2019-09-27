@@ -116,16 +116,6 @@
 
                 <!-- Input cod_prefeito -->
                 <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_prefeito" class="col-form-label">Código Prefeito:</label>
-                    <input 
-                      name="cod_prefeito"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_prefeito">
-                  </div>
 
                   <!-- Codigo ibge é o codigo do Municipio -->
                   <div class="form-group col-md-12">

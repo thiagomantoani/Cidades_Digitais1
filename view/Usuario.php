@@ -110,16 +110,7 @@
 
                 <!-- Input cod_usuario -->
                 <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_usuario" class="col-form-label">Código Usuário:</label>
-                    <input 
-                      name="cod_usuario"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_usuario">
-                  </div>
+            
 
                   <div class="form-group col-md-12">
                     <label for="recipient-nome" class="col-form-label">Nome:</label>
