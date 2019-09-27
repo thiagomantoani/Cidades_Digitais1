@@ -14,7 +14,7 @@
     "Lote" =>'<i class="fas fa-clone"></i>',
     "Tipologia" => '<i class="fab fa-elementor"></i>',
     "Contato" => '<i class="far fa-address-book"></i>',
-    "Telefone" => '<i class="far fa-address-book"></i>'
+    "Telefone" => '<i class="fas fa-phone-square-alt"></i>'
 
   ];
 

@@ -20,6 +20,9 @@ $novoTelefone->setTipo($tipo);
 $classTelefoneDAO = new ClassTelefoneDAO();
 $telefone = $classTelefoneDAO->cadastrar($novoTelefone);
 
+//var_dump($telefone);
+//die();
+
 if($telefone == TRUE){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">

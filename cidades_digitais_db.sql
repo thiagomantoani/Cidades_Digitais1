@@ -7,6 +7,7 @@
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
