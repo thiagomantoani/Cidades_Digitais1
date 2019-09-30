@@ -4,6 +4,8 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarContato.php");
+    require_once("../Controller/ControleMunicipioSelect.php");
+
     // $array_dados
     ?>
     
@@ -119,9 +121,9 @@
                     <input 
                       name="cnpj"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      ]maxlength="14"
+                      ]maxlength="11"
                       id="recipient-cnpj">
                   </div>
                 
