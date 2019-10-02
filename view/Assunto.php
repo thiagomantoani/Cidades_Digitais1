@@ -113,7 +113,7 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      ]maxlength="45"
+                      maxlength="45"
                       id="recipient-descricao">
                   </div>
                 </div>

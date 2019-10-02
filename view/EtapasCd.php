@@ -4,7 +4,9 @@
 
     // Buscar todos os cadastros no banco
      require_once("../Controller/ControleListarEtapas.php");
-    // $array_dados
+    
+      // Listar municipios na opção de select
+    require_once("../Controller/ControleMunicipioSelect.php");
     ?>
     
     <!-- Conteudo -->
@@ -108,13 +110,16 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <input 
-                      name="cod_ibge"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="7" 
-                      id="recipient-cod_ibge">
+                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
+                      <option value="">Selecionar municipio</option>
+                      <?php 
+                        foreach($array_selectMunicipios as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
 
                   <div class="form-row">
