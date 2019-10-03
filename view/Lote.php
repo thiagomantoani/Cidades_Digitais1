@@ -45,12 +45,12 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col">Código Lote</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Contrato</th>
+                    <th scope="col">Data Inicio Vigência</th>
+                    <th scope="col">Data Final da Vigência</th>
+                    <th scope="col">Data reajuste</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
@@ -89,7 +89,7 @@
   </main>
 
   <!-- Modal de Cadastro -->
-  <div class="modal fade cadastrar-lotes-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLotesModalLabel" aria-hidden="true">
+  <div class="modal fade cadastrar-lote-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLotesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         
@@ -108,32 +108,73 @@
             <!-- Input cod_lote -->
             <div class="form-row">
               <div class="form-group col-md-12">
-                <label for="recipient-cod_lote" class="col-form-label">Código lote:</label>
-                <input name="cod_lote"placeholder=""type="number" class="form-control"maxlength="7"id="recipient-cod_lote">
+                <label for="recipient-cod_lote" class="col-form-label">Código Lote:</label>
+                <input
+                name="cod_lote"
+                placeholder=""
+                type="number"
+                class="form-control"
+                maxlength=""
+                id="recipient-cod_lote">
               </div>
+
+
+
+            <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="recipient-cnpj" class="col-form-label">Cnpj:</label>
-                <input name="cnpj"placeholder=""type="number"class="form-control"maxlength="11" id="recipient-cnpj">
+                <input
+                name="cnpj"
+                placeholder=""
+                type="number"
+                class="form-control"
+                maxlength="11"
+                id="recipient-cnpj">
               </div>
 
               <div class="form-group col-md-12">
-                <label for="recipient-Contratacao" class="col-form-label">Contratação:</label>
-                <input name="Contratacao"placeholder=""type="text"class="form-control"maxlength=""id="recipient-Contratacao">
+                <label for="recipient-contrato" class="col-form-label">Contrato:</label>
+                <input
+                name="contrato"
+                placeholder=""
+                type="text"
+                class="form-control"
+                maxlength=""
+                id="recipient-contrato">
               </div>
 
               <div class="form-group col-md-12">
-                <label for="recipient-dt_inicio_vig" class="col-form-label">data inicio:</label>
-                <input name="dt_inicio_vig"placeholder=""type="date"class="form-control"maxlength="2"id="recipient-dt_inicio_vig">
+                <label for="recipient-dt_inicio_vig" class="col-form-label">Data inicio da Vigência:</label>
+                <input
+                name="dt_inicio_vig"
+                placeholder=""
+                type="date"
+                class="form-control"
+                maxlength="2"
+                id="recipient-dt_inicio_vig">
               </div>
 
               <div class="form-group col-md-12">
-                <label for="recipient-dt_final_vig" class="col-form-label">Data fim:</label>
-                <input name="dt_final_vig"placeholder=""type="date"class="form-control"maxlength="15"id="recipient-dt_final_vig">
+                <label for="recipient-dt_final_vig"
+                class="col-form-label">Data final da Vigência:</label>
+                <input
+                name="dt_final_vig"
+                placeholder=""
+                type="date"
+                class="form-control"
+                maxlength="15"
+                id="recipient-dt_final_vig">
               </div>
 
               <div class="form-group col-md-12">
                 <label for="recipient-dt_reajuste" class="col-form-label">Data Reajuste:</label>
-                <input name="dt_reajuste"placeholder=""type="date"class="form-control"maxlength="14"id="recipient-dt_reajuste">
+                <input 
+                name="dt_reajuste"
+                placeholder=""
+                type="date"
+                class="form-control"
+                maxlength="14"
+                id="recipient-dt_reajuste">
               </div>
             </div>
 

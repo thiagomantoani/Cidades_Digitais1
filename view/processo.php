@@ -99,9 +99,9 @@
                     <input 
                       name="cod_processo"
                       placeholder=""
-                      type="number" 
+                      type="text" 
                       class="form-control"
-                      maxlength="11" 
+                      maxlength="17" 
                       id="recipient-cod_assunto">
                   </div>
                   <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">

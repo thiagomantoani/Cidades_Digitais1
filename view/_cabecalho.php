@@ -1,6 +1,10 @@
 <?php
   // Variaveis de ambiente
+<<<<<<< HEAD
   define("URL", "http://localhost://Cidades_Digitais1/");
+=======
+  define("URL", "http://172.25.117.78:8080//Cidades_Digitais1/");
+>>>>>>> f86a92662071bbbf64c4b06f3c0ef249b22e0350
   session_start();
 ?>
 <!DOCTYPE html>
