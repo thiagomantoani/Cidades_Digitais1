@@ -3,7 +3,7 @@
     include_once("_cabecalho.php");
 
     // Buscar todos os cadastros no banco
-    require_once("../Controller/ControleListarCd.php");
+    require_once("../Controller/ControleListarCdItens.php");
     // $array_dados
     require_once("../Controller/ControleMunicipioSelect.php");
     require_once("../Controller/ControleLoteSelect.php");
@@ -17,12 +17,11 @@
                 <i class="fas fa-globe-asia"></i>
             </span>
             <span>
-            <h3 class="mb-0">Cidades Digitais</h3>
-            <small>Descrição</small>
+            <h3 class="mb-0">Cd Itens</h3>
             </span>
             </div>
             <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cadastrar-Cd-modal-lg">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cadastrar-CdItens-modal-lg">
                 <i class="far fa-plus-square"></i>
                 Cadastrar
                 </button>
@@ -45,12 +44,12 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Codigo IBGE</th>
-                      <th scope="col">Código Lote</th>
-                      <th scope="col">Ordem de Serviço P.E </th>
-                      <th scope="col">Data P.E</th>
-                      <th scope="col">Ordem Serviço Implantação</th>
-                      <th scope="col">Data implatação</th>
+                      <th scope="col">Código IBGE</th>
+                      <th scope="col">Código Item</th>
+                      <th scope="col">Código Tipo Item </th>
+                      <th scope="col">Quantidade Previsto</th>
+                      <th scope="col">Quantidade Projeto Executivo</th>
+                      <th scope="col">Quantidade Termo Instalação</th>
                       <th scope="col">Ação</th>
                     </tr>
                   </thead>
@@ -62,15 +61,15 @@
                         ?>
                         <tr>
                           <td><?php echo $value['cod_ibge'] ?></td>
-                          <td><?php echo $value['cod_lote'] ?></td>
-                          <td><?php echo $value['os_pe'] ?></td>
-                          <td><?php echo $value['data_pe'] ?></td>
-                          <td><?php echo $value['os_imp'] ?></td>
-                          <td><?php echo $value['data_imp'] ?></td>
+                          <td><?php echo $value['cod_item'] ?></td>
+                          <td><?php echo $value['cod_tipo_item'] ?></td>
+                          <td><?php echo $value['quantidade_previsto'] ?></td>
+                          <td><?php echo $value['quantidade_projeto_executivo'] ?></td>
+                          <td><?php echo $value['quantidade_termo_instalacao'] ?></td>
                           <td> 
                             <span class="d-flex">
                               <button type="button" class="btn btn-warning mr-1">Editar</button> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarCd.php?cod_ibge=<?php echo $value['cod_ibge'] ?>')" class="btn btn-danger">Excluir</button> 
+                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarCdItens.php?cod_ibge=<?php echo $value['cod_ibge'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
                         </tr>
@@ -87,18 +86,18 @@
 
 
     <!-- Modal de Cadastro -->
-    <div class="modal fade cadastrar-Cd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myCdModalLabel" aria-hidden="true">
+    <div class="modal fade cadastrar-CdItens-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myCdItensModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="myCdModalLabel">
+            <h5 class="modal-title" id="myCdItensModalLabel">
               <i class="far fa-plus-square"></i>
-              Cadastrar CD
+              Cadastrar CD itens
             </h5>
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleCd.php" method="post">
+          <form action="../Controller/ControleCdItens.php" method="post">
 
             <div class="modal-body">
 
@@ -119,9 +118,9 @@
                     
                   </div>
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_lote" class="col-form-label">Código Lote:</label>
+                    <label for="recipient-cod_lote" class="col-form-label">Código Item:</label>
                     <select name="cod_lote" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Código Lote</option>
+                      <option value="">Código Item</option>
                       <?php 
                         foreach($array_selectLote as $chave => $valor){
                         ?>
@@ -131,48 +130,49 @@
                       ?>
                     </select>
                   </div>
-                  <div class="form-group col-md-12">
-                    <label for="recipient-os_pe" class="col-form-label">Ordem de Serviço P.E:</label>
-                    <input
-                    name="os_pe"
-                    placeholder=""
-                    type="text"
-                    class="form-control"
-                    maxlength="10"
-                    id="recipient-os_pe">
-                  </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-data_pe" class="col-form-label">Data P.E:</label>
+                    <label for="recipient-cod_tipo_item" class="col-form-label">Código Tipo Item:</label>
                     <input
-                    name="data_pe"
+                    name="cod_tipo_item"
                     placeholder=""
-                    type="date"
+                    type="number"
                     class="form-control"
                     maxlength=""
-                    id="recipient-data_pe">
+                    id="recipient-cod_tipo_item">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-os_imp" class="col-form-label">Ordem de Serviço Implantação:</label>
+                    <label for="recipient-quantidade_previsto" class="col-form-label">Quantidade Previsto:</label>
                     <input
-                    name="os_imp"
+                    name="quantidade_previsto"
                     placeholder=""
-                    type="text"
+                    type="number"
                     class="form-control"
-                    maxlength="10"
-                    id="recipient-os_imp">
+                    maxlength=""
+                    id="recipient-quantidade_previsto">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-data_imp" class="col-form-label">Data Implantação:</label>
+                    <label for="recipient-quantidade_projeto_executivo" class="col-form-label">Quantidade Projeto Executivo:</label>
+                    <input
+                    name="quantidade_projeto_executivo"
+                    placeholder=""
+                    type="number"
+                    class="form-control"
+                    maxlength=""
+                    id="recipient-quantidade_projeto_executivo">
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-quantidade_termo_instalacao" class="col-form-label">Quantidade Termo Instalação:</label>
                     <input 
-                      name="data_imp"
+                      name="quantidade_termo_instalacao"
                       placeholder=""
-                      type="date" 
+                      type="number" 
                       class="form-control"
                       ]maxlength=""
-                      id="recipient-data_imp">
+                      id="recipient-quantidade_termo_instalacao">
                   </div>
 
                 </div>
