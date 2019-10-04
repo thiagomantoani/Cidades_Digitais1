@@ -5,8 +5,6 @@
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarCdItens.php");
     // $array_dados
-    require_once("../Controller/ControleMunicipioSelect.php");
-    require_once("../Controller/ControleLoteSelect.php");
     ?>
     
     <!-- Conteudo -->
@@ -20,12 +18,7 @@
             <h3 class="mb-0">Cd Itens</h3>
             </span>
             </div>
-            <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cadastrar-CdItens-modal-lg">
-                <i class="far fa-plus-square"></i>
-                Cadastrar
-                </button>
-            </div>
+            
         </div>
 
         <div class="container">
@@ -55,7 +48,7 @@
                   </thead>
                   <tbody>
                   <?php
-                  //svar_dump($array_dados);
+                  //var_dump($array_dados);
                   //die();
                     foreach($array_dados as $key => $value) {
                         ?>
@@ -68,8 +61,7 @@
                           <td><?php echo $value['quantidade_termo_instalacao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <button type="button" class="btn btn-warning mr-1">Editar</button> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarCdItens.php?cod_ibge=<?php echo $value['cod_ibge'] ?>')" class="btn btn-danger">Excluir</button> 
+                              <button type="button" class="btn btn-warning mr-1">Editar</button>
                             </span>
                           </td>
                         </tr>
@@ -84,15 +76,15 @@
         </div>
     </main>
 
-
     <!-- Modal de Cadastro -->
-    <div class="modal fade cadastrar-CdItens-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myCdItensModalLabel" aria-hidden="true">
+    <div class="modal fade cadastrar-cditens-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myCdItensModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
+          
           <div class="modal-header">
             <h5 class="modal-title" id="myCdItensModalLabel">
               <i class="far fa-plus-square"></i>
-              Cadastrar CD itens
+              Cadastrar Cd Itens
             </h5>
           </div>
 
@@ -101,94 +93,93 @@
 
             <div class="modal-body">
 
-                <!-- Input cod_Cd -->
+                <!-- Input cod_ibge -->
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Municipio</option>
-                      <?php 
-                        foreach($array_selectMunicipios as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
-                    
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_lote" class="col-form-label">Código Item:</label>
-                    <select name="cod_lote" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Código Item</option>
-                      <?php 
-                        foreach($array_selectLote as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_lote'] ?>"><?= $valor['cod_lote'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
+                    <input 
+                      name="cod_ibge"
+                      placeholder=""
+                      type="number" 
+                      class="form-control"
+                      maxlength="7" 
+                      id="recipient-cod_ibge">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_tipo_item" class="col-form-label">Código Tipo Item:</label>
-                    <input
-                    name="cod_tipo_item"
-                    placeholder=""
-                    type="number"
-                    class="form-control"
-                    maxlength=""
-                    id="recipient-cod_tipo_item">
+                    <label for="recipient-cod_item" class="col-form-label">cod_item :</label>
+                    <input 
+                      name="cod_item"
+                      placeholder=""
+                      type="number" 
+                      class="form-control"
+                      maxlength="" 
+                      id="recipient-cod_item">
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-cod_tipo_item" class="col-form-label">Cod Tipo Item :</label>
+                    <input 
+                      name="cod_tipo_item"
+                      placeholder=""
+                      type="number" 
+                      class="form-control"
+                      maxlength=""
+                      id="recipient-cod_tipo_item">
                   </div>
 
                   <div class="form-group col-md-12">
                     <label for="recipient-quantidade_previsto" class="col-form-label">Quantidade Previsto:</label>
-                    <input
-                    name="quantidade_previsto"
-                    placeholder=""
-                    type="number"
-                    class="form-control"
-                    maxlength=""
-                    id="recipient-quantidade_previsto">
+                    <input 
+                      name="quantidade_previsto"
+                      placeholder=""
+                      type="number" 
+                      class="form-control"
+                      maxlength="" 
+                      id="recipient-quantidade_previsto">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-quantidade_projeto_executivo" class="col-form-label">Quantidade Projeto Executivo:</label>
-                    <input
-                    name="quantidade_projeto_executivo"
-                    placeholder=""
-                    type="number"
-                    class="form-control"
-                    maxlength=""
-                    id="recipient-quantidade_projeto_executivo">
+                    <label for="recipient-quantidade_projeto_executivo" class="col-form-label">quantidade_projeto_executivo :</label>
+                    <input 
+                      name="quantidade_projeto_executivo"
+                      placeholder=""
+                      type="number" 
+                      class="form-control"
+                      maxlength="" 
+                      id="recipient-quantidade_projeto_executivo">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-quantidade_termo_instalacao" class="col-form-label">Quantidade Termo Instalação:</label>
+                    <label for="recipient-quantidade_termo_instalacao" class="col-form-label">quantidade_termo_instalacao:</label>
                     <input 
                       name="quantidade_termo_instalacao"
                       placeholder=""
                       type="number" 
                       class="form-control"
-                      ]maxlength=""
+                      maxlength="" 
                       id="recipient-quantidade_termo_instalacao">
                   </div>
 
                 </div>
 
             </div>
+
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn btn-primary">
                 Cadastrar
               </button>
             </div>
+
           </form>
+
+        
         </div>
       </div>
     </div>
-  <?php
+
+    <?php
     // Rodape
     include_once('_rodape.php');
 ?>

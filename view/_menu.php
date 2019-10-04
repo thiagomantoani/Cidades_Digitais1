@@ -16,7 +16,8 @@
     "Contato" => '<i class="far fa-address-book"></i>',
     "Telefone" => '<i class="fas fa-phone-square-alt"></i>',
     "Entidade" => '<i class="fas fa-boxes"></i>',
-    "Reajuste" => '<i class="fas fa-sliders-h"></i>'
+    "Reajuste" => '<i class="fas fa-sliders-h"></i>',
+    "CdItens"=> '<i class="fas fa-sliders-h"></i>'
 
   ];
 
