@@ -5,6 +5,7 @@
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarTelefone.php");
     // $array_dados
+    require_once("../Controller/ControleContatoSelect.php");
     ?>
     
     <!-- Conteudo -->
@@ -100,27 +101,21 @@
 
                 <!-- Input cod_telefone -->
                 <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_telefone" class="col-form-label">Código Telefone:</label>
-                    <input 
-                      name="cod_telefone"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_telefone">
-                  </div>
+    
 
                  
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_contato" class="col-form-label">Código Contato:</label>
-                    <input 
-                      name="cod_contato"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      ]maxlength=""
-                      id="recipient-cod_contato">
+                    <select name="cod_contato" class="form-control" id="recipient-cod_contato">
+                      <option value="">Selecionar Contato</option>
+                      <?php 
+                        foreach($array_selectContato as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_contato'] ?>"><?= $valor['nome'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
               
 

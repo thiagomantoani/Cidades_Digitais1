@@ -51,4 +51,15 @@ class ClassLoteDAO {
         }
     }
 
+    public function todosLote(){
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT cod_lote FROM lote ORDER BY cod_lote ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
 }

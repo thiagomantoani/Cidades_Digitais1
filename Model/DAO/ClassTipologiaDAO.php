@@ -29,13 +29,12 @@ class ClassTipologiaDAO {
             $sql = "SELECT cod_tipologia, descricao FROM tipologia ORDER BY cod_tipologia ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
-            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+            return $stmt->fetchAll(); 
         } catch (PDOException $ex) {
             return $ex->getMessage();
         }
     }
 
-    // apagar registro pelo id
     public function apagarTipologia(ClassTipologia $apagarTipologia) {
         try {
             $pdo = Conexao::getInstance();

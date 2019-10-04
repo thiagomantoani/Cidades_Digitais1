@@ -6,6 +6,7 @@
     require_once("../Controller/ControleListarCd.php");
     // $array_dados
     require_once("../Controller/ControleMunicipioSelect.php");
+    require_once("../Controller/ControleLoteSelect.php");
     ?>
     
     <!-- Conteudo -->
@@ -122,7 +123,7 @@
                     <select name="cod_lote" class="form-control" id="recipient-cod_ibge">
                       <option value="">Código Lote</option>
                       <?php 
-                        foreach($array_selectLotes as $chave => $valor){
+                        foreach($array_selectLote as $chave => $valor){
                         ?>
                         <option value="<?= $valor['cod_lote'] ?>"><?= $valor['cod_lote'] ?></option>
                         <?php 
@@ -137,7 +138,7 @@
                     placeholder=""
                     type="text"
                     class="form-control"
-                    maxlength="45"
+                    maxlength="10"
                     id="recipient-os_pe">
                   </div>
 
@@ -146,9 +147,9 @@
                     <input
                     name="data_pe"
                     placeholder=""
-                    type="text"
+                    type="date"
                     class="form-control"
-                    maxlength="45"
+                    maxlength=""
                     id="recipient-data_pe">
                   </div>
 
@@ -159,7 +160,7 @@
                     placeholder=""
                     type="text"
                     class="form-control"
-                    maxlength="45"
+                    maxlength="10"
                     id="recipient-os_imp">
                   </div>
 
@@ -168,9 +169,9 @@
                     <input 
                       name="data_imp"
                       placeholder=""
-                      type="text" 
+                      type="date" 
                       class="form-control"
-                      ]maxlength="45"
+                      ]maxlength=""
                       id="recipient-data_imp">
                   </div>
 

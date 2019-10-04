@@ -94,4 +94,16 @@ class ClassEntidadeDAO {
         }
     }
 
+    public function todosEntidade(){
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT cnpj, nome FROM entidade ORDER BY nome ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
 }
