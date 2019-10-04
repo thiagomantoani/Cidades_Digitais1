@@ -29,7 +29,10 @@ class ClassCdDAO {
     public function listarCd(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_ibge,cod_lote,os_pe,data_pe,os_imp,data_imp FROM cd ORDER BY cod_ibge ASC";
+            $sql = "SELECT CONCAT(municipio.uf, '-',municipio.nome_municipio,' : ',cd.cod_ibge) AS cod_ibge,cd.cod_lote,cd.os_pe,cd.data_pe,cd.os_imp,cd.data_imp 
+            FROM cd 
+            INNER JOIN municipio ON cd.cod_ibge = municipio.cod_ibge
+            ORDER BY cod_ibge ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
