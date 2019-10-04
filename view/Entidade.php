@@ -156,7 +156,7 @@
                     <input 
                       name="numero"
                       placeholder=""
-                      type="number" 
+                      type="text" 
                       class="form-control"
                       maxlength="10" 
                       id="recipient-numero">

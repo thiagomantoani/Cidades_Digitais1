@@ -54,4 +54,16 @@ class ClassContatoDAO {
         }
     }
 
+    public function todosContato(){
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT cod_contato, nome FROM contato ORDER BY nome ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
 }

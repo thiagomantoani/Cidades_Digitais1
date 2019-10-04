@@ -4,7 +4,8 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarContato.php");
-    require_once("../Controller/ControleMunicipioSelect.php");
+
+    require_once("../Controller/ControleEntidadeSelect.php");
 
     // $array_dados
     ?>
@@ -102,29 +103,20 @@
 
             <div class="modal-body">
 
-                <!-- Input cod_Contato -->
                 <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_contato" class="col-form-label">Código Contato:</label>
-                    <input 
-                      name="cod_contato"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_contato">
-                  </div>
 
-                 
                   <div class="form-group col-md-12">
                     <label for="recipient-cnpj" class="col-form-label">CNPJ</label>
-                    <input 
-                      name="cnpj"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      ]maxlength="11"
-                      id="recipient-cnpj">
+                    <select name="cnpj" class="form-control" id="recipient-cnpj">
+                      <option value="">Selecionar Entidade</option>
+                      <?php 
+                        foreach($array_selectEntidade as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cnpj'] ?>"><?= $valor['nome'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
                 
                   <div class="form-group col-md-12">
@@ -132,7 +124,7 @@
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
                       <option value="">Selecionar Município</option>
                       <?php 
-                        foreach($array_selectMunicipios as $chave => $valor){
+                        foreach($array_selectCd as $chave => $valor){
                         ?>
                         <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
                         <?php 

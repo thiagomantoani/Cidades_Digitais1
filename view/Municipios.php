@@ -201,7 +201,7 @@
                       placeholder=""
                       type="number" 
                       class="form-control"
-                      maxlength="11"
+                      maxlength=""
                       id="recipient-dist_capital">
                   </div>
 
@@ -212,7 +212,7 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="100" 
+                      maxlength="45" 
                       id="recipient-endereco">
                   </div>
 
@@ -223,7 +223,7 @@
                       placeholder=""
                       type="number" 
                       class="form-control"
-                      maxlength="" 
+                      maxlength="10" 
                       id="recipient-numero">
                   </div>
 
@@ -254,9 +254,10 @@
                     <input 
                       name="idhm"
                       placeholder=""
-                      type="text" 
+                      type="number"
+                      step="any"
                       class="form-control"
-                      maxlength="5" 
+                      maxlength="" 
                       id="recipient-idhm">
                   </div>
 

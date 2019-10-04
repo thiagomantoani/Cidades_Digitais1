@@ -4,6 +4,7 @@
 
   // Buscar todos os cadastros no banco
   require_once("../Controller/ControleListarLote.php");
+  require_once("../Controller/ControleEntidadeSelect.php");
   // $array_dados
   ?>
   
@@ -123,13 +124,16 @@
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="recipient-cnpj" class="col-form-label">Cnpj:</label>
-                <input
-                name="cnpj"
-                placeholder=""
-                type="number"
-                class="form-control"
-                maxlength="11"
-                id="recipient-cnpj">
+                                   <select name="cnpj" class="form-control" id="recipient-cnpj">
+                      <option value="">Selecionar Entidade</option>
+                      <?php 
+                        foreach($array_selectEntidade as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cnpj'] ?>"><?= $valor['nome'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
               </div>
 
               <div class="form-group col-md-12">
