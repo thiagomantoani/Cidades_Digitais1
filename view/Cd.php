@@ -69,7 +69,10 @@
                           <td><?php echo $value['data_imp'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <button type="button" class="btn btn-warning mr-1">Editar</button> 
+                              <a href="<?php echo URL ?>View/CdEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar
+                              </a> 
                               <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarCd.php?cod_ibge=<?php echo $value['cod_ibge'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
