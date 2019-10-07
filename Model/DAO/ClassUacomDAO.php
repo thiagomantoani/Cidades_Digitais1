@@ -1,8 +1,5 @@
 <?php
-/**
- * Description of ClassUacom ola
- * @author Carol
- */
+
 require_once 'Conexao.php';
 class ClassUacomDAO {
     
