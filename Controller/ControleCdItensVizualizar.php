@@ -19,7 +19,7 @@ if($dados) {
 } else {
     $_SESSION['msg'] = '
         <div class="alert alert-danger" role="alert">
-            Erro! Não foi possível visualizar o municipio.
+            Erro! Não foi possível visualizar Itens de Cidades Digitais.
         </div>
     ';
     header('Location:../View/CdItens.php');
