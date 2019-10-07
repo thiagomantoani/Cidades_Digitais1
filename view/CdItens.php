@@ -99,17 +99,20 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <input 
-                      name="cod_ibge"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="7" 
-                      id="recipient-cod_ibge">
+                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
+                      <option value="">Selecionar Município</option>
+                      <?php 
+                        foreach($array_selectCd as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_item" class="col-form-label">cod_item :</label>
+                    <label for="recipient-cod_item" class="col-form-label">Código Item :</label>
                     <input 
                       name="cod_item"
                       placeholder=""
@@ -120,7 +123,7 @@
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_tipo_item" class="col-form-label">Cod Tipo Item :</label>
+                    <label for="recipient-cod_tipo_item" class="col-form-label">Código Tipo Item :</label>
                     <input 
                       name="cod_tipo_item"
                       placeholder=""
@@ -142,7 +145,7 @@
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-quantidade_projeto_executivo" class="col-form-label">quantidade_projeto_executivo :</label>
+                    <label for="recipient-quantidade_projeto_executivo" class="col-form-label">Quantidade Projeto Executivo :</label>
                     <input 
                       name="quantidade_projeto_executivo"
                       placeholder=""
@@ -153,7 +156,7 @@
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-quantidade_termo_instalacao" class="col-form-label">quantidade_termo_instalacao:</label>
+                    <label for="recipient-quantidade_termo_instalacao" class="col-form-label">Quantidade Termo Instalação:</label>
                     <input 
                       name="quantidade_termo_instalacao"
                       placeholder=""

@@ -108,7 +108,7 @@
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-dist_capital" class="col-form-label">Distancia Capital:</label>
+                    <label for="recipient-dist_capital" class="col-form-label">Distância Capital:</label>
                     <input 
                       value="<?php echo $dist_capital ?>"
                       name="dist_capital"

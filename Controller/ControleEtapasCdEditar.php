@@ -23,7 +23,7 @@ $classEtapasDAO = new ClassEtapasDAO();
 $etapas = $classEtapasDAO->cadastrar($novaetapa);
 
 
-//var_dump($municipio);
+//var_dump($etapas);
 //die();
 
 if($etapas == TRUE){

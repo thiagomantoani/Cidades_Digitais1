@@ -8,7 +8,7 @@
 
     // Listar municipios na opção de select
     require_once("../Controller/ControleMunicipioSelect.php");
-    //var_dump($array_selectMunicipios);
+
     ?>
     
     <!-- Conteudo -->
