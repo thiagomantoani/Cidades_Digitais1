@@ -1,7 +1,7 @@
 <?php
 class ClassTelefone {
     private $cod_telefone, $cod_contato, $telefone, $tipo;
-                  
+
     function getCod_telefone() {
         return $this->cod_telefone;
     }

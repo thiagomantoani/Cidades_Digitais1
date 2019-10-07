@@ -1,8 +1,4 @@
 <?php
-/**
- * Description of ClassMunicipioDAO
- * @author Carol
- */
 require_once 'Conexao.php';
 class ClassEtapasDAO {
 
@@ -27,7 +23,7 @@ class ClassEtapasDAO {
     public function listarEtapas(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_ibge, cod_etapa, dt_inicio, dt_fim, responsavel FROM etapas_cd ORDER BY cod_etapa ASC";
+            $sql = "SELECT cod_ibge, cod_etapa, dt_inicio, dt_fim, responsavel FROM etapas_cd ORDER BY cod_ibge ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
@@ -36,11 +32,32 @@ class ClassEtapasDAO {
         }
     }
 
-    public function todosMunicipios(){
+    public function todosCd(){
         try {
             $pdo = Conexao::getInstance();
             $sql = "SELECT cod_ibge, nome_municipio FROM municipio ORDER BY nome_municipio ASC";
             $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
+
+    public function visualizarEtapasCd(ClassEtapasCd $visualizarEtapasCd){
+        try {
+            $pdo = Conexao::getInstance();
+
+            $sql = "SELECT cod_ibge, cod_etapa, dt_inicio, dt_fim, responsavel 
+            FROM etapa 
+            WHERE cod_ibge = ? 
+            LIMIT 1";
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $visualizarEtapasCd->getCod_ibge());
+
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
         } catch (PDOException $ex) {

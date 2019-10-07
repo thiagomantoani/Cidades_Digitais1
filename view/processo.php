@@ -4,6 +4,7 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarProcesso.php");
+    require_once("../Controller/ControleCdSelect.php");
     // $array_dados
     ?>
     
@@ -105,11 +106,11 @@
                       id="recipient-cod_assunto">
                   </div>
                   <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Codigo Ibge</option>
+                      <option value="">Município:</option>
                       <?php 
-                        foreach($array_selectMunicipios as $chave => $valor){
+                        foreach($array_selectCd as $chave => $valor){
                         ?>
-                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['cod_municipio'] ?></option>
+                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
                         <?php 
                         }
                       ?>

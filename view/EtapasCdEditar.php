@@ -74,7 +74,7 @@
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-dt_inicio" class="col-form-label">Data de Início::</label>
+                    <label for="recipient-dt_inicio" class="col-form-label">Data de Início:</label>
                     <input 
                       value="<?php echo $dt_inicio ?>"
                       name="dt_inicio"
@@ -142,7 +142,7 @@
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleEtapas.php" method="post">
+          <form action="../Controller/ControleEtapasCdEditar.php" method="post">
 
             <div class="modal-body">
 

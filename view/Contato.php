@@ -6,6 +6,8 @@
     require_once("../Controller/ControleListarContato.php");
 
     require_once("../Controller/ControleEntidadeSelect.php");
+    require_once("../Controller/ControleCdSelect.php");
+    
 
     // $array_dados
     ?>
