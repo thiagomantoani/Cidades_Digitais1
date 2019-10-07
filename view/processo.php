@@ -76,7 +76,7 @@
     </main>
 
 
-    <!-- Modal de Cadastro -->
+
     <div class="modal fade cadastrar-processo-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myProcessoModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">

@@ -7,10 +7,10 @@
     // $array_dados
 
     require_once("../Controller/ControleMunicipioSelect.php");
-
+    require_once("../Controller/ControleCdSelect.php");
     ?>
     
-    <!-- Conteudo -->
+ 
     <main id="main">
 
         <div class="row mb-5">
@@ -105,9 +105,9 @@
                <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Selecionar municipio</option>
+                      <option value="">Selecionar Município</option>
                       <?php 
-                        foreach($array_selectMunicipios as $chave => $valor){
+                        foreach($array_selectCd as $chave => $valor){
                         ?>
                         <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
                         <?php 
