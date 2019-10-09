@@ -2,7 +2,7 @@
 
 require_once 'Conexao.php';
 class ClassUacomDAO {
-    
+        
     public function cadastrar(ClassUacom $cadastrarUacom) {
         try {
             $pdo = Conexao::getInstance();
