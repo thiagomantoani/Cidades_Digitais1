@@ -111,6 +111,7 @@
                     <label for="recipient-cnpj" class="col-form-label">CNPJ</label>
                     <select name="cnpj" class="form-control" id="recipient-cnpj">
                       <option value="">Selecionar Entidade</option>
+                      <option value="null" selected>Em branco</option>
                       <?php 
                         foreach($array_selectEntidade as $chave => $valor){
                         ?>
@@ -125,6 +126,7 @@
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
                       <option value="">Selecionar Município</option>
+                      <option value="null" selected>Em branco</option>
                       <?php 
                         foreach($array_selectCd as $chave => $valor){
                         ?>
