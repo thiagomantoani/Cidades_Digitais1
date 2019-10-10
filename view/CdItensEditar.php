@@ -4,7 +4,8 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleCdItensVisualizar.php");
-    // $array_dados
+    require_once("../Controller/ControleCdSelect.php");
+    
     ?>
     
     <!-- Conteudo -->
@@ -160,13 +161,16 @@
 
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código Ibge:</label>
-                    <input 
-                      name="cod_ibge"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="7" 
-                      id="recipient-cod_ibge">
+                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
+                      <option value="">Selecionar Município</option>
+                      <?php 
+                        foreach($array_selectCd as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
 
                   <div class="form-group col-md-12">

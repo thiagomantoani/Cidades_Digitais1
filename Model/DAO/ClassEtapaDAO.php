@@ -53,4 +53,21 @@ class ClassEtapaDAO {
         }
     }
 
+
+      /**
+     * Buscar todos os Etapa para exibir em tabelas que precisa
+     * do codigo etapa, ou seja tabela de relacionamento com etapa
+     */
+    public function todosEtapa(){
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT cod_etapa, setor_resp FROM etapa ORDER BY setor_resp ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
 }

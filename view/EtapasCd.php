@@ -5,8 +5,9 @@
     // Buscar todos os cadastros no banco
      require_once("../Controller/ControleListarEtapas.php");
     
-      // Listar municipios na opção de select
-    require_once("../Controller/ControleMunicipioSelect.php");
+      // Listar cd na opção de select
+    require_once("../Controller/ControleCdSelect.php");
+    require_once("../Controller/ControleEtapaSelect.php");
     ?>
     
     <!-- Conteudo -->
@@ -111,9 +112,9 @@
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Selecionar municipio</option>
+                      <option value="">Selecionar Município</option>
                       <?php 
-                        foreach($array_selectMunicipios as $chave => $valor){
+                        foreach($array_selectCd as $chave => $valor){
                         ?>
                         <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
                         <?php 
@@ -125,13 +126,16 @@
                   <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_etapa" class="col-form-label">Código Etapa:</label>
-                    <input 
-                      name="cod_etapa"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_etapa">
+                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
+                      <option value="">Selecionar Etapa</option>
+                      <?php 
+                        foreach($array_selectEtapa as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_etapa'] ?>"><?= $valor['setor_resp'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
                   </div>
 
                   <div class="form-group col-md-12">
@@ -164,8 +168,9 @@
                       maxlength="" 
                       id="recipient-regiao">
                   </div>
+               
                 </div>
-
+            
             </div>
 
             <div class="modal-footer">
@@ -174,7 +179,7 @@
                 Cadastrar
               </button>
             </div>
-
+         
           </form>
 
         

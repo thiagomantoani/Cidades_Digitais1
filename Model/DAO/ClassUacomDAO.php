@@ -1,11 +1,8 @@
 <?php
-/**
- * Description of ClassUacom ola
- * @author Carol
- */
+
 require_once 'Conexao.php';
 class ClassUacomDAO {
-    
+        
     public function cadastrar(ClassUacom $cadastrarUacom) {
         try {
             $pdo = Conexao::getInstance();
@@ -47,6 +44,17 @@ class ClassUacomDAO {
             return TRUE;
         } catch (PDOException $exc) {
             echo $exc->getMessage();
+        }
+    }
+    public function todosCd(){
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT cod_ibge, nome_municipio FROM municipio ORDER BY nome_municipio ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
         }
     }
 

@@ -5,8 +5,8 @@
  */
 
 class ClassContato {
-    private $cod_contato, $cnpj, $cod_ibge, $nome, $email, $funcao;
-                  
+private $cod_contato, $cnpj, $cod_ibge, $nome, $email, $funcao;
+
     function getCod_contato() {
         return $this->cod_contato;
     }
