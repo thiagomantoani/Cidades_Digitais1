@@ -4,7 +4,7 @@ ERROS A SEREM CORRIGIDOS DAS TABELAS QUE JÁ ESTÃO PRONTAS:
 
 - Prefeitos: Fazer o código para Editar.
 
-- Etapas: Excluir e Editar.
+- Etapa: Excluir e Editar.
 
 - Uacom: Excluir e Editar.
 
