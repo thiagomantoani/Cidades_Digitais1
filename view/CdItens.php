@@ -61,9 +61,16 @@
                           <td><?php echo $value['quantidade_termo_instalacao'] ?></td>
                           <td> 
                             <span class="d-flex">
+<<<<<<< HEAD
+                              <a href="<?php echo URL ?>View/CdItensEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar
+                              </a> 
+=======
                             <a href="<?php echo URL ?>View/CdItensEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" class="btn btn-warning mr-1">
                               Editar
                             </a> 
+>>>>>>> b8a203e032ff285e193678a6cfbc15fbb5d344aa
                             </span>
                           </td>
                         </tr>

@@ -71,7 +71,10 @@
                           <td><?php echo $value['funcao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <button type="button" class="btn btn-warning mr-1">Editar</button> 
+                              <a href="<?php echo URL ?>View/CotantoEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar
+                              </a>  
                               <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarContato.php?cod_contato=<?php echo $value['cod_contato'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
