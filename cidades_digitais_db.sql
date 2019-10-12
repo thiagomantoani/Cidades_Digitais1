@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `assunto`
 --
 
-DROP TABLE IF EXISTS `assunto`;
+
 CREATE TABLE IF NOT EXISTS `assunto` (
   `cod_assunto` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) DEFAULT NULL,
@@ -1193,11 +1193,6 @@ ALTER TABLE `cd_itens`
 
 --
 -- Limitadores para a tabela `contato`
---
-ALTER TABLE `contato`
-  ADD CONSTRAINT `fk_contato_cd1` FOREIGN KEY (`cod_ibge`) REFERENCES `cd` (`cod_ibge`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_contato_entidade1` FOREIGN KEY (`cnpj`) REFERENCES `entidade` (`cnpj`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
 --
 -- Limitadores para a tabela `empenho`
 --
