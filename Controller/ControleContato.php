@@ -5,8 +5,8 @@ require_once '../Model/DAO/ClassContatoDAO.php';
 
 
 $cod_contato = @$_POST['cod_contato'];
-$cnpj = @$_POST['cnpj'];
-$cod_ibge = @$_POST['cod_ibge'];
+$cnpj = $_POST['cnpj'];
+$cod_ibge = $_POST['cod_ibge'];
 $nome = @$_POST['nome'];
 $email = @$_POST['email'];
 $funcao = @$_POST['funcao'];
