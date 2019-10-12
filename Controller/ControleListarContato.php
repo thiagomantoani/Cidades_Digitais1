@@ -1,12 +1,11 @@
 <?php
 
 require_once '../Model/DAO/ClassContatoDAO.php';
-$listar = new ClassContatoDAO(); // instanciando um objeto
-$dados = $listar->listarContato(); // chamando metodo para listar todos os usuários do banco
+$listar = new ClassContatoDAO();
+$dados = $listar->listarContato(); 
 
-if($dados) { // se existir algum municipio no banco então passar o array de dados para a variavel $array_dados
+if($dados) { 
     $array_dados = $dados;
 } else {
-    // se não receber nenhum dado do banco de dados, então defirnir um array vazio para variavel $array_dados
     $array_dados = [];
 }
