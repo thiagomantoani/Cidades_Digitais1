@@ -33,10 +33,20 @@ private $cod_contato, $cnpj, $cod_ibge, $nome, $email, $funcao;
         $this->cod_contato = $cod_contato;
     }
     function setCnpj($cnpj) {
-        $this->cnpj = $cnpj;
+        if ($cnpj == 0){
+            $this->cnpj = null;
+        }
+        else{
+            $this->cnpj = $cnpj;
+        }
     }
     function setCod_ibge($cod_ibge) {
-        $this->cod_ibge = $cod_ibge;
+        if($cod_ibge ==0){
+            $this->cod_ibge = null;    
+        }
+        else{
+            $this->cod_ibge = $cod_ibge;
+        }
     }
     function setNome($nome) {
         $this->nome = $nome;
