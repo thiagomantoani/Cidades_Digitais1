@@ -114,7 +114,7 @@
                     <label for="recipient-cnpj" class="col-form-label">CNPJ</label>
                     <select name="cnpj" class="form-control" id="recipient-cnpj">
                       <option value="">Selecionar Entidade</option>
-                      <option selected>Em branco</option>
+                      <option value="0" selected >Em branco</option>
                       <?php 
                         foreach($array_selectEntidade as $chave => $valor){
                         ?>
