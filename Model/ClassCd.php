@@ -1,8 +1,5 @@
 <?php
-/**
- * Description of ClassIBGE
- * @author Carol
- */
+/** Description of ClassCd @author Carol */
 
 class ClassCd {
     private $cod_ibge, $cod_lote, $os_pe, $data_pe, $os_imp, $data_imp;

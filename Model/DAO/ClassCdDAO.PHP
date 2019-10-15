@@ -1,8 +1,4 @@
 <?php
-/**
- * Description of ClassEtapa
- * @author LUIS
- */
 require_once 'Conexao.php';
 class ClassCdDAO {
 

@@ -71,7 +71,7 @@
                           <td><?php echo $value['funcao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <a href="<?php echo URL ?>View/CotantoEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
+                              <a href="<?php echo URL ?>View/ContatoEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
                                 class="btn btn-warning mr-1">
                                 Editar
                               </a>  
@@ -149,6 +149,7 @@
                       ]maxlength="50"
                       id="recipient-nome">
                   </div>
+
                   <div class="form-group col-md-12">
                     <label for="recipient-email" class="col-form-label">Email:</label>
                     <input 
@@ -159,6 +160,7 @@
                       ]maxlength="100"
                       id="recipient-email">
                   </div>
+                  
                   <div class="form-group col-md-12">
                     <label for="recipient-funcao" class="col-form-label">Função:</label>
                     <input 

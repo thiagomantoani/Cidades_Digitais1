@@ -1,8 +1,5 @@
 <?php
-/**
- * Description of ClassContato
- * @author Carol
- */
+
 require_once 'Conexao.php';
 class ClassContatoDAO {
    // var_dump($cadastrarContato);
@@ -66,4 +63,43 @@ class ClassContatoDAO {
         }
     }
 
+    public function visualizarcontato(ClassContato $visualizarContato){
+        try {
+            $pdo = Conexao::getInstance();
+
+            $sql = "SELECT cod_contato, cnpj, cod_ibge, nome, email, funcao 
+            FROM contato 
+            WHERE cod_contato = ? 
+            LIMIT 1";
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $visualizarContato->getCod_contato());
+
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
+    public function update(ClassContato $editarContato) {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE contato SET cnpj = ?, cod_ibge = ?, nome = ?, email = ?, funcao = ? WHERE cod_contato = ? ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $editarContato->getCnpj());
+            $stmt->bindValue(2, $editarContato->getCod_ibge());
+            $stmt->bindValue(3, $editarContato->getNome());
+            $stmt->bindValue(4, $editarContato->getEmail());
+            $stmt->bindValue(5, $editarContato->getFuncao());
+
+            $stmt->bindValue(6, $editarContato->getCod_contato());
+           
+            $stmt->execute();
+            return TRUE;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
 }
