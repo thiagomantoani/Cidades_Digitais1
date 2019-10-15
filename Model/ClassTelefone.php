@@ -20,7 +20,7 @@ class ClassTelefone {
     function setCod_telefone($cod_telefone) {
         $this->cod_telefone = $cod_telefone;
     }
-
+ 
     function setCod_contato($contato) {
         $this->contato = $contato;
     }

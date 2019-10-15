@@ -8,6 +8,7 @@ class ClassTelefoneDAO {
             $sql = "INSERT INTO telefone (cod_telefone, cod_contato, telefone, tipo) values (?,?,?,?)";
             $stmt = $pdo->prepare($sql);
             
+           
 			$stmt->bindValue(1, $cadastrarTelefone->getCod_telefone());
             $stmt->bindValue(2, $cadastrarTelefone->getCod_contato());
             $stmt->bindValue(3, $cadastrarTelefone->getTelefone());
