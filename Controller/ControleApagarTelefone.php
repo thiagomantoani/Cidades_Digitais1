@@ -12,11 +12,8 @@ require_once '../Model/DAO/ClassTelefoneDAO.php';
 $apagarTelefone = new ClassTelefoneDAO(); // instanciando um objeto
 $telefone = new ClassTelefone();
 $telefone->setCod_telefone($cod_telefone);
-$telefone->setCod_contato($cod_contato);
-$telefone->setTelefone($telefone);
-$telefone->setTipo($tipo);
 
-$resultado = $apagarATelefone->apagarTelefone($telefone);
+$resultado = $apagarTelefone->apagarTelefone($telefone);
 
 if($resultado) {
      $_SESSION['msg'] = '

@@ -11,7 +11,7 @@ require_once '../Model/ClassReajuste.php';
 require_once '../Model/DAO/ClassReajusteDAO.php';
 $apagarReajuste = new ClassReajusteDAO(); // instanciando um objeto
 $reajuste = new ClassReajuste();
-$reajuste->setCod_ibge($cod_ibge);
+$reajuste->setAno_ref($ano_ref);
 
 $resultado = $apagarReajuste->apagarReajuste($reajuste); // chamando metodo para listar todos os usuários do banco
 
