@@ -4,7 +4,6 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleListarContato.php");
-
     require_once("../Controller/ControleEntidadeSelect.php");
     require_once("../Controller/ControleCdSelect.php");
     
@@ -71,7 +70,7 @@
                           <td><?php echo $value['funcao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <a href="<?php echo URL ?>View/ContatoEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
+                              <a href="<?php echo URL ?>View/ContatoEditar.php?cod_contato=<?php echo $value['cod_contato'] ?>" 
                                 class="btn btn-warning mr-1">
                                 Editar
                               </a>  
