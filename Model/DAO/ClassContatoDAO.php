@@ -42,7 +42,7 @@ class ClassContatoDAO {
             $pdo = Conexao::getInstance();
             $sql = "DELETE FROM contato WHERE cod_contato = ?";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $apagarAssunto->getCod_contato());
+            $stmt->bindValue(1, $apagarContato->getCod_contato());
            
             $stmt->execute();
             return TRUE;
