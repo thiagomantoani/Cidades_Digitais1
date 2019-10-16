@@ -12,15 +12,10 @@ require_once '../Model/DAO/ClassContatoDAO.php';
 $apagarContato = new ClassContatoDAO(); // instanciando um objeto
 $contato = new ClassContato();
 $contato->setCod_contato($cod_contato);
-$contato->setCnpj($cnpj);
-$contato->setCod_ibge($cod_ibge);
-$contato->seNome($nome);
-$contato->setEmail($email);
-$contato->setFuncao($funcao);
 
 $resultado = $apagarContato->apagarContato($contato); // chamando metodo para listar todos os usuários do banco
 
-if($resultado) { // se existir algum municipio no banco então passar o array de dados para a variavel $array_dados
+if($resultado) { // se existir algum contato no banco então passar o array de dados para a variavel $array_dados
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">
             Registro apagado com sucesso!
