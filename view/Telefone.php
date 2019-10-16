@@ -66,7 +66,9 @@
                           <td> 
                             <span class="d-flex">
                               <button type="button" class="btn btn-warning mr-1">Editar</button> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarTelefone.php?cod_telefone=<?php echo $value['cod_telefone'] ?>')" class="btn btn-danger">Excluir</button> 
+                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarTelefone.php?cod_telefone=<?php echo $value['cod_telefone'] ?>')" class="btn btn-danger">
+                              Excluir
+                              </button>  
                             </span>
                           </td>
                         </tr>

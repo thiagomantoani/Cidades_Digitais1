@@ -18,7 +18,7 @@ class ClassReajusteDAO {
             echo $exc->getMessage();
         }
     }
-
+    
     public function update(ClassReajuste $editarReajuste) {
         try {
             $pdo = Conexao::getInstance();

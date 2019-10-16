@@ -12,7 +12,6 @@ require_once '../Model/DAO/ClassLoteDAO.php';
 $apagarLote = new ClassLoteDAO(); // instanciando um objeto
 $lote = new ClassLote();
 $lote->setCod_lote($cod_lote);
-$lote->setDescricao($descricao);
 
 $resultado = $apagarLote->apagarLote($lote); // chamando metodo para listar todos os usuários do banco
 
