@@ -1,12 +1,5 @@
 <?php
 
-
-/**
- * Description of ClassMunicipio
- *
- * @author LUIS
- */
-
 class ClassPrefeitos {
     private $cod_prefeito, $cod_ibge, $nome, $cpf, $rg, $partido, $exercicio;
                   
