@@ -9,7 +9,7 @@ class ClassTelefoneDAO {
             $stmt = $pdo->prepare($sql);
             
            
-			$stmt->bindValue(1, $cadastrarTelefone->getCod_telefone());
+            $stmt->bindValue(1, $cadastrarTelefone->getCod_telefone());
             $stmt->bindValue(2, $cadastrarTelefone->getCod_contato());
             $stmt->bindValue(3, $cadastrarTelefone->getTelefone());
 			$stmt->bindValue(4, $cadastrarTelefone->getTipo());
@@ -20,6 +20,24 @@ class ClassTelefoneDAO {
             echo $exc->getMessage();
         }
     }
+
+    public function update(ClassTelefone $editarTelefone) {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE telefone SET cod_contato = ?, telefone = ?, tipo = ? WHERE cod_telefone = ? ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $editarTelefone->getTelefone());
+            $stmt->bindValue(2, $editarTelefone->getTipo());
+
+            $stmt->bindValue(3, $editarTelefone->getCod_contato());
+           
+            $stmt->execute();
+            return TRUE;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
     
     public function listarTelefone(){
         try {
