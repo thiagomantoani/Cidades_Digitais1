@@ -3,29 +3,26 @@
     include_once("_cabecalho.php");
 
     // Buscar todos os cadastros no banco
-    require_once("../Controller/ControleListarTelefone.php");
+    require_once("../Controller/ControleLoteVisualizar.php");
+
+    //require_once("../Controller/ControleContatoSelect.php");
     // $array_dados
-    require_once("../Controller/ControleContatoSelect.php");
     ?>
     
     <!-- Conteudo -->
-    <main id="main">
+    <main id="main_conteudo">
+
         <div class="row mb-5">
           <div id="mainHeader" class="col-md-6 d-flex align-items-center">
             <span id="mainHeaderIcon">
-                <i class="fas fa-globe-asia"></i>
+            <i class="fas fa-globe-asia"></i>
             </span>
             <span>
-            <h3 class="mb-0">Telefone</h3>
-            <small>Descrição</small>
+              <h3 class="mb-0">Editar Lote</h3>
+             
             </span>
-            </div>
-            <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".cadastrar-telefone-modal-lg">
-                <i class="far fa-plus-square"></i>
-                Cadastrar
-                </button>
-            </div>
+          </div>
+ 
         </div>
 
         <div class="container">
@@ -37,54 +34,85 @@
                     unset($_SESSION['msg']); // após exibir a informação do alerta, destruir a variavel, para que ao recarregar a página o alerta não permanessa na pagina.
                 }
             ?>
-          <div class="row">
-            <div class="col-12">
-              <!-- Exibir lista de dados em tabela -->
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Codigo Telefone</th>
-                      <th scope="col">Código Contato</th>
-                      <th scope="col">Telefone</th>
-                      <th scope="col">Tipo</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <?php
 
-                 // var_dump($array_dados);
-                 // die();
+          <?php 
+            if(!empty($array_dados)){
 
-                    foreach($array_dados as $key => $value) {
+              extract($array_dados);
+          ?>
+
+          <!-- FORMULARIO -->
+          <form action="../Controller/ControleLoteEditar.php" method="post">
+
+            <div class="modal-body">
+
+                  <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
+                  <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-cnpj" class="col-form-label">Contato:</label>
+                    <select name="cnpj" class="form-control" id="recipient-cnpj">
+                    <option value="<?php echo $cnpj ?>">Selecionar Entidade</option>
+                        
+                      <?php 
+                        foreach($array_selectContato as $chave => $valor){
                         ?>
-                        <tr>
-                          <td><?php echo $value['cod_telefone'] ?></td>
-                          <td><?php echo $value['nome'] ?></td>
-                          <td><?php echo $value['telefone'] ?></td>
-                          <td><?php echo $value['tipo'] ?></td>
-                          <td> 
-                            <span class="d-flex">
-                            <a href="<?php echo URL ?>View/TelefoneEditar.php?cod_telefone=<?php echo $value['cod_telefone'] ?>" 
-                                class="btn btn-warning mr-1">
-                                Editar
-                              </a> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarTelefone.php?cod_telefone=<?php echo $value['cod_telefone'] ?>')" class="btn btn-danger">
-                              Excluir
-                              </button>  
-                            </span>
-                          </td>
-                        </tr>
-                        <?php
-                    }
-                  ?>
-                  </tbody>
-                </table>
-              </div>
+
+                         <option value="<?= $valor['cnpj'] ?>"><?= $valor['nome'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-contrato" class="col-form-label">Contrato:</label>
+                    <input 
+                      value="<?php echo $contrato ?>"
+                      name="contrato"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="11"
+                      id="recipient-contrato">
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-tipo" class="col-form-label">Tipo:</label>
+                    <input 
+                      value="<?php echo $tipo ?>"
+                      name="tipo"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="10" 
+                      id="recipient-tipo">
+                  </div>
+
+                  
+                </div>
+
             </div>
-          </div>
+
+            <div class="modal-footer">
+              <a href="<?php echo URL ?>View/Telefone.php" class="btn btn-secondary">Cancelar</a>
+              <button type="submit" class="btn btn-primary">
+                Salvar
+              </button>
+            </div>
+
+          </form>
+
+          <?php 
+            } // fim do if para verificar se existe dados para editar
+          ?>
+
         </div>
+
     </main>
+
+
+
 
 
     <!-- Modal de Cadastro -->
@@ -100,16 +128,11 @@
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleTelefone.php" method="post">
+          <form action="../Controller/ControleTelefoneEditar.php" method="post">
 
             <div class="modal-body">
 
-                <!-- Input cod_telefone -->
-                <div class="form-row">
-    
-
-                 
-                  <div class="form-group col-md-12">
+            <div class="form-group col-md-12">
                     <label for="recipient-cod_contato" class="col-form-label">Código Contato:</label>
                     <select name="cod_contato" class="form-control" id="recipient-cod_contato">
                       <option value="">Selecionar Contato</option>
@@ -149,13 +172,13 @@
                 </div>
 
             </div>
+
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn btn-primary">
                 Cadastrar
               </button>
             </div>
-            
 
           </form>
 

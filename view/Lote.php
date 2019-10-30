@@ -63,7 +63,7 @@
                       ?>
                       <tr>
                         <td><?php echo $value['cod_lote'] ?></td>
-                        <td><?php echo $value['cnpj'] ?></td>
+                        <td><?php echo $value['nome'] ?></td>
                         <td><?php echo $value['contrato'] ?></td>
                         <td><?php echo $value['dt_inicio_vig'] ?></td>
                         <td><?php echo $value['dt_final_vig'] ?></td>
