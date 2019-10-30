@@ -60,6 +60,7 @@ class ClassCdDAO {
             $sql = "SELECT cd.cod_ibge, municipio.nome_municipio FROM cd 
             INNER JOIN municipio ON cd.cod_ibge = municipio.cod_ibge
             ORDER BY nome_municipio ASC;";
+            
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 

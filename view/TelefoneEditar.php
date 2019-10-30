@@ -4,6 +4,8 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleTelefoneVisualizar.php");
+
+    require_once("../Controller/ControleContatoSelect.php");
     // $array_dados
     ?>
     
@@ -45,169 +47,55 @@
             <div class="modal-body">
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
-                  <input name="cod_ibge" type="hidden" value="<?php echo $cod_ibge ?>"/>
+                  <input name="cod_telefone" type="hidden" value="<?php echo $cod_telefone ?>"/>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-nome_municipio" class="col-form-label">Nome Município:</label>
+                    <label for="recipient-cod_contato" class="col-form-label">Contato:</label>
+                    <select name="cod_contato" class="form-control" id="recipient-cod_contato">
+                    <option value="<?php echo $cod_contato ?>">Selecionar Contato</option>
+                        
+                      <?php 
+                        foreach($array_selectContato as $chave => $valor){
+                        ?>
+
+                         <option value="<?= $valor['cod_contato'] ?>"><?= $valor['nome'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-telefone" class="col-form-label">Telefone:</label>
                     <input 
-                      value="<?php echo $nome_municipio ?>"
-                      name="nome_municipio"
+                      value="<?php echo $telefone ?>"
+                      name="telefone"
                       placeholder=""
                       type="text" 
-                      class="form-control"
-                      maxlength="50" 
-                      id="recipient-nome_municipio">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-populacao" class="col-form-label">População:</label>
-                    <input 
-                      value="<?php echo $populacao ?>"
-                      name="populacao"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength=""
-                      id="recipient-populacao">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-uf" class="col-form-label">UF:</label>
-                    <input 
-                      value="<?php echo $uf ?>"
-                      name="uf"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="2" 
-                      id="recipient-uf">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-regiao" class="col-form-label">Região:</label>
-                    <input 
-                      value="<?php echo $regiao ?>"
-                      name="regiao"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="15" 
-                      id="recipient-regiao">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
-                    <input 
-                      value="<?php echo $cnpj ?>"
-                      name="cnpj"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="14" 
-                      id="recipient-cnpj">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-dist_capital" class="col-form-label">Distância Capital:</label>
-                    <input 
-                      value="<?php echo $dist_capital ?>"
-                      name="dist_capital"
-                      placeholder=""
-                      type="number" 
                       class="form-control"
                       maxlength="11"
-                      id="recipient-dist_capital">
+                      id="recipient-telefone">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-endereco" class="col-form-label">Endereço:</label>
+                    <label for="recipient-tipo" class="col-form-label">Tipo:</label>
                     <input 
-                      value="<?php echo $endereco ?>"
-                      name="endereco"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="100" 
-                      id="recipient-endereco">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-numero" class="col-form-label">Número:</label>
-                    <input 
-                      value="<?php echo $numero ?>"
-                      name="numero"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-numero">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-complemento" class="col-form-label">Complemento:</label>
-                    <input 
-                      value="<?php echo $complemento ?>"
-                      name="complemento"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="250" 
-                      id="recipient-complemento">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-bairro" class="col-form-label">Bairro:</label>
-                    <input 
-                      value="<?php echo $bairro ?>"
-                      name="bairro"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="45" 
-                      id="recipient-bairro">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-idhm" class="col-form-label">IDHM:</label>
-                    <input 
-                      value="<?php echo $idhm ?>"
-                      name="idhm"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-idhm">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-latitude" class="col-form-label">Latitude:</label>
-                    <input 
-                      value="<?php echo $latitude ?>"
-                      name="latitude"
+                      value="<?php echo $tipo ?>"
+                      name="tipo"
                       placeholder=""
                       type="text" 
                       class="form-control"
                       maxlength="10" 
-                      id="recipient-latitude">
+                      id="recipient-tipo">
                   </div>
 
-                  <div class="form-group col-md-12">
-                    <label for="recipient-longitude" class="col-form-label">Longitude:</label>
-                    <input 
-                      value="<?php echo $longitude ?>"
-                      name="longitude"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="10" 
-                      id="recipient-longitude">
-                  </div>
+                  
                 </div>
 
             </div>
 
             <div class="modal-footer">
-              <a href="<?php echo URL ?>View/Municipios.php" class="btn btn-secondary">Cancelar</a>
+              <a href="<?php echo URL ?>View/Telefone.php" class="btn btn-secondary">Cancelar</a>
               <button type="submit" class="btn btn-primary">
                 Salvar
               </button>
@@ -228,163 +116,58 @@
 
 
     <!-- Modal de Cadastro -->
-    <div class="modal fade cadastrar-municipios-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myMunicipiosModalLabel" aria-hidden="true">
+    <div class="modal fade cadastrar-telefone-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myTelefoneModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           
           <div class="modal-header">
-            <h5 class="modal-title" id="myMunicipiosModalLabel">
+            <h5 class="modal-title" id="myTelefoneModalLabel">
               <i class="far fa-plus-square"></i>
-              Cadastrar Municípios
+              Cadastrar Telefone
             </h5>
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleMunicipioEditar.php" method="post">
+          <form action="../Controller/ControleTelefoneEditar.php" method="post">
 
             <div class="modal-body">
 
-                  <div class="form-group col-md-12">
-                    <label for="recipient-nome_municipio" class="col-form-label">Nome Município:</label>
+            <div class="form-group col-md-12">
+                    <label for="recipient-cod_contato" class="col-form-label">Código Contato:</label>
+                    <select name="cod_contato" class="form-control" id="recipient-cod_contato">
+                      <option value="">Selecionar Contato</option>
+                      <?php 
+                        foreach($array_selectContato as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_contato'] ?>"><?= $valor['nome'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
+                  </div>
+              
+
+                <div class="form-group col-md-12">
+                    <label for="recipient-telefone" class="col-form-label">Telefone:</label>
                     <input 
-                      name="nome_municipio"
+                      name="telefone"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="50" 
-                      id="recipient-nome_municipio">
+                      ]maxlength="11"
+                      id="recipient-telefone">
                   </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-populacao" class="col-form-label">População:</label>
+                  
+                
+                <div class="form-group col-md-12">
+                    <label for="recipient-tipo" class="col-form-label">Tipo:</label>
                     <input 
-                      name="populacao"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength=""
-                      id="recipient-populacao">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-uf" class="col-form-label">UF:</label>
-                    <input 
-                      name="uf"
+                      name="tipo"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="2" 
-                      id="recipient-uf">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-regiao" class="col-form-label">Região:</label>
-                    <input 
-                      name="regiao"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="15" 
-                      id="recipient-regiao">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
-                    <input 
-                      name="cnpj"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="14" 
-                      id="recipient-cnpj">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-dist_capital" class="col-form-label">Distancia Capital:</label>
-                    <input 
-                      name="dist_capital"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="11"
-                      id="recipient-dist_capital">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-endereco" class="col-form-label">Endereço:</label>
-                    <input 
-                      name="endereco"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="100" 
-                      id="recipient-endereco">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-numero" class="col-form-label">Número:</label>
-                    <input 
-                      name="numero"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-numero">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-complemento" class="col-form-label">Complemento:</label>
-                    <input 
-                      name="complemento"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="250" 
-                      id="recipient-complemento">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-bairro" class="col-form-label">Bairro:</label>
-                    <input 
-                      name="bairro"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="45" 
-                      id="recipient-bairro">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-idhm" class="col-form-label">IDHM:</label>
-                    <input 
-                      name="idhm"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-idhm">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-latitude" class="col-form-label">Latitude:</label>
-                    <input 
-                      name="latitude"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="10" 
-                      id="recipient-latitude">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-longitude" class="col-form-label">Longitude:</label>
-                    <input 
-                      name="longitude"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="10" 
-                      id="recipient-longitude">
+                      ]maxlength="10"
+                      id="recipient-tipo">
                   </div>
                 </div>
 

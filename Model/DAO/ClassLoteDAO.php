@@ -27,7 +27,9 @@ class ClassLoteDAO {
     public function listarLote(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_lote, cnpj, contrato,dt_inicio_vig,dt_final_vig,dt_reajuste FROM lote ORDER BY cod_lote ASC";
+            $sql = "SELECT lote.cod_lote, entidade.nome, lote.contrato, lote.dt_inicio_vig, lote.dt_final_vig, lote.dt_reajuste
+            FROM lote INNER JOIN entidade ON lote.cnpj = entidade.cnpj
+            ORDER BY lote.cod_lote ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 

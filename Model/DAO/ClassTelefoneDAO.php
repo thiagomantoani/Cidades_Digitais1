@@ -26,10 +26,11 @@ class ClassTelefoneDAO {
             $pdo = Conexao::getInstance();
             $sql = "UPDATE telefone SET cod_contato = ?, telefone = ?, tipo = ? WHERE cod_telefone = ? ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $editarTelefone->getTelefone());
-            $stmt->bindValue(2, $editarTelefone->getTipo());
+            $stmt->bindValue(1, $editarTelefone->getCod_contato());
+            $stmt->bindValue(2, $editarTelefone->getTelefone());
+            $stmt->bindValue(3, $editarTelefone->getTipo());
 
-            $stmt->bindValue(3, $editarTelefone->getCod_contato());
+            $stmt->bindValue(4, $editarTelefone->getCod_telefone());
            
             $stmt->execute();
             return TRUE;
@@ -38,11 +39,34 @@ class ClassTelefoneDAO {
         }
     }
 
-    
+    public function visualizarTelefone(ClassTelefone $visualizarTelefone){
+        try {
+            $pdo = Conexao::getInstance();
+
+            $sql = "SELECT cod_telefone, cod_contato, telefone, tipo 
+            FROM telefone
+            WHERE cod_telefone = ?";
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $visualizarTelefone->getCod_telefone());
+
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
+
+
     public function listarTelefone(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_telefone, cod_contato, telefone, tipo FROM telefone ORDER BY cod_telefone ASC";
+            $sql = "SELECT telefone.cod_telefone, contato.nome, telefone.telefone, telefone.tipo 
+            FROM telefone 
+            INNER JOIN contato ON telefone.cod_contato = contato.cod_contato
+            ORDER BY telefone.cod_telefone ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
