@@ -67,7 +67,8 @@
                         <td><?php echo $value['contrato'] ?></td>
                         <td><?php echo $value['dt_inicio_vig'] ?></td>
                         <td><?php echo $value['dt_final_vig'] ?></td>
-                        <td><?php echo $value['dt_reajuste'] ?></td>
+                        <td><?php echo date('d-m', strtotime($value['dt_reajuste']))?> </td>
+                      
                         <td> 
                           <span class="d-flex">
                             <button type="button" class="btn btn-warning mr-1">Editar</button> 
@@ -169,15 +170,15 @@
                 maxlength="15"
                 id="recipient-dt_final_vig">
               </div>
-
+           
               <div class="form-group col-md-12">
                 <label for="recipient-dt_reajuste" class="col-form-label">Data Reajuste:</label>
-                <input 
+                <input
                 name="dt_reajuste"
-                placeholder=""
-                type="date"
+                placeholder="dd-mm"
+                type="text"
                 class="form-control"
-                maxlength="14"
+                maxlength="8"
                 id="recipient-dt_reajuste">
               </div>
             </div>

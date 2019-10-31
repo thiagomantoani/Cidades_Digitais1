@@ -50,7 +50,7 @@
                   <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cnpj" class="col-form-label">Contato:</label>
+                    <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
                     <select name="cnpj" class="form-control" id="recipient-cnpj">
                     <option value="<?php echo $cnpj ?>">Selecionar Entidade</option>
                         
