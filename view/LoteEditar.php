@@ -4,8 +4,7 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleLoteVisualizar.php");
-
-    //require_once("../Controller/ControleContatoSelect.php");
+    require_once("../Controller/ControleEntidadeSelect.php");
     // $array_dados
     ?>
     
@@ -49,21 +48,19 @@
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
 
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
-                    <select name="cnpj" class="form-control" id="recipient-cnpj">
-                    <option value="<?php echo $cnpj ?>">Selecionar Entidade</option>
-                        
-                      <?php 
-                        foreach($array_selectContato as $chave => $valor){
-                        ?>
-
-                         <option value="<?= $valor['cnpj'] ?>"><?= $valor['nome'] ?></option>
+                <div class="form-group col-md-12">
+                <label for="recipient-cnpj" class="col-form-label">Cnpj:</label>
+                      <select name="cnpj" class="form-control" id="recipient-cnpj">
+                        <option value="">Selecionar Entidade</option>
                         <?php 
-                        }
-                      ?>
+                          foreach($array_selectEntidade as $chave => $valor){
+                          ?>
+                          <option value="<?= $valor['cnpj'] ?>"><?= $valor['nome'] ?></option>
+                          <?php 
+                          }
+                        ?>
                     </select>
-                  </div>
+                </div>
 
                   <div class="form-group col-md-12">
                     <label for="recipient-contrato" class="col-form-label">Contrato:</label>
@@ -73,29 +70,53 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="11"
+                      maxlength="10"
                       id="recipient-contrato">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-tipo" class="col-form-label">Tipo:</label>
+                    <label for="recipient-dt_inicio_vig" class="col-form-label">Data inicio da Vigência:</label>
                     <input 
-                      value="<?php echo $tipo ?>"
-                      name="tipo"
+                      value="<?php echo $dt_inicio_vig ?>"
+                      name="dt_inicio_vig"
                       placeholder=""
-                      type="text" 
+                      type="date" 
                       class="form-control"
-                      maxlength="10" 
-                      id="recipient-tipo">
+                      maxlength="" 
+                      id="recipient-dt_inicio_vig">
                   </div>
 
                   
+                  <div class="form-group col-md-12">
+                    <label for="recipient-dt_final_vig" class="col-form-label">Data final da Vigência:</label>
+                    <input 
+                      value="<?php echo $dt_final_vig ?>"
+                      name="dt_final_vig"
+                      placeholder=""
+                      type="date" 
+                      class="form-control"
+                      maxlength="" 
+                      id="recipient-dt_final_vig">
+                  </div>
+
+                  
+                  <div class="form-group col-md-12">
+                    <label for="recipient-dt_reajuste" class="col-form-label">Data Reajuste:</label>
+                    <input 
+                    value="<?php echo date('d-m',strtotime($dt_reajuste)); ?>"
+                      name="dt_reajuste"
+                      placeholder="dd-mm"
+                      type="text" 
+                      class="form-control"
+                      maxlength="10" 
+                      id="recipient-dt_reajuste">
+                  </div>                  
                 </div>
 
             </div>
 
             <div class="modal-footer">
-              <a href="<?php echo URL ?>View/Telefone.php" class="btn btn-secondary">Cancelar</a>
+              <a href="<?php echo URL ?>View/Lote.php" class="btn btn-secondary">Cancelar</a>
               <button type="submit" class="btn btn-primary">
                 Salvar
               </button>
@@ -116,62 +137,94 @@
 
 
     <!-- Modal de Cadastro -->
-    <div class="modal fade cadastrar-telefone-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myTelefoneModalLabel" aria-hidden="true">
+    <div class="modal fade cadastrar-lote-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLoteModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           
           <div class="modal-header">
-            <h5 class="modal-title" id="myTelefoneModalLabel">
+            <h5 class="modal-title" id="myLoteModalLabel">
               <i class="far fa-plus-square"></i>
-              Cadastrar Telefone
+              Cadastrar Lote
             </h5>
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleTelefoneEditar.php" method="post">
+          <form action="../Controller/ControleLoteEditar.php" method="post">
 
             <div class="modal-body">
 
             <div class="form-group col-md-12">
-                    <label for="recipient-cod_contato" class="col-form-label">Código Contato:</label>
+                <label for="recipient-cod_lote" class="col-form-label">Código Lote:</label>
+                <input
+                name="cod_lote"
+                placeholder=""
+                type="number"
+                class="form-control"
+                maxlength="11"
+                id="recipient-cod_lote">
+              </div>
+
+                <div class="form-group col-md-12">
+                    <label for="recipient-cod_contato" class="col-form-label">Cnpj:</label>
                     <select name="cod_contato" class="form-control" id="recipient-cod_contato">
                       <option value="">Selecionar Contato</option>
                       <?php 
                         foreach($array_selectContato as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_contato'] ?>"><?= $valor['nome'] ?></option>
-                        <?php 
-                        }
+                      ?>
+                      <option value="<?= $valor['cod_contato'] ?>"><?= $valor['nome'] ?></option>
+                      <?php 
+                      }
                       ?>
                     </select>
-                  </div>
+                </div>
               
 
-                <div class="form-group col-md-12">
-                    <label for="recipient-telefone" class="col-form-label">Telefone:</label>
-                    <input 
-                      name="telefone"
+                  <div class="form-group col-md-12">
+                      <label for="recipient-contrato" class="col-form-label">Contrato:</label>
+                      <input
+                      name="contrato"
                       placeholder=""
-                      type="text" 
+                      type="text"
                       class="form-control"
-                      ]maxlength="11"
-                      id="recipient-telefone">
-                  </div>
+                      maxlength="10"
+                      id="recipient-contrato">
+                </div>
                   
                 
                 <div class="form-group col-md-12">
-                    <label for="recipient-tipo" class="col-form-label">Tipo:</label>
-                    <input 
-                      name="tipo"
+                    <label for="recipient-dt_inicio_vig" class="col-form-label">Data inicio da Vigência:</label>
+                    <input
+                    name="dt_inicio_vig"
+                    placeholder=""
+                    type="date"
+                    class="form-control"
+                    maxlength="2"
+                    id="recipient-dt_inicio_vig">
+                </div>
+                <div class="form-group col-md-12">
+                      <label for="recipient-dt_final_vig" class="col-form-label">Data final da Vigência:</label>
+                      <input
+                      name="dt_final_vig"
                       placeholder=""
-                      type="text" 
+                      type="date"
                       class="form-control"
-                      ]maxlength="10"
-                      id="recipient-tipo">
-                  </div>
+                      maxlength="15"
+                      id="recipient-dt_final_vig">
                 </div>
 
-            </div>
+                <div class="form-group col-md-12">
+                    <label for="recipient-dt_reajuste" class="col-form-label">Data Reajuste:</label>
+                    <input
+                    name="dt_reajuste"
+                    placeholder="dd-mm"
+                    type="text"
+                    class="form-control"
+                    maxlength="8"
+                    id="recipient-dt_reajuste">
+                </div>
+
+
+                </div>
 
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

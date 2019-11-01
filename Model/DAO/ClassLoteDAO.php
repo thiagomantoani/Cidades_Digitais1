@@ -64,4 +64,47 @@ class ClassLoteDAO {
             return $ex->getMessage();
         }
     }
+
+    public function visualizarLote(ClassLote $visualizarLote){
+        try {
+            $pdo = Conexao::getInstance();
+
+            $sql = "SELECT cod_lote, cnpj, contrato, dt_inicio_vig, dt_final_vig, dt_reajuste 
+            FROM lote 
+            WHERE cod_lote = ? 
+            LIMIT 1";
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $visualizarLote->getCod_lote());
+
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
+    public function update(ClassLote $editarLote) {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE lote SET cnpj = ?, contrato = ?, dt_inicio_vig = ?, dt_final_vig = ?, dt_reajuste = ?
+            WHERE cod_lote = ? ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $editarLote->getCnpj());
+            $stmt->bindValue(2, $editarLote->getContrato());
+            $stmt->bindValue(3, $editarLote->getDt_inicio_vig());
+            $stmt->bindValue(4, $editarLote->getDt_final_vig());
+            $stmt->bindValue(5, $editarLote->getDt_reajuste());
+
+            $stmt->bindValue(6, $editarLote->getCod_lote());
+           
+            $stmt->execute();
+            return TRUE;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
+
 }
