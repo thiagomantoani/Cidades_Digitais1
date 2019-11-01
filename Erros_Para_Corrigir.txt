@@ -27,6 +27,6 @@ ERROS A SEREM CORRIGIDOS DAS TABELAS QUE JÁ ESTÃO PRONTAS:
 - Telefone: Cadastrar, Excluir e Editar (vizualizar mostrar nome do contato) OK
 - Entidade: Editar - OK
 
-- Reajustes: Excluir, Editar.
+- Reajustes: Editar.
 
 - cd Itens: Editar, apenas.

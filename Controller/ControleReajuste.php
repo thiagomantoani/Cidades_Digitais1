@@ -12,12 +12,12 @@ $percentual = @$_POST['percentual'];
 
 $novoReajuste = new ClassReajuste ();
 $novoReajuste->setAno_ref($ano_ref);
-$novoReajuste->setcod_lote($cod_lote);
+$novoReajuste->setCod_lote($cod_lote);
 $novoReajuste->setPercentual($percentual);
 
 
 $classReajusteDAO = new ClassReajusteDAO();
-$erajuste = $classReajusteDAO->cadastrar($novoReajuste);
+$reajuste = $classReajusteDAO->cadastrar($novoReajuste);
 
 //var_dump($reajuste);
 //die();
