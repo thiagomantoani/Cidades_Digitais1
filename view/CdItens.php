@@ -37,9 +37,8 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Código IBGE</th>
-                      <th scope="col">Código Item</th>
-                      <th scope="col">Código Tipo Item </th>
+                      <th scope="col">Município</th>
+                      <th scope="col">Item</th>
                       <th scope="col">Quantidade Previsto</th>
                       <th scope="col">Quantidade Projeto Executivo</th>
                       <th scope="col">Quantidade Termo Instalação</th>
@@ -48,29 +47,24 @@
                   </thead>
                   <tbody>
                   <?php
-                  //var_dump($array_dados);
-                  //die();
+                  
+                // var_dump($array_dados);
+                // die();
+
                     foreach($array_dados as $key => $value) {
                         ?>
                         <tr>
-                          <td><?php echo $value['cod_ibge'] ?></td>
-                          <td><?php echo $value['cod_item'] ?></td>
-                          <td><?php echo $value['cod_tipo_item'] ?></td>
+                          <td><?php echo $value['nome_municipio'] ?></td>
+                          <td><?php echo $value['descricao'] ?></td>
                           <td><?php echo $value['quantidade_previsto'] ?></td>
                           <td><?php echo $value['quantidade_projeto_executivo'] ?></td>
                           <td><?php echo $value['quantidade_termo_instalacao'] ?></td>
                           <td> 
                             <span class="d-flex">
-<<<<<<< HEAD
                               <a href="<?php echo URL ?>View/CdItensEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
-                                class="btn btn-warning mr-1">
+                                class="btn btn-warning mr-1"> 
                                 Editar
                               </a> 
-=======
-                            <a href="<?php echo URL ?>View/CdItensEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" class="btn btn-warning mr-1">
-                              Editar
-                            </a> 
->>>>>>> b8a203e032ff285e193678a6cfbc15fbb5d344aa
                             </span>
                           </td>
                         </tr>

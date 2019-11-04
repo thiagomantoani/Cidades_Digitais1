@@ -24,8 +24,10 @@ $novoCdItens->setQuantidade_termo_instalacao($quantidade_termo_instalacao);
 
 $classCdItensDAO = new ClassCdItensDAO();
 $cditens = $classCdItensDAO->update($novoCdItens);
+
 var_dump($cditens);
-//die();
+die();
+
 if($cditens == TRUE){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">
