@@ -46,32 +46,10 @@
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="ano_ref" type="hidden" value="<?php echo $ano_ref ?>"/>
+                  
+                  <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
 
-                  <div class="form-group col-md-12">
-                    <label for="recipient-ano_ref" class="col-form-label">Ano Referencia:</label>
-                    <input 
-                      value="<?php echo $ano_ref ?>"
-                      name="ano_ref"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-ano_ref">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_lote" class="col-form-label">Código Lote:</label>
-                    <select name="cod_lote" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Código Lote</option>
-                      <?php 
-                        foreach($array_selectLote as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_lote'] ?>"><?= $valor['cod_lote'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
-                  </div>
+                  
 
                   <div class="form-group col-md-12">
                     <label for="recipient-percentual" class="col-form-label"> Percentual:</label>

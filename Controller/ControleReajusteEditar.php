@@ -18,7 +18,7 @@ $classReajusteDAO = new ClassReajusteDAO();
 $reajuste = $classReajusteDAO->update($novoReajuste);
 
 //var_dump($reajuste);
-  //die();
+//die();
 if($reajuste == TRUE){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">
@@ -29,7 +29,7 @@ if($reajuste == TRUE){
 } else {
     $_SESSION['msg'] = '
         <div class="alert alert-danger" role="alert">
-            Erro! Não foi possível atualizar os dados. '.$reajuste.'
+            Erro! Não foi possível atualizar os dados . '.$reajuste.'
         </div>
     ';
     header('Location:../View/Reajuste.php');

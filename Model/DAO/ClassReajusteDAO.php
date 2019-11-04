@@ -22,13 +22,13 @@ class ClassReajusteDAO {
     public function update(ClassReajuste $editarReajuste) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE reajuste SET cod_lote = ?, percentual = ? WHERE ano_ref = ? ";
+            $sql = "UPDATE reajuste SET  percentual = ? WHERE ano_ref = ? AND cod_lote = ? ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $editarReajuste->getCod_lote());
-            $stmt->bindValue(2, $editarReajuste->getPercentual());
+      //      
+            $stmt->bindValue(1, $editarReajuste->getPercentual());
 
-            $stmt->bindValue(3, $editarReajuste->getAno_ref());
-           
+            $stmt->bindValue(2, $editarReajuste->getAno_ref());
+            $stmt->bindValue(3, $editarReajuste->getCod_lote());
             $stmt->execute();
             return TRUE;
         } catch (PDOException $exc) {
