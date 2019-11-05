@@ -54,12 +54,13 @@ class ClassReajusteDAO {
 
             $sql = "SELECT ano_ref, cod_lote, percentual 
             FROM reajuste 
-            WHERE ano_ref = ? 
-            LIMIT 1";
+            WHERE ano_ref = ? ";
 
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(1, $visualizarReajuste->getAno_ref());
+            //AND cod_lote = ? 
+           // $stmt->bindValue(2, $visualizarReajuste->getCod_lote());
 
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 

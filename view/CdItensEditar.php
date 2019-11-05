@@ -8,6 +8,7 @@
     
     ?>
     
+    
     <!-- Conteudo -->
     <main id="main_conteudo">
 
@@ -45,40 +46,24 @@
             <div class="modal-body">
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">cod_ibge :</label>
-                    <input 
-                      value="<?php echo $cod_ibge?>"
-                      name="cod_ibge"
-                      placeholder=""
-                      type="number" 
+                  
+                  <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="recipient-cod_ibge" class="col-form-label">Município:</label>
+                    <input disabled 
+                      value="<?php echo $cod_ibge ?>"
+                      type="text" 
                       class="form-control"
-                      maxlength="7" 
                       id="recipient-cod_ibge">
                   </div>
 
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_item" class="col-form-label">cod_item:</label>
-                    <input 
-                      value="<?php echo $cod_item ?>"
-                      name="cod_item"
-                      placeholder=""
-                      type="number" 
+                  <div class="form-group col-md-4">
+                    <label for="recipient-cod_item" class="col-form-label">Item:</label>
+                    <input disabled 
+                      value="<?php echo $cod_item.$cod_tipo_item ?>"
+                      type="text" 
                       class="form-control"
-                      maxlength="" 
                       id="recipient-cod_item">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_tipo_item" class="col-form-label">cod_tipo_item :</label>
-                    <input 
-                      value="<?php echo $cod_tipo_item ?>"
-                      name="cod_tipo_item"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_tipo_item">
                   </div>
 
                   <div class="form-group col-md-12">
@@ -159,41 +144,6 @@
 
             <div class="modal-body">
 
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Código Ibge:</label>
-                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Selecionar Município</option>
-                      <?php 
-                        foreach($array_selectCd as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_item" class="col-form-label">Código Item:</label>
-                    <input 
-                      name="cod_item"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength=""
-                      id="recipient-cod_item">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_tipo_item" class="col-form-label">Código tipo Item:</label>
-                    <input 
-                      name="cod_tipo_item"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_tipo_item">
-                  </div>
 
                   <div class="form-group col-md-12">
                     <label for="recipient-quantidade_previsto" class="col-form-label">Quantidade Previsto :</label>

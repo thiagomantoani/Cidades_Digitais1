@@ -48,8 +48,8 @@
                   <input name="ano_ref" type="hidden" value="<?php echo $ano_ref ?>"/>
                   
                   <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
-
-                  
+              
+                               
 
                   <div class="form-group col-md-12">
                     <label for="recipient-percentual" class="col-form-label"> Percentual:</label>
