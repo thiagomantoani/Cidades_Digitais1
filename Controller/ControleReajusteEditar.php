@@ -17,8 +17,8 @@ $novoReajuste->setPercentual($percentual);
 $classReajusteDAO = new ClassReajusteDAO();
 $reajuste = $classReajusteDAO->update($novoReajuste);
 
-var_dump($reajuste);
-die();
+//var_dump($reajuste);
+//die();
 
 if($reajuste == TRUE){
     $_SESSION['msg'] = '

@@ -64,10 +64,10 @@
                           <td><?php echo $value['percentual'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <a href="<?php echo URL ?>View/ReajusteEditar.php?ano_ref=<?php echo $value['ano_ref'] ?>" class="btn btn-warning mr-1">
+                              <a href="<?php echo URL ?>View/ReajusteEditar.php?ano_ref=<?php echo $value['ano_ref'] ?>&cod_lote=<?php echo $value['cod_lote'] ?>" class="btn btn-warning mr-1">
                               Editar
                             </a> 
-                            <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarReajuste.php?ano_ref=<?php echo $value['ano_ref'] ?>')" class="btn btn-danger">
+                            <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarReajuste.php?ano_ref=<?php echo $value['ano_ref'] ?>&cod_lote=<?php echo $value['cod_lote'] ?>')" class="btn btn-danger">
                               Excluir
                             </button> 
                             </span>

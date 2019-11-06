@@ -46,6 +46,9 @@
             <div class="modal-body">
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
+                  <input type="hidden" name="cod_ibge" value="<?php echo $cod_ibge ?>" />
+                  <input type="hidden" name="cod_item" value="<?php echo $cod_item ?>" />
+                  <input type="hidden" name="cod_tipo_item" value="<?php echo $cod_tipo_item ?>" />
                   
                   <div class="form-row">
                   <div class="form-group col-md-4">

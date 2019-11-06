@@ -29,7 +29,7 @@ class ClassCdItensDAO {
         try {
             $pdo = Conexao::getInstance();
             $sql = "UPDATE cd_itens SET quantidade_previsto = ?, quantidade_projeto_executivo = ?,
-            quantidade_termo_instalacao = ? WHERE cod_ibge = ? AND cod_item = ?, cod_tipo_item = ? ";
+            quantidade_termo_instalacao = ? WHERE cod_ibge = ? AND cod_item = ? AND cod_tipo_item = ? ";
             $stmt = $pdo->prepare($sql);
           
             $stmt->bindValue(1, $editarCdItens->getQuantidade_previsto());
@@ -67,6 +67,7 @@ class ClassCdItensDAO {
     }
 
     public function visualizarCdItens(ClassCdItens $visualizarCdItens){
+        //var_dump($visualizarCdItens);
         try {
             $pdo = Conexao::getInstance();
             $sql = "SELECT 
@@ -76,13 +77,18 @@ class ClassCdItensDAO {
             FROM cd_itens 
             INNER JOIN municipio ON cd_itens.cod_ibge = municipio.cod_ibge
             INNER JOIN itens ON cd_itens.cod_item = itens.cod_item AND cd_itens.cod_tipo_item = itens.cod_tipo_item
-            WHERE cod_ibge = ? AND cod_item = ?, cod_tipo_item = ?";
+            WHERE municipio.cod_ibge = ? AND cd_itens.cod_item = ? AND cd_itens.cod_tipo_item = ?";
             $stmt = $pdo->prepare($sql);
+
             $stmt->bindValue(1, $visualizarCdItens->getCod_ibge());
             $stmt->bindValue(2, $visualizarCdItens->getCod_item());
             $stmt->bindValue(3, $visualizarCdItens->getCod_tipo_item());
+
             $stmt->execute();
-            return $stmt->fetchAll();
+            $resultado = $stmt->fetchAll();
+            //var_dump($resultado);
+            //die;
+            return $resultado;
         } catch (PDOException $ex) {
             return $ex->getMessage();
         }
