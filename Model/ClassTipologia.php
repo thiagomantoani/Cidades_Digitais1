@@ -19,10 +19,4 @@ class ClassTipologia {
     function setDescricao($descricao) {
         $this->descricao = $descricao;
     }
-
-   
-
-   
-
-    
 }
