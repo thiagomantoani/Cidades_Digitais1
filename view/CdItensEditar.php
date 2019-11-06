@@ -63,7 +63,7 @@
                   <div class="form-group col-md-4">
                     <label for="recipient-cod_item" class="col-form-label">Item:</label>
                     <input disabled 
-                      value="<?php echo $cod_item.$cod_tipo_item ?>"
+                      value="<?php echo $descricao ?>"
                       type="text" 
                       class="form-control"
                       id="recipient-cod_item">
