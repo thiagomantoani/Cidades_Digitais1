@@ -52,12 +52,12 @@
                   
                   <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="recipient-cod_ibge" class="col-form-label">Município:</label>
+                    <label for="recipient-nome_municipio" class="col-form-label">Município:</label>
                     <input disabled 
-                      value="<?php echo $cod_ibge ?>"
+                      value="<?php echo $nome_municipio ?>"
                       type="text" 
                       class="form-control"
-                      id="recipient-cod_ibge">
+                      id="recipient-nome_municipio">
                   </div>
 
                   <div class="form-group col-md-4">

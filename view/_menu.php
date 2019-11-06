@@ -2,6 +2,7 @@
   $arrayMenu = [
     "Home" => '<i class="fas fa-columns"></i>',
     "Municipios" => '<i class="fas fa-globe-asia"></i>',
+    "Categoria" => '<i class="fas fa-globe-asia"></i>',
     "EtapasCd" => '<i class="fas fa-list-ol"></i>',
     "Prefeitos" => '<i class="fas fa-user-tie"></i>',
     "Etapa" => '<i class="fas fa-align-justify"></i>',
@@ -17,6 +18,7 @@
     "Telefone" => '<i class="fas fa-phone-square-alt"></i>',
     "Entidade" => '<i class="fas fa-boxes"></i>',
     "Reajuste" => '<i class="fas fa-sliders-h"></i>',
+    "Ponto"=> '<i class="fas fa-sliders-h"></i>',
     "CdItens"=> '<i class="fas fa-sliders-h"></i>'
 
   ];
