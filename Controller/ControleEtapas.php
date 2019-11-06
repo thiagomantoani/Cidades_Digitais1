@@ -20,8 +20,8 @@ $novaetapa->setResponsavel($responsavel);
 $classEtapasDAO = new ClassEtapasDAO();
 $etapas = $classEtapasDAO->cadastrar($novaetapa);
 
-//var_dump($etapas);
-//die;
+var_dump($etapas);
+die;
 if($etapas == TRUE){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">

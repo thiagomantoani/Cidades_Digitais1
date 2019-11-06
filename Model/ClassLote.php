@@ -5,24 +5,22 @@
  */
 
 class ClassLote {
-    private $cod_lote, $cnpj, $contrato, $dt_inicio_vig, $dt_fim_vig, $dt_reajuste;
+    private $cod_lote, $cnpj, $contrato, $dt_inicio_vig, $dt_final_vig, $dt_reajuste;
                   
     function getCod_lote() {
         return $this->cod_lote;
     }
-
     function getCnpj() {
         return $this->cnpj;
     }
-
     function getContrato() {
         return $this->contrato;
     }
     function getDt_inicio_vig() {
         return $this->dt_inicio_vig;
     }
-    function getDt_fim_vig() {
-        return $this->dt_fim_vig;
+    function getDt_final_vig() {
+        return $this->dt_final_vig;
     }
     function getDt_reajuste() {
         return $this->dt_reajuste;
@@ -41,8 +39,8 @@ class ClassLote {
     function setDt_inicio_vig($dt_inicio_vig) {
         $this->dt_inicio_vig = $dt_inicio_vig;
     }
-    function setDt_inicio_vig($dt_inicio_vig) {
-        $this->dt_inicio_vig = $dt_inicio_vig;
+    function setDt_final_vig($dt_final_vig) {
+        $this->dt_final_vig = $dt_final_vig;
     }
 	function setDt_reajuste($dt_reajuste) {
         $this->dt_reajuste = $dt_reajuste;

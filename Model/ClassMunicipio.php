@@ -1,9 +1,4 @@
 <?php
-/**
- * Description of ClassMunicipio
- *
- * @author Carol
- */
 
 class ClassMunicipio {
     private $cod_ibge, $nome_municipio, $populacao, $uf, $regiao, $cnpj, $dist_capital, $endereco, $numero, $complemento, $bairro, $idhm, $latitude, $longitude;
@@ -92,13 +87,13 @@ class ClassMunicipio {
         $this->bairro = $bairro;
     }
     function setIdhm($idhm) {
-        $this->idhm = $idhm;
+        $this->idhm = str_replace(',','.',$idhm);
     }
     function setLatitude($latitude) {
-        $this->latitude = $latitude;
+        $this->latitude = str_replace(',','.',$latitude);
     }
     function setLongitude($longitude) {
-        $this->longitude = $longitude;
+        $this->longitude = str_replace(',' , '.',$longitude);
     }
     
 }

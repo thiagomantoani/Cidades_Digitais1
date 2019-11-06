@@ -4,7 +4,7 @@ session_start();
 $cod_assunto = @$_GET["cod_assunto"]; // id unico da tabela, chave primaria
 
 if (empty($cod_assunto)) {
-	header('Location:../View/AssuntoCD.php');
+	header('Location:../View/Assunto.php');
 }
 
 require_once '../Model/ClassAssunto.php';
@@ -22,7 +22,7 @@ if($resultado) { // se existir algum municipio no banco então passar o array de
             Registro apagado com sucesso!
         </div>
     ';
-    header('Location:../View/AssuntoCd.php');
+    header('Location:../View/Assunto.php');
 } else {
     // se não receber nenhum dado do banco de dados, então definir um array vazio para variavel $array_dados
 	$_SESSION['msg'] = '
@@ -30,5 +30,5 @@ if($resultado) { // se existir algum municipio no banco então passar o array de
 			Erro! Não foi possível apagar o registro.
 		</div>
 	';
-    header('Location:../View/AssuntoCd.php');
+    header('Location:../View/Assunto.php');
 }

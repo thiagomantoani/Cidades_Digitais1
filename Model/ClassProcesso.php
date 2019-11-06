@@ -1,8 +1,6 @@
 <?php
 /**
- * Description of ClassProcesso
- *
- * @author Carol
+ * Description of ClassProcesso @author Carol
  */
 
 class ClassProcesso {
@@ -23,6 +21,9 @@ class ClassProcesso {
 
     function setCod_processo($cod_processo) {
         $this->cod_processo = $cod_processo;
+    }
+    function setCod_ibge($cod_ibge) {
+        $this->cod_ibge = $cod_ibge;
     }
 
     function setDescricao($descricao) {

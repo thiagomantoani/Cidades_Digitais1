@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 06-Set-2019 às 13:53
+-- Generation Time: 09-Out-2019 às 19:46
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -28,12 +28,20 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `assunto`
 --
 
-DROP TABLE IF EXISTS `assunto`;
+
 CREATE TABLE IF NOT EXISTS `assunto` (
   `cod_assunto` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cod_assunto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `assunto`
+--
+
+INSERT INTO `assunto` (`cod_assunto`, `descricao`) VALUES
+(2, 'TESTE TESTE TESTE'),
+(3, 'descricao teste');
 
 -- --------------------------------------------------------
 
@@ -43,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `assunto` (
 
 DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
-  `cod_categoria` int(11) NOT NULL,
+  `cod_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cod_categoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -66,6 +74,27 @@ CREATE TABLE IF NOT EXISTS `cd` (
   KEY `fk_cd_lote1_idx` (`cod_lote`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `cd`
+--
+
+INSERT INTO `cd` (`cod_ibge`, `cod_lote`, `os_pe`, `data_pe`, `os_imp`, `data_imp`) VALUES
+(1100023, 1, '12', '2019-10-01', '23', '2019-10-07'),
+(1100031, 1, '12', '2019-10-15', 'er', '2019-10-31'),
+(1507805, 1, '1472956238', '2019-10-02', '1472956238', '2019-10-03');
+
+--
+-- Acionadores `cd`
+--
+DROP TRIGGER IF EXISTS `insere_cd_itens`;
+DELIMITER $$
+CREATE TRIGGER `insere_cd_itens` AFTER INSERT ON `cd` FOR EACH ROW BEGIN 
+insert into cd_itens (cod_ibge, cod_item, cod_tipo_item) (select cd.cod_ibge, itens.cod_item, itens.cod_tipo_item from cd, itens
+where cd.cod_ibge = (select last_insert_id(new.cod_ibge)));
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -85,6 +114,234 @@ CREATE TABLE IF NOT EXISTS `cd_itens` (
   KEY `fk_cd_itens_itens2_idx` (`cod_item`,`cod_tipo_item`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `cd_itens`
+--
+
+INSERT INTO `cd_itens` (`cod_ibge`, `cod_item`, `cod_tipo_item`, `quantidade_previsto`, `quantidade_projeto_executivo`, `quantidade_termo_instalacao`) VALUES
+(1100023, 1, 1, NULL, NULL, NULL),
+(1100023, 1, 2, NULL, NULL, NULL),
+(1100023, 1, 3, NULL, NULL, NULL),
+(1100023, 1, 4, NULL, NULL, NULL),
+(1100023, 1, 5, NULL, NULL, NULL),
+(1100023, 1, 6, NULL, NULL, NULL),
+(1100023, 1, 7, NULL, NULL, NULL),
+(1100023, 1, 8, NULL, NULL, NULL),
+(1100023, 1, 9, NULL, NULL, NULL),
+(1100023, 1, 10, NULL, NULL, NULL),
+(1100023, 1, 11, NULL, NULL, NULL),
+(1100023, 1, 12, NULL, NULL, NULL),
+(1100023, 1, 13, NULL, NULL, NULL),
+(1100023, 2, 1, NULL, NULL, NULL),
+(1100023, 2, 2, NULL, NULL, NULL),
+(1100023, 2, 3, NULL, NULL, NULL),
+(1100023, 2, 4, NULL, NULL, NULL),
+(1100023, 2, 5, NULL, NULL, NULL),
+(1100023, 2, 6, NULL, NULL, NULL),
+(1100023, 2, 7, NULL, NULL, NULL),
+(1100023, 2, 8, NULL, NULL, NULL),
+(1100023, 2, 9, NULL, NULL, NULL),
+(1100023, 2, 10, NULL, NULL, NULL),
+(1100023, 2, 11, NULL, NULL, NULL),
+(1100023, 3, 1, NULL, NULL, NULL),
+(1100023, 3, 2, NULL, NULL, NULL),
+(1100023, 3, 3, NULL, NULL, NULL),
+(1100023, 3, 4, NULL, NULL, NULL),
+(1100023, 3, 5, NULL, NULL, NULL),
+(1100023, 3, 8, NULL, NULL, NULL),
+(1100023, 3, 9, NULL, NULL, NULL),
+(1100023, 3, 10, NULL, NULL, NULL),
+(1100023, 4, 1, NULL, NULL, NULL),
+(1100023, 4, 2, NULL, NULL, NULL),
+(1100023, 4, 3, NULL, NULL, NULL),
+(1100023, 4, 4, NULL, NULL, NULL),
+(1100023, 4, 5, NULL, NULL, NULL),
+(1100023, 4, 8, NULL, NULL, NULL),
+(1100023, 4, 9, NULL, NULL, NULL),
+(1100023, 4, 10, NULL, NULL, NULL),
+(1100023, 5, 1, NULL, NULL, NULL),
+(1100023, 5, 2, NULL, NULL, NULL),
+(1100023, 5, 3, NULL, NULL, NULL),
+(1100023, 5, 4, NULL, NULL, NULL),
+(1100023, 5, 5, NULL, NULL, NULL),
+(1100023, 5, 8, NULL, NULL, NULL),
+(1100023, 5, 9, NULL, NULL, NULL),
+(1100023, 5, 10, NULL, NULL, NULL),
+(1100023, 6, 1, NULL, NULL, NULL),
+(1100023, 6, 2, NULL, NULL, NULL),
+(1100023, 6, 3, NULL, NULL, NULL),
+(1100023, 6, 4, NULL, NULL, NULL),
+(1100023, 6, 5, NULL, NULL, NULL),
+(1100023, 7, 1, NULL, NULL, NULL),
+(1100023, 7, 2, NULL, NULL, NULL),
+(1100023, 7, 3, NULL, NULL, NULL),
+(1100023, 7, 4, NULL, NULL, NULL),
+(1100023, 7, 5, NULL, NULL, NULL),
+(1100023, 8, 1, NULL, NULL, NULL),
+(1100023, 8, 3, NULL, NULL, NULL),
+(1100023, 9, 1, NULL, NULL, NULL),
+(1100023, 9, 3, NULL, NULL, NULL),
+(1100023, 10, 1, NULL, NULL, NULL),
+(1100023, 10, 3, NULL, NULL, NULL),
+(1100023, 11, 1, NULL, NULL, NULL),
+(1100023, 11, 3, NULL, NULL, NULL),
+(1100023, 12, 1, NULL, NULL, NULL),
+(1100023, 12, 3, NULL, NULL, NULL),
+(1100023, 13, 1, NULL, NULL, NULL),
+(1100023, 13, 3, NULL, NULL, NULL),
+(1100023, 14, 1, NULL, NULL, NULL),
+(1100023, 15, 1, NULL, NULL, NULL),
+(1100023, 16, 1, NULL, NULL, NULL),
+(1100023, 17, 1, NULL, NULL, NULL),
+(1100031, 1, 1, NULL, NULL, NULL),
+(1100031, 1, 2, NULL, NULL, NULL),
+(1100031, 1, 3, NULL, NULL, NULL),
+(1100031, 1, 4, NULL, NULL, NULL),
+(1100031, 1, 5, NULL, NULL, NULL),
+(1100031, 1, 6, NULL, NULL, NULL),
+(1100031, 1, 7, NULL, NULL, NULL),
+(1100031, 1, 8, NULL, NULL, NULL),
+(1100031, 1, 9, NULL, NULL, NULL),
+(1100031, 1, 10, NULL, NULL, NULL),
+(1100031, 1, 11, NULL, NULL, NULL),
+(1100031, 1, 12, NULL, NULL, NULL),
+(1100031, 1, 13, NULL, NULL, NULL),
+(1100031, 2, 1, NULL, NULL, NULL),
+(1100031, 2, 2, NULL, NULL, NULL),
+(1100031, 2, 3, NULL, NULL, NULL),
+(1100031, 2, 4, NULL, NULL, NULL),
+(1100031, 2, 5, NULL, NULL, NULL),
+(1100031, 2, 6, NULL, NULL, NULL),
+(1100031, 2, 7, NULL, NULL, NULL),
+(1100031, 2, 8, NULL, NULL, NULL),
+(1100031, 2, 9, NULL, NULL, NULL),
+(1100031, 2, 10, NULL, NULL, NULL),
+(1100031, 2, 11, NULL, NULL, NULL),
+(1100031, 3, 1, NULL, NULL, NULL),
+(1100031, 3, 2, NULL, NULL, NULL),
+(1100031, 3, 3, NULL, NULL, NULL),
+(1100031, 3, 4, NULL, NULL, NULL),
+(1100031, 3, 5, NULL, NULL, NULL),
+(1100031, 3, 8, NULL, NULL, NULL),
+(1100031, 3, 9, NULL, NULL, NULL),
+(1100031, 3, 10, NULL, NULL, NULL),
+(1100031, 4, 1, NULL, NULL, NULL),
+(1100031, 4, 2, NULL, NULL, NULL),
+(1100031, 4, 3, NULL, NULL, NULL),
+(1100031, 4, 4, NULL, NULL, NULL),
+(1100031, 4, 5, NULL, NULL, NULL),
+(1100031, 4, 8, NULL, NULL, NULL),
+(1100031, 4, 9, NULL, NULL, NULL),
+(1100031, 4, 10, NULL, NULL, NULL),
+(1100031, 5, 1, NULL, NULL, NULL),
+(1100031, 5, 2, NULL, NULL, NULL),
+(1100031, 5, 3, NULL, NULL, NULL),
+(1100031, 5, 4, NULL, NULL, NULL),
+(1100031, 5, 5, NULL, NULL, NULL),
+(1100031, 5, 8, NULL, NULL, NULL),
+(1100031, 5, 9, NULL, NULL, NULL),
+(1100031, 5, 10, NULL, NULL, NULL),
+(1100031, 6, 1, NULL, NULL, NULL),
+(1100031, 6, 2, NULL, NULL, NULL),
+(1100031, 6, 3, NULL, NULL, NULL),
+(1100031, 6, 4, NULL, NULL, NULL),
+(1100031, 6, 5, NULL, NULL, NULL),
+(1100031, 7, 1, NULL, NULL, NULL),
+(1100031, 7, 2, NULL, NULL, NULL),
+(1100031, 7, 3, NULL, NULL, NULL),
+(1100031, 7, 4, NULL, NULL, NULL),
+(1100031, 7, 5, NULL, NULL, NULL),
+(1100031, 8, 1, NULL, NULL, NULL),
+(1100031, 8, 3, NULL, NULL, NULL),
+(1100031, 9, 1, NULL, NULL, NULL),
+(1100031, 9, 3, NULL, NULL, NULL),
+(1100031, 10, 1, NULL, NULL, NULL),
+(1100031, 10, 3, NULL, NULL, NULL),
+(1100031, 11, 1, NULL, NULL, NULL),
+(1100031, 11, 3, NULL, NULL, NULL),
+(1100031, 12, 1, NULL, NULL, NULL),
+(1100031, 12, 3, NULL, NULL, NULL),
+(1100031, 13, 1, NULL, NULL, NULL),
+(1100031, 13, 3, NULL, NULL, NULL),
+(1100031, 14, 1, NULL, NULL, NULL),
+(1100031, 15, 1, NULL, NULL, NULL),
+(1100031, 16, 1, NULL, NULL, NULL),
+(1100031, 17, 1, NULL, NULL, NULL),
+(1507805, 1, 1, NULL, NULL, NULL),
+(1507805, 1, 2, NULL, NULL, NULL),
+(1507805, 1, 3, NULL, NULL, NULL),
+(1507805, 1, 4, NULL, NULL, NULL),
+(1507805, 1, 5, NULL, NULL, NULL),
+(1507805, 1, 6, NULL, NULL, NULL),
+(1507805, 1, 7, NULL, NULL, NULL),
+(1507805, 1, 8, NULL, NULL, NULL),
+(1507805, 1, 9, NULL, NULL, NULL),
+(1507805, 1, 10, NULL, NULL, NULL),
+(1507805, 1, 11, NULL, NULL, NULL),
+(1507805, 1, 12, NULL, NULL, NULL),
+(1507805, 1, 13, NULL, NULL, NULL),
+(1507805, 2, 1, NULL, NULL, NULL),
+(1507805, 2, 2, NULL, NULL, NULL),
+(1507805, 2, 3, NULL, NULL, NULL),
+(1507805, 2, 4, NULL, NULL, NULL),
+(1507805, 2, 5, NULL, NULL, NULL),
+(1507805, 2, 6, NULL, NULL, NULL),
+(1507805, 2, 7, NULL, NULL, NULL),
+(1507805, 2, 8, NULL, NULL, NULL),
+(1507805, 2, 9, NULL, NULL, NULL),
+(1507805, 2, 10, NULL, NULL, NULL),
+(1507805, 2, 11, NULL, NULL, NULL),
+(1507805, 3, 1, NULL, NULL, NULL),
+(1507805, 3, 2, NULL, NULL, NULL),
+(1507805, 3, 3, NULL, NULL, NULL),
+(1507805, 3, 4, NULL, NULL, NULL),
+(1507805, 3, 5, NULL, NULL, NULL),
+(1507805, 3, 8, NULL, NULL, NULL),
+(1507805, 3, 9, NULL, NULL, NULL),
+(1507805, 3, 10, NULL, NULL, NULL),
+(1507805, 4, 1, NULL, NULL, NULL),
+(1507805, 4, 2, NULL, NULL, NULL),
+(1507805, 4, 3, NULL, NULL, NULL),
+(1507805, 4, 4, NULL, NULL, NULL),
+(1507805, 4, 5, NULL, NULL, NULL),
+(1507805, 4, 8, NULL, NULL, NULL),
+(1507805, 4, 9, NULL, NULL, NULL),
+(1507805, 4, 10, NULL, NULL, NULL),
+(1507805, 5, 1, NULL, NULL, NULL),
+(1507805, 5, 2, NULL, NULL, NULL),
+(1507805, 5, 3, NULL, NULL, NULL),
+(1507805, 5, 4, NULL, NULL, NULL),
+(1507805, 5, 5, NULL, NULL, NULL),
+(1507805, 5, 8, NULL, NULL, NULL),
+(1507805, 5, 9, NULL, NULL, NULL),
+(1507805, 5, 10, NULL, NULL, NULL),
+(1507805, 6, 1, NULL, NULL, NULL),
+(1507805, 6, 2, NULL, NULL, NULL),
+(1507805, 6, 3, NULL, NULL, NULL),
+(1507805, 6, 4, NULL, NULL, NULL),
+(1507805, 6, 5, NULL, NULL, NULL),
+(1507805, 7, 1, NULL, NULL, NULL),
+(1507805, 7, 2, NULL, NULL, NULL),
+(1507805, 7, 3, NULL, NULL, NULL),
+(1507805, 7, 4, NULL, NULL, NULL),
+(1507805, 7, 5, NULL, NULL, NULL),
+(1507805, 8, 1, NULL, NULL, NULL),
+(1507805, 8, 3, NULL, NULL, NULL),
+(1507805, 9, 1, NULL, NULL, NULL),
+(1507805, 9, 3, NULL, NULL, NULL),
+(1507805, 10, 1, NULL, NULL, NULL),
+(1507805, 10, 3, NULL, NULL, NULL),
+(1507805, 11, 1, NULL, NULL, NULL),
+(1507805, 11, 3, NULL, NULL, NULL),
+(1507805, 12, 1, NULL, NULL, NULL),
+(1507805, 12, 3, NULL, NULL, NULL),
+(1507805, 13, 1, NULL, NULL, NULL),
+(1507805, 13, 3, NULL, NULL, NULL),
+(1507805, 14, 1, NULL, NULL, NULL),
+(1507805, 15, 1, NULL, NULL, NULL),
+(1507805, 16, 1, NULL, NULL, NULL),
+(1507805, 17, 1, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -97,6 +354,27 @@ CREATE TABLE IF NOT EXISTS `classe_empenho` (
   `descricao` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cod_classe_empenho`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `classe_empenho`
+--
+
+INSERT INTO `classe_empenho` (`cod_classe_empenho`, `descricao`) VALUES
+(6, 'APARELHOS E EQUIPAMENTOS DE COMUNICAÇAO'),
+(16, 'MANUTENÇÃO E CONSERVAÇÃO DE BENS'),
+(17, 'MANUTENÇÃO E CONSERVAÇÃO DE MÁQUINAS'),
+(27, 'SUPORTE DE INFRAESTRUTURA DE TI'),
+(30, 'MAQUINAS E EQUIPAMENTOS ENERGETICOS'),
+(35, 'EQUIPAMENTOS DE PROCESSAMENTO DE DADOS'),
+(48, 'SERVIÇOS DE SELEÇÃO E TREINAMENTO'),
+(57, 'SERVIÇOS TECNICOS PROFISSIONAIS'),
+(58, 'SERVIÇOS TÉCNICOS PROFISSIONAIS'),
+(59, 'SERVIÇOS TÉCNICOS PROFISSIONAIS'),
+(87, 'MATERIAL DE CONSUMO DE USO DURÁVEL'),
+(91, 'OBRAS EM ANDAMENTO'),
+(92, 'OBRAS EM ANDAMENTO'),
+(93, 'AQUISIÇÃO DE SOFTWARE'),
+(95, 'MANUT. CONS. EQUIP. DE PROCESSAMENTO DE DADOS');
 
 -- --------------------------------------------------------
 
@@ -115,7 +393,17 @@ CREATE TABLE IF NOT EXISTS `contato` (
   PRIMARY KEY (`cod_contato`),
   KEY `fk_contato_entidade1_idx` (`cnpj`),
   KEY `fk_contato_cd1_idx` (`cod_ibge`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `contato`
+--
+
+INSERT INTO `contato` (`cod_contato`, `cnpj`, `cod_ibge`, `nome`, `email`, `funcao`) VALUES
+(1, '3432525', 1100023, 'joaozinho', 'joaozinho@gmail.com', 'estagiario'),
+(2, '3432525', 1507805, 'teste', 'teste@gmail.com', 'testar'),
+(5, '3432525', NULL, 'carol', 'carol@gmail.com', 'estagio'),
+(8, NULL, 1507805, 'joazinho', 'joaozinho@gmail.com', 'Servidor');
 
 -- --------------------------------------------------------
 
@@ -153,6 +441,14 @@ CREATE TABLE IF NOT EXISTS `entidade` (
   PRIMARY KEY (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `entidade`
+--
+
+INSERT INTO `entidade` (`cnpj`, `nome`, `endereco`, `numero`, `bairro`, `cep`, `nome_municipio`, `uf`, `observacao`) VALUES
+('3432525', 'Carol', 'QNN 21', '12', 'Explanada', '47212524', 'Brasilia', 'Df', 'Nenhuma'),
+('41475453', 'Thiago Mantoani', 'Quadra QNE 12', '6', '', '', '', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -161,14 +457,21 @@ CREATE TABLE IF NOT EXISTS `entidade` (
 
 DROP TABLE IF EXISTS `etapa`;
 CREATE TABLE IF NOT EXISTS `etapa` (
-  `cod_etapa` int(11) NOT NULL,
+  `cod_etapa` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) DEFAULT NULL,
   `duracao` int(11) DEFAULT NULL,
   `depende` int(11) DEFAULT NULL,
   `delay` int(11) DEFAULT NULL,
   `setor_resp` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cod_etapa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `etapa`
+--
+
+INSERT INTO `etapa` (`cod_etapa`, `descricao`, `duracao`, `depende`, `delay`, `setor_resp`) VALUES
+(1, 'descricao teste', 2, 2, 2, 'Carol');
 
 -- --------------------------------------------------------
 
@@ -237,6 +540,86 @@ CREATE TABLE IF NOT EXISTS `itens` (
   KEY `fk_itens_subitem1_idx` (`cod_classe_empenho`),
   KEY `fk_itens_tipo_item1_idx` (`cod_tipo_item`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `itens`
+--
+
+INSERT INTO `itens` (`cod_item`, `cod_tipo_item`, `cod_natureza_despesa`, `cod_classe_empenho`, `descricao`, `unidade`) VALUES
+(1, 1, 449052, 35, '	Bastidor 19” com 42U de altura 	 ', '	unidade	 '),
+(1, 2, 449052, 35, '	Switch Metro L 2 com SFP	 ', '	Unidade	 '),
+(1, 3, 449052, 35, '	Bastidor 19”com 12U de parede 	 ', '	Unidade	 '),
+(1, 4, 449052, 35, '	ONU - Optical Network Unit	 ', '	Unidade	 '),
+(1, 5, 449052, 6, '	Wi-Fi Outdoor	 ', '	Unidade	 '),
+(1, 6, 449052, 30, '	Poste de concreto (SINAPI - 5055 )	 ', '	Unidade	 '),
+(1, 7, 449052, 87, '	Cabo de Fibra Óptica aérea - 48 fibras 	 ', '	Metro	 '),
+(1, 8, 449052, 30, '	Cabo de Fibra Óptica enterrada - 48 fibras 	 ', '	Metro	 '),
+(1, 9, 449052, 30, '	Cabo de Fibra Óptica enterrada - 48 fibras 	 ', '	Metro	 '),
+(1, 10, 449052, 30, '	Cabo de Fibra Óptica enterrada - 48 fibras 	 ', '	Metro	 '),
+(1, 11, 449052, 87, '	Cabo de Fibra Óptica - cabo DROP	 ', '	Metro	 '),
+(1, 12, 339039, 48, '	Operação Assistida (mensal)	 ', '	Unidade	 '),
+(1, 13, 339039, 48, '	Transferência de Tecnologia	 ', '	Unidade	 '),
+(2, 1, 449052, 35, '	BEO/DIO 19” 48 fibras 	 ', '	Unidade	 '),
+(2, 2, 449052, 35, '	Hardwares de Gerência - DNS	 ', '	Unidade	 '),
+(2, 3, 449052, 35, '	 BEO/DIO 48 fibras	 ', '	Unidade	 '),
+(2, 4, 449052, 35, '	Switch LAN	 ', '	Unidade	 '),
+(2, 5, 449052, 6, '	ONU - Optical Network Unit - Bridge	 ', '	Unidade	 '),
+(2, 6, 449039, 57, '	Instalação  ( SINAPI - 73783/009)	 ', '	Instalação	 '),
+(2, 7, 449039, 57, '	Instalação do cabo entre postes 	 ', '	Instalação/metro	 '),
+(2, 8, 449051, 91, '	Perfuração de vala 	 ', '	Perfuração/metro	 '),
+(2, 9, 449051, 91, '	Perfuração de vala 	 ', '	Perfuração/metro	 '),
+(2, 10, 449051, 91, '	Perfuração de vala 	 ', '	Perfuração/metro	 '),
+(2, 11, 449039, 87, '	Instalação do cabo drop	 ', '	Instalação/metro	 '),
+(3, 1, 449052, 35, '	Patch Panel 24 Portas	 ', '	Unidade	 '),
+(3, 2, 449039, 93, '	Software de Gerência	 ', '	Unidade	 '),
+(3, 3, 449052, 35, '	OLT - Optical Line Terminal	 ', '	Unidade	 '),
+(3, 4, 339039, 17, '	Instalação de ONU	 ', '	Instalação	 '),
+(3, 5, 339039, 57, '	Configuração de equipamentos 	 ', '	Instalação	 '),
+(3, 8, 449052, 87, '	Tubulações de proteção	 ', '	Metro	 '),
+(3, 9, 449052, 87, '	Tubulações de proteção	 ', '	Metro	 '),
+(3, 10, 449052, 87, '	Tubulações de proteção	 ', '	Metro	 '),
+(4, 1, 449052, 35, '	Roteador de Borda	 ', '	Unidade	 '),
+(4, 2, 339039, 95, '	Instalação do Switch Metro L2 	 ', '	Instalação	 '),
+(4, 3, 449052, 17, '	CPE	 ', '	Unidade	 '),
+(4, 4, 339039, 17, '	Instalação de Switch LAN	 ', '	Instalação	 '),
+(4, 5, 339039, 17, '	Instalação do Wifi outdoor 	 ', '	Instalação	 '),
+(4, 8, 449051, 91, '	Instalação de tubulações	 ', '	Instalação/metro	 '),
+(4, 9, 449051, 91, '	Instalação de tubulações	 ', '	Instalação/metro	 '),
+(4, 10, 449051, 91, '	Instalação de tubulações	 ', '	Instalação/metro	 '),
+(5, 1, 449052, 35, '	OLT - Optical Line Terminal	 ', '	Unidade	 '),
+(5, 2, 339039, 95, '	Instalação de Gerências - DNS (Hardware/Software)	 ', '	Instalação	 '),
+(5, 3, 449052, 35, '	Switch LAN	 ', '	Unidade	 '),
+(5, 4, 339039, 16, '	Instalação de cabeamento 	 ', '	Instalação	 '),
+(5, 5, 339039, 17, '	Instalação de ONU	 ', '	Instalação	 '),
+(5, 8, 449039, 57, '	Instalação de cabos 	 ', '	Instalação/metro	 '),
+(5, 9, 449039, 57, '	Instalação de cabos 	 ', '	Instalação/metro	 '),
+(5, 10, 449039, 57, '	Instalação de cabos 	 ', '	Instalação/metro	 '),
+(6, 1, 449052, 17, '	CPE	 ', '	Unidade	 '),
+(6, 2, 339039, 16, '	Instalação de cabeamento 	 ', '	Instalação	 '),
+(6, 3, 449052, 30, '	No-Break 1,0 KVA 	 ', '	Unidade	 '),
+(6, 4, 339039, 16, '	Instalação fibra externa	 ', '	Instalação	 '),
+(6, 5, 339039, 16, '	 Instalação de cabeamento 	 ', '	Instalação	 '),
+(7, 1, 449052, 35, '	Switch LAN	 ', '	Unidade	 '),
+(7, 2, 339039, 16, '	Instalação de energia (Homem-Hora) 	 ', '	Instalação	 '),
+(7, 3, 339039, 17, '	Instalação do Bastidor - BEO/DIO	 ', '	Instalação	 '),
+(7, 4, 339039, 16, '	Instalação de energia 	 ', '	Instalação	 '),
+(7, 5, 339039, 16, '	 Instalação de Energia 	 ', '	Instalação	 '),
+(8, 1, 449052, 30, '	No-Break 6KVA 	 ', '	Unidade	 '),
+(8, 3, 339039, 17, '	Instalação de OLT - CPE	 ', '	Instalação	 '),
+(9, 1, 339039, 17, '	Instalação do Bastidor - BEO/DIO - Patch Panel	 ', '	Instalação	 '),
+(9, 3, 339039, 17, '	Instalação de Switch LAN	 ', '	Instalação	 '),
+(10, 1, 339039, 17, '	Instalação do Roteador de Borda	 ', '	Instalação	 '),
+(10, 3, 339039, 17, '	Instalação de No-Break 	 ', '	Instalação	 '),
+(11, 1, 339039, 17, '	Instalação de Switch LAN	 ', '	Instalação	 '),
+(11, 3, 339039, 16, '	Instalação de cabeamento 	 ', '	Instalação	 '),
+(12, 1, 339039, 17, '	Instalação de OLT - CPE	 ', '	Instalação	 '),
+(12, 3, 339039, 16, '	Instalação fibra externa	 ', '	Instalação	 '),
+(13, 1, 339039, 17, '	Instalação de No-Break 	 ', '	Instalação	 '),
+(13, 3, 339039, 16, '	Instalação de energia 	 ', '	Instalação	 '),
+(14, 1, 339039, 16, '	Instalação de cabeamento	 ', '	Instalação	 '),
+(15, 1, 339039, 16, '	Instalação fibra externa ao equipamento central	 ', '	Instalação	 '),
+(16, 1, 339039, 57, '	Instalação da conexão - link internet/Roteador	 ', '	Instalação	 '),
+(17, 1, 339039, 16, '	Instalação de energia 	 ', '	Instalação	 ');
 
 -- --------------------------------------------------------
 
@@ -325,7 +708,7 @@ CREATE TABLE IF NOT EXISTS `itens_previsao_empenho` (
 
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE IF NOT EXISTS `log` (
-  `cod_log` int(11) NOT NULL,
+  `cod_log` int(11) NOT NULL AUTO_INCREMENT,
   `cod_usuario` int(11) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `nome_tabela` varchar(45) NOT NULL,
@@ -361,6 +744,15 @@ CREATE TABLE IF NOT EXISTS `lote` (
   PRIMARY KEY (`cod_lote`),
   KEY `fk_lote_entidade1_idx` (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `lote`
+--
+
+INSERT INTO `lote` (`cod_lote`, `cnpj`, `contrato`, `dt_inicio_vig`, `dt_final_vig`, `dt_reajuste`) VALUES
+(1, '3432525', '123456', '2019-10-02', '2019-10-03', '2019-10-02'),
+(2, '41475453', '21564564', '2019-10-01', '2019-10-03', '2019-10-02'),
+(3, '3432525', 'teste', '2019-10-09', '2019-10-09', '2019-10-09');
 
 -- --------------------------------------------------------
 
@@ -425,8 +817,10 @@ CREATE TABLE IF NOT EXISTS `municipio` (
 --
 
 INSERT INTO `municipio` (`cod_ibge`, `nome_municipio`, `populacao`, `uf`, `regiao`, `cnpj`, `dist_capital`, `endereco`, `numero`, `complemento`, `bairro`, `idhm`, `latitude`, `longitude`) VALUES
-(24, 'tste', NULL, 'to', 'hdyh', '4542', 45, '2424', '22', '124', '1', 2, '2.00000000', '2.00000000'),
-(256432, 'Palmas', 2563211, 'TO', 'Norte', '76622577000105', 18, 'QNE 12', '11', 'Caixa Econ', 'Aureny III', 0.788, '-15.79410000', '-47.88250000');
+(1100023, 'Ariquemes', NULL, 'RO', '', '04104816000116', 9, '', '', '', '', 0.702, '-9.90571000', '-63.03250000'),
+(1100031, 'Cabixi', 6355, 'RO', NULL, '22855159000120', NULL, NULL, NULL, NULL, NULL, 0.65, '-13.49451110', '-60.55200000'),
+(1300607, 'Benjamin Constant', 39484, 'AM', NULL, '04243978000135', NULL, NULL, NULL, NULL, NULL, 0.574, '-4.37768111', '-70.03420000'),
+(1507805, 'Senador JosÃ© PorfÃ­rio', NULL, 'TO', '', '05421110000140', 6, '', '', '', '', 514, '-4.31241750', '-51.57640800');
 
 -- --------------------------------------------------------
 
@@ -440,6 +834,16 @@ CREATE TABLE IF NOT EXISTS `natureza_despesa` (
   `descricao` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cod_natureza_despesa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `natureza_despesa`
+--
+
+INSERT INTO `natureza_despesa` (`cod_natureza_despesa`, `descricao`) VALUES
+(339039, 'Serviços e Operação assistida e Capacitação'),
+(449039, 'Software'),
+(449051, 'Obras e Instalação'),
+(449052, 'valor equip. sem instalação');
 
 -- --------------------------------------------------------
 
@@ -462,7 +866,7 @@ CREATE TABLE IF NOT EXISTS `otb` (
 
 DROP TABLE IF EXISTS `pid`;
 CREATE TABLE IF NOT EXISTS `pid` (
-  `cod_pid` int(11) NOT NULL,
+  `cod_pid` int(11) NOT NULL AUTO_INCREMENT,
   `cod_ibge` int(7) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `inep` varchar(15) DEFAULT NULL,
@@ -544,7 +948,15 @@ CREATE TABLE IF NOT EXISTS `prefeitos` (
   `exercicio` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cod_prefeito`),
   KEY `fk_prefeitos_municipio1_idx` (`cod_ibge`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `prefeitos`
+--
+
+INSERT INTO `prefeitos` (`cod_prefeito`, `cod_ibge`, `nome`, `cpf`, `rg`, `partido`, `exercicio`) VALUES
+(1, 1100023, 'Joao', '0236528741', '142536', 'PSOL', 'Prefeito'),
+(3, 1300607, 'Francisco', '51515646', '544654656', 'PSDB', 'Prefeito');
 
 -- --------------------------------------------------------
 
@@ -580,6 +992,14 @@ CREATE TABLE IF NOT EXISTS `processo` (
   KEY `fk_processo_cd1_idx` (`cod_ibge`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `processo`
+--
+
+INSERT INTO `processo` (`cod_processo`, `cod_ibge`, `descricao`) VALUES
+('142536', 1100023, 'sem descricao'),
+('4596387', 1100023, 'testes varios');
+
 -- --------------------------------------------------------
 
 --
@@ -594,6 +1014,17 @@ CREATE TABLE IF NOT EXISTS `reajuste` (
   PRIMARY KEY (`ano_ref`,`cod_lote`),
   KEY `fk_reajuste_lote1_idx` (`cod_lote`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `reajuste`
+--
+
+INSERT INTO `reajuste` (`ano_ref`, `cod_lote`, `percentual`) VALUES
+(2014, 1, 4),
+(2018, 1, 14),
+(2019, 2, 145),
+(2020, 1, 45),
+(2025, 2, 88);
 
 -- --------------------------------------------------------
 
@@ -622,7 +1053,14 @@ CREATE TABLE IF NOT EXISTS `tipologia` (
   `cod_tipologia` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cod_tipologia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tipologia`
+--
+
+INSERT INTO `tipologia` (`cod_tipologia`, `descricao`) VALUES
+(2, 'tergf');
 
 -- --------------------------------------------------------
 
@@ -636,6 +1074,25 @@ CREATE TABLE IF NOT EXISTS `tipo_item` (
   `descricao` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cod_tipo_item`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tipo_item`
+--
+
+INSERT INTO `tipo_item` (`cod_tipo_item`, `descricao`) VALUES
+(1, 'Ponto de Enlace e Acesso Social (PEAS)'),
+(2, 'Solução de Gerenciamento de Infraestrutura (SGI)'),
+(3, '	Ponto de Acesso de Governo (PAG)'),
+(4, '	Ponto de Conexão de Governo (PCG)'),
+(5, '	Ponto de Acesso Público (PAP)'),
+(6, '	Postes'),
+(7, '	Fibra Óptica Área Instalada por km (FOA)'),
+(8, '	Fibra Óptica Enterrada por km – Solo não Pavimentado (FONPV)'),
+(9, '	Fibra Óptica Enterrada por km – Solo Pavimento (FOPV)'),
+(10, ' Fibra Óptica Enterrada por km – Paralelepípedo (FOPR)'),
+(11, ' Fibra Óptica de Acesso/Drop por km – Pavimento (FDROP)'),
+(12, ' Operação Assistida - AO'),
+(13, ' Transferência de Tecnologia - TT');
 
 -- --------------------------------------------------------
 
@@ -652,6 +1109,14 @@ CREATE TABLE IF NOT EXISTS `uacom` (
   PRIMARY KEY (`cod_ibge`,`data`),
   KEY `fk_uacom_cd1_idx` (`cod_ibge`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `uacom`
+--
+
+INSERT INTO `uacom` (`cod_ibge`, `data`, `titulo`, `relato`) VALUES
+(1100023, '2019-10-07 00:00:00', 'tituloteste', 'teste'),
+(1507805, '2019-10-07 18:45:46', 'teste', 'relato teste');
 
 -- --------------------------------------------------------
 
@@ -682,18 +1147,16 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `email` varchar(45) DEFAULT NULL,
   `status` char(1) DEFAULT NULL,
   `login` varchar(45) DEFAULT NULL,
-  `senha` varchar(254) DEFAULT NULL,
+  `senha` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cod_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome`, `email`, `status`, `login`, `senha`) VALUES
-(1, 'Carol', 'carol@gmail.com', 'A', 'carol', '$2y$10$pbrrDSQjYYCC0HGcRWmnKeNmk3pJ9b2dtUBR7181R.RaQLknkUF3K'),
-(2, 'Dhemes', 'dhemes@gmail.com', 'A', 'dhemes', '$2y$10$HqKQACYvIFsmjjL4mqeWcuXUNrE9dtigX4nIXxa2s5P6tdvmfAvNi'),
-(4, 'Benta', 'Jrm', 'A', 'benta', '$2y$10$A17dgEyK7InTg//v6.II7OApZhUympb8i74rI6TIlgR8htOre8AB.');
+(2, 'Joazinho', 'Joazinho@gmail.com', 'A', 'Joazinho123', '1234456');
 
 -- --------------------------------------------------------
 
@@ -730,11 +1193,6 @@ ALTER TABLE `cd_itens`
 
 --
 -- Limitadores para a tabela `contato`
---
-ALTER TABLE `contato`
-  ADD CONSTRAINT `fk_contato_cd1` FOREIGN KEY (`cod_ibge`) REFERENCES `cd` (`cod_ibge`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_contato_entidade1` FOREIGN KEY (`cnpj`) REFERENCES `entidade` (`cnpj`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
 --
 -- Limitadores para a tabela `empenho`
 --

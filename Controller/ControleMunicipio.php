@@ -21,7 +21,7 @@ $longitude = @$_POST['longitude'];
 
 
 
-$novoMunicipio = new ClassMunicipio();
+$novoMunicipio = new ClassMunicipio ();
 $novoMunicipio->setCod_ibge($cod_ibge);
 $novoMunicipio->setNome_municipio($nome_municipio);
 $novoMunicipio->setPopulacao($populacao);

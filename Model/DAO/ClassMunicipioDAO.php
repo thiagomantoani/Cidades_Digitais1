@@ -29,12 +29,60 @@ class ClassMunicipioDAO {
             echo $exc->getMessage();
         }
     }
+
+    public function update(ClassMunicipio $editarMunicipio) {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE municipio SET nome_municipio = ?, populacao = ?, uf = ?, regiao = ?, cnpj = ?, dist_capital = ?, endereco =? , numero = ?, complemento = ?, bairro = ?, idhm = ?, latitude = ?, longitude = ? WHERE cod_ibge = ? ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $editarMunicipio->getNome_municipio());
+            $stmt->bindValue(2, $editarMunicipio->getPopulacao());
+            $stmt->bindValue(3, $editarMunicipio->getUf());
+            $stmt->bindValue(4, $editarMunicipio->getRegiao());
+            $stmt->bindValue(5, $editarMunicipio->getCnpj());
+            $stmt->bindValue(6, $editarMunicipio->getDist_capital());
+            $stmt->bindValue(7, $editarMunicipio->getEndereco());
+            $stmt->bindValue(8, $editarMunicipio->getNumero());
+            $stmt->bindValue(9, $editarMunicipio->getComplemento());
+            $stmt->bindValue(10, $editarMunicipio->getBairro());
+            $stmt->bindValue(11, $editarMunicipio->getIdhm());
+            $stmt->bindValue(12, $editarMunicipio->getLatitude());
+            $stmt->bindValue(13, $editarMunicipio->getLongitude());
+
+            $stmt->bindValue(14, $editarMunicipio->getCod_ibge());
+           
+            $stmt->execute();
+            return TRUE;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
     
     public function listarMunicipios(){
         try {
             $pdo = Conexao::getInstance();
             $sql = "SELECT cod_ibge, nome_municipio, populacao, uf, regiao, cnpj, dist_capital, endereco, numero, complemento, bairro, idhm, latitude, longitude FROM municipio ORDER BY nome_municipio ASC";
             $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
+    public function visualizarMunicipio(ClassMunicipio $visualizarMunicipio){
+        try {
+            $pdo = Conexao::getInstance();
+
+            $sql = "SELECT cod_ibge, nome_municipio, populacao, uf, regiao, cnpj, dist_capital, endereco, numero, complemento, bairro, idhm, latitude, longitude 
+            FROM municipio 
+            WHERE cod_ibge = ? 
+            LIMIT 1";
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $visualizarMunicipio->getCod_ibge());
+
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
         } catch (PDOException $ex) {
