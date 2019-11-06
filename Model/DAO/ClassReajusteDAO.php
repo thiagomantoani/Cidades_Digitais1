@@ -54,12 +54,14 @@ class ClassReajusteDAO {
 
             $sql = "SELECT ano_ref, cod_lote, percentual 
             FROM reajuste 
-            WHERE ano_ref = ? 
-            LIMIT 1";
+            WHERE ano_ref = ?  AND cod_lote = ? ";
 
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(1, $visualizarReajuste->getAno_ref());
+            $stmt->bindValue(2, $visualizarReajuste->getCod_lote());
+            //AND cod_lote = ? 
+           // $stmt->bindValue(2, $visualizarReajuste->getCod_lote());
 
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
@@ -72,9 +74,10 @@ class ClassReajusteDAO {
     public function apagarReajuste(ClassReajuste $apagarReajuste) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "DELETE FROM reajuste WHERE ano_ref = ?";
+            $sql = "DELETE FROM reajuste WHERE ano_ref = ? AND cod_lote = ? ";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $apagarReajuste->getAno_ref());
+            $stmt->bindValue(2, $apagarReajuste->getCod_lote());
            
             $stmt->execute();
             return TRUE;

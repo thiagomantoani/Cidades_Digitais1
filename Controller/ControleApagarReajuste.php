@@ -2,6 +2,7 @@
 session_start();
 
 $ano_ref = @$_GET["ano_ref"]; // id unico da tabela, chave primaria
+$cod_lote = @$_GET['cod_lote'];
 
 if (empty($cod_ibge)) {
 	header('Location:../View/Reajuste.php');
@@ -12,6 +13,7 @@ require_once '../Model/DAO/ClassReajusteDAO.php';
 $apagarReajuste = new ClassReajusteDAO(); // instanciando um objeto
 $reajuste = new ClassReajuste();
 $reajuste->setAno_ref($ano_ref);
+$reajuste->setCod_lote($cod_lote);
 
 $resultado = $apagarReajuste->apagarReajuste($reajuste); // chamando metodo para listar todos os usuários do banco
 

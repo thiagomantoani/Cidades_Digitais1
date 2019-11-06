@@ -19,6 +19,7 @@ $reajuste = $classReajusteDAO->update($novoReajuste);
 
 //var_dump($reajuste);
 //die();
+
 if($reajuste == TRUE){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">

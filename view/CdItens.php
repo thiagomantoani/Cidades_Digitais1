@@ -48,7 +48,7 @@
                   <tbody>
                   <?php
                   
-                // var_dump($array_dados);
+                //var_dump($array_dados);
                 // die();
 
                     foreach($array_dados as $key => $value) {
@@ -61,7 +61,7 @@
                           <td><?php echo $value['quantidade_termo_instalacao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <a href="<?php echo URL ?>View/CdItensEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
+                              <a href="<?php echo URL ?>View/CdItensEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>&cod_item=<?php echo $value['cod_item'] ?>&cod_tipo_item=<?php echo $value['cod_tipo_item'] ?>" 
                                 class="btn btn-warning mr-1"> 
                                 Editar
                               </a> 
