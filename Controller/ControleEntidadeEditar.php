@@ -28,7 +28,7 @@ $novaEntidade->setObservacao($observacao);
 
 
 $classEntidadeDAO = new ClassEntidadeDAO();
-$entidade = $classEntidadeDAO->cadastrar($novaEntidade);
+$entidade = $classEntidadeDAO->update($novaEntidade);
 
 
 //var_dump($entidade);
