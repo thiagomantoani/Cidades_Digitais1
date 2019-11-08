@@ -52,12 +52,22 @@
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Município:</label>
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                    <option value="<?php echo $cod_ibge ?>">Selecionar Município</option>
+                    <option value="">Selecionar Município</option>
                       <?php 
                         foreach($array_selectCd as $chave => $valor){
-                        ?>
-                         <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
-                        <?php 
+                          if($cod_ibge == $valor['cod_ibge']) {
+                            ?>
+                            <option value="<?= $valor['cod_ibge'] ?>" selected>
+                              <?= $valor['nome_municipio'] ?>
+                            </option>
+                            <?php
+                          } else {
+                            ?>
+                            <option value="<?= $valor['cod_ibge'] ?>">
+                              <?= $valor['nome_municipio'] ?>
+                            </option>
+                            <?php 
+                          } // fim do else
                         }
                       ?>
                     </select>
