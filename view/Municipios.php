@@ -200,7 +200,7 @@
                     <input 
                       name="dist_capital"
                       placeholder=""
-                      type="number" 
+                      type="text" 
                       class="form-control"
                       maxlength=""
                       id="recipient-dist_capital">
@@ -256,7 +256,6 @@
                       name="idhm"
                       placeholder=""
                       type="number"
-                      step="any"
                       class="form-control"
                       maxlength="" 
                       id="recipient-idhm">
@@ -279,7 +278,7 @@
                       name="longitude"
                       placeholder=""
                       type="text" 
-                      class="form-control cordenadas"
+                      class="form-control"
                       maxlength="10" 
                       id="recipient-longitude">
                   </div>
