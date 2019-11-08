@@ -1,9 +1,9 @@
 <?php
 
 class ClassPonto {
-    private $cod_ponto, $cod_categoria, $cod_ibge, $cod_pid, $nome,$endereco, $numero, $complemento, $bairro, $cep, $latitude, $longitude;
+    private $cod_ponto, $cod_categoria, $cod_ibge, $cod_pid, $nome, $endereco, $numero, $complemento, $bairro, $cep, $latitude, $longitude;
                   
-    function getCod_Ponto() {
+    function getCod_ponto() {
         return $this->cod_ponto;
     }
     function getCod_categoria() {
@@ -50,6 +50,9 @@ class ClassPonto {
     }
     function setCod_ibge($cod_ibge) {
         $this->cod_ibge = $cod_ibge;
+    }
+    function setCod_pid($cod_pid) {
+        $this->cod_pid = $cod_pid;
     }
     function setNome($nome) {
         $this->nome = $nome;

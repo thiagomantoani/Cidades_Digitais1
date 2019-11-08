@@ -13,12 +13,20 @@ class ClassPidDAO {
             $stmt->bindValue(3, $cadastrarPid->getNome());
             $stmt->bindValue(4, $cadastrarPid->getInep());
             $stmt->execute();
-            return TRUE;
+            $responseId = $pdo->lastInsertId();
+            //var_dump($responseId);
+
+            $sql = "SELECT cod_pid, cod_ibge, nome, inep FROM pid WHERE cod_pid = ? LIMIT 1";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $responseId);
+            $stmt->execute();
+            $dados = $stmt->fetchAll();
+            //var_dump($dados);
+            return $dados;
         } catch (PDOException $exc) {
             echo $exc->getMessage();
         }
     }
-
     
     public function listarPid(){
         try {
@@ -86,7 +94,7 @@ class ClassPidDAO {
     public function todosPid(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_pid, nome FROM pid ORDER BY cod_pid ASC";
+            $sql = "SELECT cod_pid, cod_ibge, nome FROM pid ORDER BY cod_pid ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 

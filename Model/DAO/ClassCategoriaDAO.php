@@ -43,4 +43,16 @@ class ClassCategoriaDAO {
         }
     }
 
+    public function todosCategoria(){
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT cod_categoria, descricao FROM categoria ORDER BY cod_categoria ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
 }
