@@ -13,15 +13,13 @@ class ClassPontoDAO {
             $stmt->bindValue(3, $cadastrarPonto->getCod_ibge());
             $stmt->bindValue(4, $cadastrarPonto->getCod_pid());
             $stmt->bindValue(5, $cadastrarPonto->getNome());
-            $stmt->bindValue(6, $cadastrarPonto->getCnpj());
-            $stmt->bindValue(7, $cadastrarPonto->getDist_capital());
-            $stmt->bindValue(8, $cadastrarPonto->getEndereco());
-            $stmt->bindValue(9, $cadastrarPonto->getNumero());
-            $stmt->bindValue(10, $cadastrarPonto->getComplemento());
-            $stmt->bindValue(11, $cadastrarPonto->getBairro());
-            $stmt->bindValue(12, $cadastrarPonto->getCep());
-            $stmt->bindValue(13, $cadastrarPonto->getLatitude());
-            $stmt->bindValue(14, $cadastrarPonto->getLongitude());
+            $stmt->bindValue(6, $cadastrarPonto->getEndereco());
+            $stmt->bindValue(7, $cadastrarPonto->getNumero());
+            $stmt->bindValue(8, $cadastrarPonto->getComplemento());
+            $stmt->bindValue(9, $cadastrarPonto->getBairro());
+            $stmt->bindValue(10, $cadastrarPonto->getCep());
+            $stmt->bindValue(11, $cadastrarPonto->getLatitude());
+            $stmt->bindValue(12, $cadastrarPonto->getLongitude());
            
             $stmt->execute();
             return TRUE;
@@ -33,23 +31,21 @@ class ClassPontoDAO {
     public function update(ClassPonto $editarPonto) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE ponto SET cod_categoria = ?, cod_ibge = ?, cod_pid = ?, regiao = ?, cnpj = ?, dist_capital = ?, endereco =? , numero = ?, complemento = ?, bairro = ?, idhm = ?, latitude = ?, longitude = ? WHERE cod_ibge = ? ";
+            $sql = "UPDATE ponto SET cod_categoria = ?, cod_ibge = ?, cod_pid = ?, nome = ?, endereco =? , numero = ?, complemento = ?, bairro = ?, cep = ?, latitude = ?, longitude = ? WHERE cod_ponto = ? ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $editarMunicipio->getNome_municipio());
-            $stmt->bindValue(2, $editarMunicipio->getPopulacao());
-            $stmt->bindValue(3, $editarMunicipio->getUf());
-            $stmt->bindValue(4, $editarMunicipio->getRegiao());
-            $stmt->bindValue(5, $editarMunicipio->getCnpj());
-            $stmt->bindValue(6, $editarMunicipio->getDist_capital());
-            $stmt->bindValue(7, $editarMunicipio->getEndereco());
-            $stmt->bindValue(8, $editarMunicipio->getNumero());
-            $stmt->bindValue(9, $editarMunicipio->getComplemento());
-            $stmt->bindValue(10, $editarMunicipio->getBairro());
-            $stmt->bindValue(11, $editarMunicipio->getIdhm());
-            $stmt->bindValue(12, $editarMunicipio->getLatitude());
-            $stmt->bindValue(13, $editarMunicipio->getLongitude());
+            $stmt->bindValue(1, $editarPonto->getCod_categoria());
+            $stmt->bindValue(2, $editarPonto->getCod_ibge());
+            $stmt->bindValue(3, $editarPonto->getCod_pid());
+            $stmt->bindValue(4, $editarPonto->getNome());
+            $stmt->bindValue(5, $editarPonto->getEndereco());
+            $stmt->bindValue(6, $editarPonto->getNumero());
+            $stmt->bindValue(7, $editarPonto->getComplemento());
+            $stmt->bindValue(8, $editarPonto->getBairro());
+            $stmt->bindValue(9, $editarPonto->getCep());
+            $stmt->bindValue(10, $editarPonto->getLatitude());
+            $stmt->bindValue(11, $editarPonto->getLongitude());
 
-            $stmt->bindValue(14, $editarMunicipio->getCod_ibge());
+            $stmt->bindValue(12, $editarPonto->getCod_ponto());
            
             $stmt->execute();
             return TRUE;
@@ -61,7 +57,7 @@ class ClassPontoDAO {
     public function listarPonto(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_ibge, nome_municipio, populacao, uf, regiao, cnpj, dist_capital, endereco, numero, complemento, bairro, idhm, latitude, longitude FROM municipio ORDER BY nome_municipio ASC";
+            $sql = "SELECT cod_ponto, cod_categoria, cod_ibge, cod_pid, nome, endereco, numero, complemento, bairro, cep, latitude, longitude FROM ponto ORDER BY nome ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); 
@@ -70,18 +66,18 @@ class ClassPontoDAO {
         }
     }
 
-    public function visualizarMunicipio(ClassMunicipio $visualizarMunicipio){
+    public function visualizarPonto(ClassPonto $visualizarPonto){
         try {
             $pdo = Conexao::getInstance();
 
-            $sql = "SELECT cod_ibge, nome_municipio, populacao, uf, regiao, cnpj, dist_capital, endereco, numero, complemento, bairro, idhm, latitude, longitude 
-            FROM municipio 
-            WHERE cod_ibge = ? 
+            $sql = "SELECT cod_ponto, cod_categoria, cod_ibge, cod_pid, nome, endereco, numero, complemento, bairro, cep, latitude, longitude 
+            FROM ponto 
+            WHERE cod_ponto = ? 
             LIMIT 1";
 
             $stmt = $pdo->prepare($sql);
 
-            $stmt->bindValue(1, $visualizarMunicipio->getCod_ibge());
+            $stmt->bindValue(1, $visualizarPonto->getCod_ponto());
 
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
@@ -90,29 +86,14 @@ class ClassPontoDAO {
         }
     }
 
-    /**
-     * Buscar todos os municipios para exibir em tabelas que precisa
-     * do codigo ibge, ou seja tabela de relacionamento com municipio
-     */
-    public function todosMunicipios(){
-        try {
-            $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_ibge, nome_municipio FROM municipio ORDER BY nome_municipio ASC";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
-            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
-        } catch (PDOException $ex) {
-            return $ex->getMessage();
-        }
-    }
 
     // apagar registro pelo id
-    public function apagarMunicipio(ClassMunicipio $apagarMunicipio) {
+    public function apagarPonto(ClassPonto $apagarPonto) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "DELETE FROM municipio WHERE cod_ibge = ?";
+            $sql = "DELETE FROM ponto WHERE cod_ponto = ?";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $apagarMunicipio->getCod_ibge());
+            $stmt->bindValue(1, $apagarPonto->getCod_ponto());
            
             $stmt->execute();
             return TRUE;

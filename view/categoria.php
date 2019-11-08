@@ -1,14 +1,8 @@
 <?php
   // Cabeçalho
   include_once("_cabecalho.php");
-
-  // Buscar todos os cadastros no banco
   require_once("../Controller/ControleListarCategoria.php");
-  require_once("../Controller/ControleEntidadeSelect.php");
-  // $array_dados
-  ?>
-  
-  <!-- Conteudo -->
+?>
   <main id="main">
 
       <div class="row mb-5">
@@ -16,7 +10,6 @@
           
           <span>
             <h3 class="mb-0">Categoria</h3>
-            <small>Descrição</small>
           </span>
         </div>
         <div class="col-md-6 text-right">
@@ -44,7 +37,7 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Código Categoria</th>
+                    <th scope="col">Código da Categoria</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Ações</th>
                   </tr>
@@ -99,16 +92,7 @@
 
             <!-- Input cod_lote -->
             <div class="form-row">
-              <div class="form-group col-md-12">
-                <label for="recipient-cod_categoria" class="col-form-label">Código Categoria:</label>
-                <input
-                name="cod_categoria"
-                placeholder=""
-                type="number"
-                class="form-control"
-                maxlength=""
-                id="recipient-cod_categoria">
-              </div>
+             
 
               <div class="form-group col-md-12">
                 <label for="recipient-descricao" class="col-form-label">Descrição:</label>
@@ -120,17 +104,22 @@
                 maxlength="10"
                 id="recipient-descricao">
               </div>
+
+            </div>
+          
+          </div>
+
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn btn-primary">
                 Cadastrar
               </button>
+
             </div>
+            
           </div>
         </form>
-      </div>
-    </div>
-  </div>
+   
 <?php
     // Rodape
     include_once('_rodape.php');

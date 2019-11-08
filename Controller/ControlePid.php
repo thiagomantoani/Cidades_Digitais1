@@ -22,13 +22,13 @@ $pid = $classPidDAO->cadastrar($novoPid);
 //var_dump($pid);
 //die();
 
-if($pid == TRUE){
+if(!empty($pid)){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">
             Cadastro realizado com sucesso!
         </div>
     ';
-    header('Location:../View/Pid.php');
+    header('Location:../View/Ponto.php?cod_pid='.$pid[0]['cod_pid'].'&cod_ibge='.$pid[0]['cod_ibge']);
 } else {
     $_SESSION['msg'] = '
         <div class="alert alert-danger" role="alert">
