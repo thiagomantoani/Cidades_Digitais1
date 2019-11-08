@@ -25,7 +25,7 @@ class ClassCdDAO {
     public function listarCd(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT CONCAT(municipio.uf, '-',municipio.nome_municipio,' : ',cd.cod_ibge) AS cod_ibge,cd.cod_lote,cd.os_pe,cd.data_pe,cd.os_imp,cd.data_imp 
+            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',cd.cod_ibge) AS cod_ibge,cd.cod_lote,cd.os_pe,cd.data_pe,cd.os_imp,cd.data_imp 
             FROM cd 
             INNER JOIN municipio ON cd.cod_ibge = municipio.cod_ibge
             ORDER BY cod_ibge ASC";

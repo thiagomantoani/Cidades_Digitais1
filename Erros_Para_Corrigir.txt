@@ -29,4 +29,6 @@ ERROS A SEREM CORRIGIDOS DAS TABELAS QUE JÁ ESTÃO PRONTAS:
 
 - Reajustes: Editar.
 
-- cd Itens: Editar, apenas.
+- cd Itens: Editar, apenas.Utf-8 em cd_itens
+ 
+- PID: Toda vez que insere registro em pid e encaminha para Ponto, se der erro na inserção de ponto, mesmo assim Pid é inserido. - Corrigir

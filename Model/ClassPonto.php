@@ -73,9 +73,10 @@ class ClassPonto {
         $this->cep = $cep;
     }
     function setLatitude($latitude) {
-        $this->latitude = $latitude;
+        $this->latitude = str_replace(',','.',$latitude);
     }
     function setLongitude($longitude) {
-        $this->longitude = $longitude;
+        $this->longitude = str_replace(',','.',$longitude);
     }
+    
 }

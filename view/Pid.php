@@ -47,8 +47,9 @@
               <table class="table">
                 <thead>
                   <tr>
+                    
                     <th scope="col">Cód. PID</th>
-				            <th scope="col">Cód. IBGE</th>
+				            <th scope="col">Município</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Inep</th>
                     <th scope="col">Ações</th>
@@ -61,7 +62,6 @@
                   foreach ($array_dados as $key => $value) {
                       ?>
                       <tr>
-
                         <td><?php echo $value['cod_pid'] ?></td>						
                         <td><?php echo $value['cod_ibge'] ?></td>
                         <td><?php echo $value['nome'] ?></td>

@@ -60,24 +60,13 @@
               </div>
 
               <div class="form-group col-md-12">
-                <label for="recipient-nome" class="col-form-label">Nome:</label>
-                <input 
-                  name="nome"
-                  placeholder=""
-                  type="text" 
-                  class="form-control"
-                  maxlength="100" 
-                  id="recipient-nome">
-              </div>
-
-              <div class="form-group col-md-12">
                 <label for="recipient-endereco" class="col-form-label">Endereco:</label>
                 <input 
                   name="endereco"
                   placeholder=""
                   type="text" 
                   class="form-control"
-                  maxlength="100" 
+                  maxlength="255" 
                   id="recipient-endereco">
               </div>
 
@@ -88,7 +77,7 @@
                   placeholder=""
                   type="text" 
                   class="form-control"
-                  maxlength="10" 
+                  maxlength="45" 
                   id="recipient-numero">
               </div>
 
@@ -99,7 +88,7 @@
                   placeholder=""
                   type="text" 
                   class="form-control"
-                  maxlength="250" 
+                  maxlength="1000" 
                   id="recipient-complemento">
               </div>
 
@@ -110,7 +99,7 @@
                   placeholder=""
                   type="text" 
                   class="form-control"
-                  maxlength="45" 
+                  maxlength="100" 
                   id="recipient-bairro">
               </div>
 
@@ -126,26 +115,26 @@
               </div>
 
               <div class="form-group col-md-12">
-                <label for="recipient-latitude" class="col-form-label">Latitude:</label>
-                <input 
-                  name="latitude"
-                  placeholder=""
-                  type="text" 
-                  class="form-control"
-                  maxlength="45" 
-                  id="recipient-latitude">
-              </div>
-              
-              <div class="form-group col-md-12">
-                <label for="recipient-longitude" class="col-form-label">Longitude:</label>
-                <input 
-                  name="longitude"
-                  placeholder=""
-                  type="text" 
-                  class="form-control"
-                  maxlength="45" 
-                  id="recipient-longitude">
-              </div>
+                    <label for="recipient-latitude" class="col-form-label">Latitude:</label>
+                    <input 
+                      name="latitude"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="10" 
+                      id="recipient-latitude">
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-longitude" class="col-form-label">Longitude:</label>
+                    <input 
+                      name="longitude"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="10" 
+                      id="recipient-longitude">
+                  </div>
 
             </div>
         </div>

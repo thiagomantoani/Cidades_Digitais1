@@ -18,7 +18,6 @@
     "Telefone" => '<i class="fas fa-phone-square-alt"></i>',
     "Entidade" => '<i class="fas fa-boxes"></i>',
     "Reajuste" => '<i class="fas fa-sliders-h"></i>',
-    "Ponto"=> '<i class="fas fa-sliders-h"></i>',
     "Pid"=> '<i class="fas fa-sliders-h"></i>',
     "CdItens"=> '<i class="fas fa-sliders-h"></i>'
 
