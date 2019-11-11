@@ -55,7 +55,8 @@ class ClassPontoDAO {
     public function listarPonto(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_ponto, cod_categoria, cod_ibge, cod_pid, endereco, numero, complemento, bairro, cep, latitude, longitude FROM ponto ORDER BY cod_ponto ASC";
+            $sql = "SELECT cod_ponto, cod_categoria, cod_ibge, cod_pid, endereco, numero, complemento, bairro, cep, latitude, longitude
+            FROM ponto ORDER BY cod_ponto ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); 

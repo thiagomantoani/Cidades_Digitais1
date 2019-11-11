@@ -14,6 +14,7 @@ class ClassPid {
     function getInep() {
         return $this->inep;
     }
+
    
     
 	function setCod_pid($cod_pid) {
@@ -22,12 +23,10 @@ class ClassPid {
     function setCod_ibge($cod_ibge) {
         $this->cod_ibge = $cod_ibge;
     }
-    
     function setNome($nome) {
         $this->nome = $nome;
     }
     function setInep($inep) {
         $this->inep = $inep;
     }
-    
 }
