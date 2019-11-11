@@ -41,12 +41,16 @@ class ClassPidDAO {
             pid.inep,
             ponto.cod_categoria,
             ponto.cod_ibge
+         
+        
             
             FROM pid
+    
             INNER JOIN municipio ON pid.cod_ibge = municipio.cod_ibge
             INNER JOIN ponto ON pid.cod_pid = ponto.cod_pid
             INNER JOIN categoria ON ponto.cod_categoria = categoria.cod_categoria
-            ORDER BY cod_ibge, ponto.cod_ponto ASC";
+            ORDER BY cod_ibge, ponto.cod_categoria ,ponto.cod_ponto ASC";
+
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); 
@@ -79,22 +83,14 @@ class ClassPidDAO {
         try {
             $pdo = Conexao::getInstance();
 
-            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',pid.cod_ibge) AS cod_ibge,
+            $sql = "SELECT ponto.*, pid.*, categoria.*, municipio.nome_municipio
 
-            pid.nome,
-            categoria.descricao,
-            ponto.endereco,
-            pid.cod_pid,
-            ponto.cod_ponto,
-            pid.inep,
-            ponto.cod_categoria,
-            ponto.cod_ibge
-            
             FROM pid
+            
             INNER JOIN municipio ON pid.cod_ibge = municipio.cod_ibge
             INNER JOIN ponto ON pid.cod_pid = ponto.cod_pid
             INNER JOIN categoria ON ponto.cod_categoria = categoria.cod_categoria
-            ORDER BY cod_ibge, ponto.cod_ponto ASC";
+            WHERE pid.cod_pid = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $visualizarPid->getCod_pid());
             $stmt->execute();
