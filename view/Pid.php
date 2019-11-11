@@ -20,8 +20,8 @@
               <i class="fas fa-list-ol"></i>
             </span>
             <span>
-              <h3 class="mb-0">Pid</h3>
-              <small>Descrição</small>
+              <h3 class="mb-0">PONTO - PID</h3>
+              
             </span>
           </div>
           <div class="col-md-6 text-right">
@@ -30,7 +30,7 @@
               Cadastrar
             </button>
           </div>
-        </div>
+        </div> . 
 
         <div class="container">
 
@@ -47,11 +47,14 @@
               <table class="table">
                 <thead>
                   <tr>
-                    
-                    <th scope="col">Cód. PID</th>
-				            <th scope="col">Município</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">Desc. Categoria</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Cód. PID</th>
+                    <th scope="col">Cód. Ponto</th>
                     <th scope="col">Inep</th>
+                    <th scope="col">Cód. Categoria</th>
+                    <th scope="col">Município</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
@@ -62,10 +65,15 @@
                   foreach ($array_dados as $key => $value) {
                       ?>
                       <tr>
-                        <td><?php echo $value['cod_pid'] ?></td>						
-                        <td><?php echo $value['cod_ibge'] ?></td>
                         <td><?php echo $value['nome'] ?></td>
+                        <td><?php echo $value['descricao'] ?></td>
+                        <td><?php echo $value['endereco'] ?></td>
+                        <td><?php echo $value['cod_pid'] ?></td>
+                        <td><?php echo $value['cod_ponto'] ?></td>
                         <td><?php echo $value['inep'] ?></td>
+                        <td><?php echo $value['cod_categoria'] ?></td>						
+                        <td><?php echo $value['cod_ibge'] ?></td>
+                        
                         <td> 
                           <span class="d-flex">
                           <a href="<?php echo URL ?>View/PidEditar.php?cod_pid=<?php echo $value['cod_pid'] ?>" 
@@ -103,6 +111,7 @@
 
           <!-- FORMULARIO -->
           <form action="../Controller/ControlePid.php" method="post">
+
 
             <div class="modal-body">
 
