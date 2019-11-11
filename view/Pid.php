@@ -62,7 +62,7 @@
                       <tr>
                         <td><?php echo $value['cod_ponto'] ?></td>
                         <td><?php echo $value['nome'] ?></td>
-                        <td><?php echo $value['cod_ibge'] ?></td>
+                        <td><?php echo $value['codigo_ibge'] ?></td>
                         <td><?php echo $value['endereco'] ?></td>
                         <td><?php echo $value['descricao'] ?></td>					
                         <td>
@@ -74,8 +74,8 @@
                           <a href="<?php echo URL ?>View/PidEditar.php?cod_pid=<?php echo $value['cod_pid'] ?>" 
                                 class="btn btn-warning mr-1">
                                 Editar
-                              </a> 
-                            <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarPid.php?cod_pid=<?php echo $value['cod_pid'] ?>')" class="btn btn-danger">Excluir</button> 
+                            </a> 
+                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarPid.php?cod_pid=<?php echo $value['cod_pid'] ?>')" class="btn btn-danger">Excluir</button> 
                              
                           </span>
                         </td>
@@ -111,7 +111,7 @@
             <div class="modal-body">
 
                <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
+                    <label for="recipient-cod_ibge" class="col-form-label">Cód. IBGE:</label>
                     <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
                       <option value="">Selecionar Município</option>
                       <?php 

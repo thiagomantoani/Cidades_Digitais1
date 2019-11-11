@@ -44,7 +44,7 @@
                       class="form-control"
                       id="recipient-cod_pid">
                   </div>
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-cod_ponto" class="col-form-label">Cód. Ponto:</label>
                     <input disabled
                       value="<?php echo $cod_ponto ?>"
@@ -53,7 +53,7 @@
                       id="recipient-cod_ponto">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-inep" class="col-form-label">INEP:</label>
                     <input disabled
                       value="<?php echo $inep ?>"
@@ -62,16 +62,16 @@
                       id="recipient-inep">
                   </div>
 
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Cód Ibge:</label>
+                  <div class="form-group col-md-4">
+                    <label for="recipient-cod_ibge" class="col-form-label">Município:</label>
                     <input disabled
-                      value="<?php echo $cod_ibge ?>"
+                      value="<?php echo $nome_municipio ?>"
                       type="text" 
                       class="form-control"
                       id="recipient-cod_ibge">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-nome" class="col-form-label">Nome PID:</label>
                     <input disabled
                       value="<?php echo $nome ?>"
@@ -80,7 +80,7 @@
                       id="recipient-nome">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-cod_categoria" class="col-form-label">Cód. Categoria:</label>
                     <input disabled
                       value="<?php echo $cod_categoria ?>"
@@ -89,7 +89,7 @@
                       id="recipient-cod_categoria">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-descricao" class="col-form-label">Descrição:</label>
                     <input disabled
                       value="<?php echo $descricao ?>"
@@ -99,7 +99,7 @@
                   </div>
 
                
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-endereco" class="col-form-label">Endereço:</label>
                     <input disabled
                       value="<?php echo $endereco ?>"
@@ -108,7 +108,7 @@
                       id="recipient-endereco">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-numero" class="col-form-label">Número:</label>
                     <input disabled
                       value="<?php echo $numero ?>"
@@ -117,7 +117,7 @@
                       id="recipient-numero">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-complemento" class="col-form-label">Complemento:</label>
                     <input disabled
                       value="<?php echo $complemento ?>"
@@ -126,7 +126,7 @@
                       id="recipient-complemento">
                   </div>
                   
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-bairro " class="col-form-label">Número:</label>
                     <input disabled
                       value="<?php echo $bairro ?>"
@@ -134,7 +134,7 @@
                       class="form-control"
                       id="recipient-bairro ">
                   </div>
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-cep" class="col-form-label">CEP:</label>
                     <input disabled
                       value="<?php echo $cep ?>"
@@ -143,7 +143,7 @@
                       id="recipient-cep">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-latitude" class="col-form-label">Latitude:</label>
                     <input disabled
                       value="<?php echo $latitude ?>"
@@ -151,7 +151,7 @@
                       class="form-control"
                       id="recipient-latitude">
                   </div>
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-longitude" class="col-form-label">Longitude:</label>
                     <input disabled
                       value="<?php echo $longitude ?>"
