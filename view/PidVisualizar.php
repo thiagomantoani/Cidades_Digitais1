@@ -44,6 +44,7 @@
                       class="form-control"
                       id="recipient-cod_pid">
                   </div>
+                  
                   <div class="form-group col-md-4">
                     <label for="recipient-cod_ponto" class="col-form-label">Cód. Ponto:</label>
                     <input disabled

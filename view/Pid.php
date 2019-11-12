@@ -73,8 +73,12 @@
                             </a> 
                           <a href="<?php echo URL ?>View/PidEditar.php?cod_pid=<?php echo $value['cod_pid'] ?>" 
                                 class="btn btn-warning mr-1">
-                                Editar
-                            </a> 
+                                Editar Pid
+                            </a>
+                          <a href="<?php echo URL ?>View/PontoEditar.php?cod_ponto=<?php echo $value['cod_ponto'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar Ponto
+                          </a> 
                           <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarPid.php?cod_pid=<?php echo $value['cod_pid'] ?>')" class="btn btn-danger">Excluir</button> 
                              
                           </span>

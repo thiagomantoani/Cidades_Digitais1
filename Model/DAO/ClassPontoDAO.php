@@ -30,20 +30,21 @@ class ClassPontoDAO {
     public function update(ClassPonto $editarPonto) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE ponto SET cod_categoria = ?, cod_ibge = ?, cod_pid = ?, endereco =? , numero = ?, complemento = ?, bairro = ?, cep = ?, latitude = ?, longitude = ? WHERE cod_ponto = ? ";
+            $sql = "UPDATE ponto SET endereco =? , numero = ?, complemento = ?, bairro = ?, cep = ?, latitude = ?, longitude = ?
+            WHERE cod_ponto = ? AND cod_categoria = ? AND cod_ibge = ? ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $editarPonto->getCod_categoria());
-            $stmt->bindValue(2, $editarPonto->getCod_ibge());
-            $stmt->bindValue(3, $editarPonto->getCod_pid());
-            $stmt->bindValue(4, $editarPonto->getEndereco());
-            $stmt->bindValue(5, $editarPonto->getNumero());
-            $stmt->bindValue(6, $editarPonto->getComplemento());
-            $stmt->bindValue(7, $editarPonto->getBairro());
-            $stmt->bindValue(8, $editarPonto->getCep());
-            $stmt->bindValue(9, $editarPonto->getLatitude());
-            $stmt->bindValue(10, $editarPonto->getLongitude());
+         
+            $stmt->bindValue(1, $editarPonto->getEndereco());
+            $stmt->bindValue(2, $editarPonto->getNumero());
+            $stmt->bindValue(3, $editarPonto->getComplemento());
+            $stmt->bindValue(4, $editarPonto->getBairro());
+            $stmt->bindValue(5, $editarPonto->getCep());
+            $stmt->bindValue(6, $editarPonto->getLatitude());
+            $stmt->bindValue(7, $editarPonto->getLongitude());
 
-            $stmt->bindValue(11, $editarPonto->getCod_ponto());
+            $stmt->bindValue(8, $editarPonto->getCod_ponto());
+            $stmt->bindValue(9, $editarPonto->getCod_categoria());
+            $stmt->bindValue(10, $editarPonto->getCod_ibge());
            
             $stmt->execute();
             return TRUE;
@@ -69,15 +70,19 @@ class ClassPontoDAO {
         try {
             $pdo = Conexao::getInstance();
 
-            $sql = "SELECT cod_ponto, cod_categoria, cod_ibge, cod_pid, endereco, numero, complemento, bairro, cep, latitude, longitude 
+            $sql = "SELECT categoria.descricao, municipio.nome_municipio, pid.nome, ponto.* 
             FROM ponto 
-            WHERE cod_ponto = ? 
-            LIMIT 1";
+            INNER JOIN categoria ON ponto.cod_categoria = categoria.cod_categoria
+            INNER JOIN municipio ON ponto.cod_ibge = municipio.cod_ibge
+            INNER JOIN pid ON ponto.cod_pid = pid.cod_pid
+
+            WHERE ponto.cod_ponto = ? AND ponto.cod_categoria = ? AND ponto.cod_ibge = ?";
 
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(1, $visualizarPonto->getCod_ponto());
-
+            $stmt->bindValue(2, $visualizarPonto->getCod_categoria());
+            $stmt->bindValue(3, $visualizarPonto->getCod_ibge());
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
         } catch (PDOException $ex) {
