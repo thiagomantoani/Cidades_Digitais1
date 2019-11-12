@@ -63,13 +63,14 @@ class ClassPidDAO {
     public function update(ClassPid $editarPid) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE pid SET cod_ibge = ?, nome = ?, inep = ? WHERE cod_pid = ? ";
+            $sql = "UPDATE pid SET  nome = ?, inep = ?
+            WHERE cod_pid = ? ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $editarPid->getCod_ibge());
-            $stmt->bindValue(2, $editarPid->getnome());
-            $stmt->bindValue(3, $editarPid->getInep());
+           
+            $stmt->bindValue(1, $editarPid->getNome());
+            $stmt->bindValue(2, $editarPid->getInep());
 
-            $stmt->bindValue(4, $editarPid->getCod_pid());
+            $stmt->bindValue(3, $editarPid->getCod_pid());
             $stmt->execute();
             return TRUE;
         } catch (PDOException $exc) {

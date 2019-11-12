@@ -3,6 +3,7 @@
       header('Location: ./Pid.php');
     }
     include_once("_cabecalho.php");
+  
     require_once("../Controller/ControleCategoriaSelect.php");
 
     ?>
@@ -24,20 +25,15 @@
                   maxlength="11" 
                   id="recipient-cod_ponto">
               </div>
-
               <div class="form-group col-md-12">
-                    <label for="recipient-cod_categoria" class="col-form-label">Cód. Categoria:</label>
-                    <select name="cod_categoria" class="form-control" required id="recipient-cod_categoria">
-                      <option value="">Selecionar Categoria</option>
-                      <?php 
-                        foreach($array_selectCategoria as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_categoria'] ?>"><?= $valor['descricao'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
-                  </div>
+                <label for="recipient-cod_categoria" class="col-form-label">Cód. Categoria:</label>
+                <input 
+                  name="cod_categoria"
+                  value="<?= $_GET['cod_categoria'] ?>"
+                  type="text"
+                  class="form-control disabled"
+                  id="recipient-cod_categoria">
+              </div>
 
               <div class="form-group col-md-12">
                 <label for="recipient-cod_ibge" class="col-form-label">Cod Ibge:</label>

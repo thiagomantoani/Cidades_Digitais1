@@ -36,7 +36,7 @@
   <?php
     // Laço de repetição para exibir menu
     foreach($arrayMenu as $menu => $icone) {
-      // verificar qual a página atual e selecinor menu como ativo
+      // verificar qual a página atual e selecionar menu como ativo
       if (strtoupper($menu) == strtoupper($paginaAtual)){
         $active = "active";
       } else {
