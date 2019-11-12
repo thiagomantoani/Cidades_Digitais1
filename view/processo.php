@@ -59,8 +59,11 @@
                           <td><?php echo $value['descricao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <button type="button" class="btn btn-warning mr-1">Editar</button> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarprocesso.php?cod_processo=<?php echo $value['cod_processo'] ?>')" class="btn btn-danger">Excluir</button> 
+                            <a href="<?php echo URL ?>View/processoEditar.php?cod_processo=<?php echo $value['cod_processo'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar
+                              </a> 
+                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarProcesso.php?cod_processo=<?php echo $value['cod_processo'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
                         </tr>

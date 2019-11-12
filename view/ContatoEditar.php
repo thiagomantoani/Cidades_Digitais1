@@ -4,6 +4,8 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleContatoVizualizar.php");
+    require_once("../Controller/ControleEntidadeSelect.php");
+    require_once("../Controller/ControleCdSelect.php");
     // $array_dados
     ?>
     
