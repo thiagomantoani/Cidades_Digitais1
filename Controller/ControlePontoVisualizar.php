@@ -11,8 +11,8 @@ $cod_ponto = @$_GET['cod_ponto'];
 $visualizarPonto = new ClassPonto();
 $visualizarPonto->setCod_ponto($cod_ponto);
 
-var_dump($visualizarPonto);
-die();
+//var_dump($visualizarPonto);
+//die();
 
 $ver = new ClassPontoDAO(); // instanciando um objeto
 $dados = $ver->visualizarPonto($visualizarPonto); // chamando metodo para listar todos os usuários do banco
