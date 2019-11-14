@@ -6,7 +6,7 @@ class ClassPontoDAO {
     public function cadastrar(ClassPonto $cadastrarPonto) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "INSERT INTO ponto (cod_ponto, cod_categoria, cod_ibge, cod_pid,endereco, numero, complemento, bairro, cep, latitude, longitude) values (?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO ponto (cod_ponto, cod_categoria, cod_ibge, cod_pid, endereco, numero, complemento, bairro, cep, latitude, longitude) values (?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $cadastrarPonto->getCod_ponto());
             $stmt->bindValue(2, $cadastrarPonto->getCod_categoria());
@@ -55,7 +55,8 @@ class ClassPontoDAO {
         try {
             $pdo = Conexao::getInstance();
             $sql = "SELECT cod_ponto, cod_categoria, cod_ibge, cod_pid, endereco, numero, complemento, bairro, cep, latitude, longitude
-            FROM ponto ORDER BY cod_ponto ASC";
+            FROM ponto
+            ORDER BY cod_ponto ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); 
@@ -64,17 +65,17 @@ class ClassPontoDAO {
         }
     }
 
+
     public function visualizarPonto(ClassPonto $visualizarPonto){
         try {
             $pdo = Conexao::getInstance();
 
-            $sql = "SELECT categoria.descricao, municipio.nome_municipio, pid.nome, ponto.* 
+            $sql = "SELECT ponto.* categoria.descricao ,municipio.nome_municipio, pid.nome 
             FROM ponto 
             INNER JOIN categoria ON ponto.cod_categoria = categoria.cod_categoria
             INNER JOIN municipio ON ponto.cod_ibge = municipio.cod_ibge
             INNER JOIN pid ON ponto.cod_pid = pid.cod_pid
-
-            WHERE ponto.cod_ponto = ? ";
+            WHERE ponto.cod_ponto =?";
 
             $stmt = $pdo->prepare($sql);
 
