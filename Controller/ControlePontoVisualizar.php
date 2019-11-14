@@ -27,5 +27,6 @@ if($dados) { // se existir algum Ponto no banco então passar o array de dados p
             Erro! Não foi possível visualizar o ponto.
         </div>
     ';
+    
     header('Location:../View/Ponto.php');
 }

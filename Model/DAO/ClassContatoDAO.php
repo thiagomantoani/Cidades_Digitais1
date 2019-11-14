@@ -86,7 +86,8 @@ class ClassContatoDAO {
     public function update(ClassContato $editarContato) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE contato SET cnpj = ?, cod_ibge = ?, nome = ?, email = ?, funcao = ? WHERE cod_contato = ? ";
+            $sql = "UPDATE contato SET cnpj = ?, cod_ibge = ?, nome = ?, email = ?, funcao = ?
+            WHERE cod_contato = ? ";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $editarContato->getCnpj());
             $stmt->bindValue(2, $editarContato->getCod_ibge());

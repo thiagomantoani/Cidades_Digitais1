@@ -30,10 +30,9 @@ class ClassPontoDAO {
     public function update(ClassPonto $editarPonto) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE ponto SET endereco =? , numero = ?, complemento = ?, bairro = ?, cep = ?, latitude = ?, longitude = ?
-            WHERE cod_ponto = ? AND cod_categoria = ? AND cod_ibge = ? ";
+            $sql = "UPDATE ponto SET  endereco =? , numero = ?, complemento = ?, bairro = ?, cep = ?, latitude = ?, longitude = ?
+            WHERE cod_ponto = ?";
             $stmt = $pdo->prepare($sql);
-         
             $stmt->bindValue(1, $editarPonto->getEndereco());
             $stmt->bindValue(2, $editarPonto->getNumero());
             $stmt->bindValue(3, $editarPonto->getComplemento());
@@ -43,8 +42,7 @@ class ClassPontoDAO {
             $stmt->bindValue(7, $editarPonto->getLongitude());
 
             $stmt->bindValue(8, $editarPonto->getCod_ponto());
-            $stmt->bindValue(9, $editarPonto->getCod_categoria());
-            $stmt->bindValue(10, $editarPonto->getCod_ibge());
+           
            
             $stmt->execute();
             return TRUE;
@@ -76,13 +74,11 @@ class ClassPontoDAO {
             INNER JOIN municipio ON ponto.cod_ibge = municipio.cod_ibge
             INNER JOIN pid ON ponto.cod_pid = pid.cod_pid
 
-            WHERE ponto.cod_ponto = ? AND ponto.cod_categoria = ? AND ponto.cod_ibge = ?";
+            WHERE ponto.cod_ponto = ? ";
 
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(1, $visualizarPonto->getCod_ponto());
-            $stmt->bindValue(2, $visualizarPonto->getCod_categoria());
-            $stmt->bindValue(3, $visualizarPonto->getCod_ibge());
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
         } catch (PDOException $ex) {
