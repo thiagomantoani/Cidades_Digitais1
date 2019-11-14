@@ -28,7 +28,8 @@ class ClassLoteDAO {
         try {
             $pdo = Conexao::getInstance();
             $sql = "SELECT lote.cod_lote, entidade.nome, lote.contrato, lote.dt_inicio_vig, lote.dt_final_vig, lote.dt_reajuste
-            FROM lote INNER JOIN entidade ON lote.cnpj = entidade.cnpj
+            FROM lote
+            INNER JOIN entidade ON lote.cnpj = entidade.cnpj
             ORDER BY lote.cod_lote ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();

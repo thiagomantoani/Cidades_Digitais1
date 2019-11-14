@@ -27,7 +27,15 @@ class ClassContatoDAO {
     public function listarContato(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_contato, cnpj, cod_ibge, nome, email, funcao FROM contato ORDER BY cod_contato ASC";
+            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',contato.cod_ibge) AS cod_ibge,
+            contato.cod_contato,
+            contato.cnpj,
+            contato.nome,
+            contato.email,
+            contato.funcao
+            FROM contato
+            INNER JOIN municipio ON contato.cod_ibge = municipio.cod_ibge
+            ORDER BY cod_contato ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
@@ -86,16 +94,14 @@ class ClassContatoDAO {
     public function update(ClassContato $editarContato) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE contato SET cnpj = ?, cod_ibge = ?, nome = ?, email = ?, funcao = ?
+            $sql = "UPDATE contato SET nome = ?, email = ?, funcao = ?
             WHERE cod_contato = ? ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $editarContato->getCnpj());
-            $stmt->bindValue(2, $editarContato->getCod_ibge());
-            $stmt->bindValue(3, $editarContato->getNome());
-            $stmt->bindValue(4, $editarContato->getEmail());
-            $stmt->bindValue(5, $editarContato->getFuncao());
+            $stmt->bindValue(1, $editarContato->getNome());
+            $stmt->bindValue(2, $editarContato->getEmail());
+            $stmt->bindValue(3, $editarContato->getFuncao());
 
-            $stmt->bindValue(6, $editarContato->getCod_contato());
+            $stmt->bindValue(4, $editarContato->getCod_contato());
            
             $stmt->execute();
             return TRUE;

@@ -44,10 +44,11 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Codigo Telefone</th>
-                      <th scope="col">Código Contato</th>
+                      <th scope="col">Cód. Telefone</th>
+                      <th scope="col">Contato</th>
                       <th scope="col">Telefone</th>
                       <th scope="col">Tipo</th>
+                      <th scope="col">Ações</th>
                     </tr>
                   </thead>
                   <tbody>

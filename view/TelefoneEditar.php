@@ -48,21 +48,16 @@
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_telefone" type="hidden" value="<?php echo $cod_telefone ?>"/>
-
+                 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_contato" class="col-form-label">Contato:</label>
-                    <select name="cod_contato" class="form-control" id="recipient-cod_contato">
-                    <option value="<?php echo $cod_contato ?>">Selecionar Contato</option>
-                        
-                      <?php 
-                        foreach($array_selectContato as $chave => $valor){
-                        ?>
-
-                         <option value="<?= $valor['cod_contato'] ?>"><?= $valor['nome'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
+                    <label for="recipient-nome" class="col-form-label">Contato:</label>
+                    <input disabled 
+                      value="<?php echo $nome ?>"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-nome">
                   </div>
 
                   <div class="form-group col-md-12">
