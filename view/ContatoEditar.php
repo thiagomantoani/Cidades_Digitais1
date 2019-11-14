@@ -48,35 +48,29 @@
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_contato" type="hidden" value="<?php echo $cod_contato ?>"/>
 
-                <div class="form-group col-md-12">
-                    <label for="recipient-cnpj" class="col-form-label">CNPJ</label>
-                        <select name="cnpj" class="form-control" id="recipient-cnpj">
-                            <option value="">Selecionar Entidade</option>
-                            <option value="0" selected >Em branco</option>
-                            <?php 
-                                foreach($array_selectEntidade as $chave => $valor){
-                                ?>
-                                <option value="<?= $valor['cnpj'] ?>"><?= $valor['nome'] ?></option>
-                                <?php 
-                                }
-                            ?>
-                        </select>
-                </div>
+                  <div class="form-group col-md-12">
+                    <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
+                    <input disabled 
+                      value="<?php echo $cnpj ?>"
+                      name="cnpj"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-cnpj">
+                  </div>
 
-                <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Selecionar Município</option>
-                      <option value="0" selected>Em branco</option>
-                      <?php 
-                        foreach($array_selectCd as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
-                </div>
+                  <div class="form-group col-md-12">
+                    <label for="recipient-cod_ibge" class="col-form-label">Municipio:</label>
+                    <input disabled 
+                      value="<?php echo $cod_ibge ?>"
+                      name="cod_ibge"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-cod_ibge">
+                  </div>
 
                 <div class="form-group col-md-12">
                     <label for="recipient-nome" class="col-form-label">Nome:</label>

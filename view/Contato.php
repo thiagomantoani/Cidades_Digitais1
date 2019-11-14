@@ -47,12 +47,13 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Codigo Contato</th>
+                      <th scope="col">Cód. Contato</th>
                       <th scope="col">CNPJ </th>
-                      <th scope="col">Código IBGE </th>
+                      <th scope="col">Cód. IBGE </th>
                       <th scope="col">Nome </th>
                       <th scope="col">Email </th>
                       <th scope="col">Função </th>
+                      <th scope="col">Ações </th>
                     </tr>
                   </thead>
                   <tbody>

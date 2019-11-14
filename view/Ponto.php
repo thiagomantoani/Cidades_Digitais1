@@ -25,6 +25,7 @@
                   maxlength="11" 
                   id="recipient-cod_ponto">
               </div>
+
               <div class="form-group col-md-12">
                 <label for="recipient-cod_categoria" class="col-form-label">Cód. Categoria:</label>
                 <input 
@@ -36,7 +37,7 @@
               </div>
 
               <div class="form-group col-md-12">
-                <label for="recipient-cod_ibge" class="col-form-label">Cod Ibge:</label>
+                <label for="recipient-cod_ibge" class="col-form-label">Cód. Ibge:</label>
                 <input 
                   name="cod_ibge"
                   value="<?= $_GET['cod_ibge'] ?>"

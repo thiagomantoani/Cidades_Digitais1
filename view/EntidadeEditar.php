@@ -149,9 +149,9 @@
                       value="<?php echo $observacao ?>"
                       name="observacao"
                       placeholder=""
-                      type="number" 
+                      type="text" 
                       class="form-control"
-                      maxlength=""
+                      maxlength="1000"
                       id="recipient-observacao">
                   </div>
 
