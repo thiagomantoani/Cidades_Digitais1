@@ -3,7 +3,7 @@
       header('Location: ./Pid.php');
     }
     include_once("_cabecalho.php");
-  
+ //   require_once("../Controller/ControleListarPonto.php");
     require_once("../Controller/ControleCategoriaSelect.php");
 
     ?>
@@ -22,37 +22,41 @@
                   placeholder=""
                   type="number" 
                   class="form-control"
-                  maxlength="11" 
+                  maxlength="" 
                   id="recipient-cod_ponto">
               </div>
 
               <div class="form-group col-md-12">
-                <label for="recipient-cod_categoria" class="col-form-label">Cód. Categoria:</label>
-                <input 
-                  name="cod_categoria"
-                  value="<?= $_GET['cod_categoria'] ?>"
-                  type="text"
-                  class="form-control disabled"
-                  id="recipient-cod_categoria">
-              </div>
+                    <label for="recipient-cod_categoria" class="col-form-label">Categoria:</label>
+                    <select name="cod_categoria" class="form-control" id="recipient-cod_categoria">
+                      <option value="">Selecionar Categoria</option>
+                      <?php 
+                        foreach($array_selectCategoria as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cod_categoria'] ?>"><?= $valor['descricao'] ?></option>
+                        <?php 
+                        }
+                      ?>
+                    </select>
+                  </div>
 
               <div class="form-group col-md-12">
                 <label for="recipient-cod_ibge" class="col-form-label">Cód. Ibge:</label>
                 <input 
-                  name="cod_ibge"
+                    name="cod_ibge"
                   value="<?= $_GET['cod_ibge'] ?>"
                   type="text"
-                  class="form-control disabled"
+                  class="form-control "
                   id="recipient-cod_ibge">
               </div>
 
               <div class="form-group col-md-12">
                 <label for="recipient-cod_pid" class="col-form-label">Cód. PID:</label>
                 <input 
-                  name="cod_pid"
+                name="cod_pid"
                   value="<?= $_GET['cod_pid'] ?>"
                   type="text" 
-                  class="form-control disabled"
+                  class="form-control "
                   id="recipient-cod_pid">
               </div>
 
@@ -116,9 +120,9 @@
                     <input 
                       name="latitude"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      maxlength="10" 
+                      maxlength="11" 
                       id="recipient-latitude">
                   </div>
 
@@ -127,9 +131,9 @@
                     <input 
                       name="longitude"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      maxlength="10" 
+                      maxlength="11" 
                       id="recipient-longitude">
                   </div>
 

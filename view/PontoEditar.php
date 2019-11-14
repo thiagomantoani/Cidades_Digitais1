@@ -60,6 +60,7 @@
                       id="recipient-cod_ibge">
                   </div>
                   <div class="form-group col-md-12">
+                  
                     <label for="recipient-cod_categoria" class="col-form-label">Cód Categoria:</label>
                     <input disabled 
                       value="<?php echo $cod_categoria ?>"
@@ -81,17 +82,6 @@
                       id="recipient-cod_pid">
                   </div>
                   
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Municipio:</label>
-                    <input disabled 
-                      value="<?php echo $nome_municipio ?>"
-                      name="cod_ibge"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="255" 
-                      id="recipient-cod_ibge">
-                  </div>
 
                   <div class="form-group col-md-12">
                     <label for="recipient-endereco" class="col-form-label">Endereco:</label>
@@ -105,18 +95,18 @@
                       id="recipient-endereco">
                   </div>
 
+               
                   <div class="form-group col-md-12">
-                    <label for="recipient-numero" class="col-form-label">Número:</label>
+                    <label for="recipient-numero" class="col-form-label">numero:</label>
                     <input 
                       value="<?php echo $numero ?>"
                       name="numero"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="255" 
+                      maxlength="45"
                       id="recipient-numero">
                   </div>
-
                   <div class="form-group col-md-12">
                     <label for="recipient-complemento" class="col-form-label">Complemento:</label>
                     <input 

@@ -62,7 +62,7 @@
                       <tr>
                         <td><?php echo $value['cod_ponto'] ?></td>
                         <td><?php echo $value['nome'] ?></td>
-                        <td><?php echo $value['codigo_ibge'] ?></td>
+                        <td><?php echo $value['nomes'] ?></td>
                         <td><?php echo $value['endereco'] ?></td>
                         <td><?php echo $value['descricao'] ?></td>					
                         <td>
