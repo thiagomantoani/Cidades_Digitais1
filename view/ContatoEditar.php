@@ -52,7 +52,6 @@
                     <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
                     <input disabled 
                       value="<?php echo $cnpj ?>"
-                      name="cnpj"
                       placeholder=""
                       type="text" 
                       class="form-control"
@@ -64,7 +63,6 @@
                     <label for="recipient-cod_ibge" class="col-form-label">Municipio:</label>
                     <input disabled 
                       value="<?php echo $cod_ibge ?>"
-                      name="cod_ibge"
                       placeholder=""
                       type="text" 
                       class="form-control"
@@ -72,38 +70,41 @@
                       id="recipient-cod_ibge">
                   </div>
 
-                <div class="form-group col-md-12">
+                  <div class="form-group col-md-12">
                     <label for="recipient-nome" class="col-form-label">Nome:</label>
                     <input 
+                      value="<?php echo $nome ?>"
                       name="nome"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      ]maxlength="50"
+                      maxlength="50" 
                       id="recipient-nome">
-                </div>
+                  </div>
 
-                <div class="form-group col-md-12">
+                  <div class="form-group col-md-12">
                     <label for="recipient-email" class="col-form-label">Email:</label>
                     <input 
+                      value="<?php echo $email ?>"
                       name="email"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      ]maxlength="100"
+                      maxlength="100" 
                       id="recipient-email">
-                </div>
-
-                <div class="form-group col-md-12">
+                  </div>
+                  <div class="form-group col-md-12">
                     <label for="recipient-funcao" class="col-form-label">Função:</label>
                     <input 
+                      value="<?php echo $funcao ?>"
                       name="funcao"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      ]maxlength="45"
+                      maxlength="45" 
                       id="recipient-funcao">
-                </div>
+                  </div>
+                  
 
                 </div>
 

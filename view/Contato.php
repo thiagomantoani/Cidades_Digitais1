@@ -49,7 +49,7 @@
                     <tr>
                       <th scope="col">Cód. Contato</th>
                       <th scope="col">CNPJ </th>
-                      <th scope="col">Cód. IBGE </th>
+                      <th scope="col">Município </th>
                       <th scope="col">Nome </th>
                       <th scope="col">Email </th>
                       <th scope="col">Função </th>
@@ -58,14 +58,14 @@
                   </thead>
                   <tbody>
                   <?php
-                  //var_dump($array_dados);
+                 //var_dump($array_dados);
                   //die();
                     foreach($array_dados as $key => $value) {
                         ?>
                         <tr>
                           <td><?php echo $value['cod_contato'] ?></td>
                           <td><?php echo $value['cnpj'] ?></td>
-                          <td><?php echo $value['cod_ibge'] ?></td>
+                          <td><?php echo $value['cod_ibge']?></td>
                           <td><?php echo $value['nome'] ?></td>
                           <td><?php echo $value['email'] ?></td>
                           <td><?php echo $value['funcao'] ?></td>

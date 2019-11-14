@@ -43,9 +43,10 @@ class ClassTelefoneDAO {
         try {
             $pdo = Conexao::getInstance();
 
-            $sql = "SELECT cod_telefone, cod_contato, telefone, tipo 
+            $sql = "SELECT telefone.cod_telefone, contato.nome, telefone.telefone, telefone.tipo 
             FROM telefone
-            WHERE cod_telefone = ?";
+            INNER JOIN contato ON telefone.cod_contato = contato.cod_contato
+            WHERE telefone.cod_telefone = ?";
 
             $stmt = $pdo->prepare($sql);
 
