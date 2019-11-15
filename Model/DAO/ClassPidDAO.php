@@ -31,7 +31,7 @@ class ClassPidDAO {
     public function listarPid(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',pid.cod_ibge) AS nomes,
+            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',pid.cod_ibge) AS codigo_ibge,
             pid.nome,
             categoria.descricao,
             ponto.endereco,

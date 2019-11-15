@@ -13,13 +13,8 @@
     "Modulo" =>'<i class="fas fa-window-maximize"></i>',
     "Municipios" => '<i class="fas fa-globe-asia"></i>',
     "Pid"=> '<i class="fas fa-sliders-h"></i>',
-    "Prefeitos" => '<i class="fas fa-user-tie"></i>',
-    "Processo" =>'<i class="fas fa-chalkboard-teacher"></i>',
-    "Reajuste" => '<i class="fas fa-sliders-h"></i>',
-    "Telefone" => '<i class="fas fa-phone-square-alt"></i>',
-    "Tipologia" => '<i class="fab fa-elementor"></i>',
-    "Uacom" => '<i class="fas fa-phone-volume"></i>',
-    "Usuario" =>'<i class="fas fa-user"></i>'
+    "CdItens"=> '<i class="fas fa-sliders-h"></i>'
+
   ];
 
   //echo $_SERVER['REQUEST_URI'];
