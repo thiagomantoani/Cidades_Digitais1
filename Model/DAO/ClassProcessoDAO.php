@@ -22,14 +22,13 @@ class ClassProcessoDAO {
     public function update(ClassProcesso $editarProcesso) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE processo SET cod_ibge = ?, descricao = ? WHERE cod_processo = ?";
+            $sql = "UPDATE processo SET  descricao = ? WHERE cod_processo = ? AND cod_ibge = ?";
             $stmt = $pdo->prepare($sql);
 
-            $stmt->bindValue(1, $editarProcesso->getCod_ibge());
-            $stmt->bindValue(2, $editarProcesso->getDescricao());
+            $stmt->bindValue(1, $editarProcesso->getDescricao());
 
-            $stmt->bindValue(3, $editarProcesso->getCod_processo());
-          
+            $stmt->bindValue(2, $editarProcesso->getCod_processo());
+            $stmt->bindValue(3, $editarProcesso->getCod_ibge());
            
             $stmt->execute();
             return TRUE;
@@ -41,7 +40,7 @@ class ClassProcessoDAO {
     public function listarProcesso(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',processo.cod_ibge) AS cod_ibge, cod_processo, descricao
+            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',processo.cod_ibge) AS cod_ibge_dados, municipio.cod_ibge, cod_processo, descricao
             FROM processo
             INNER JOIN municipio ON processo.cod_ibge = municipio.cod_ibge
             ORDER BY cod_processo ASC";
@@ -57,9 +56,10 @@ class ClassProcessoDAO {
     public function apagarProcesso(ClassProcesso $apagarProcesso) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "DELETE FROM processo WHERE cod_processo = ?";
+            $sql = "DELETE FROM processo WHERE cod_processo = ? AND cod_ibge = ? ";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $apagarProcesso->getCod_processo());
+            $stmt->bindValue(2, $apagarProcesso->getCod_ibge());
            
             $stmt->execute();
             return TRUE;
@@ -74,12 +74,13 @@ class ClassProcessoDAO {
 
             $sql = "SELECT cod_processo, cod_ibge, descricao 
             FROM processo 
-            WHERE cod_processo = ? 
+            WHERE cod_processo = ? AND cod_ibge = ? 
             LIMIT 1";
 
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(1, $visualizarProcesso->getCod_processo());
+            $stmt->bindValue(2, $visualizarProcesso->getCod_ibge());
 
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 

@@ -2,6 +2,7 @@
 session_start();
 
 $cod_processo = @$_GET["cod_processo"]; // id unico da tabela, chave primaria
+$cod_ibge = @$_GET["cod_ibge"];
 
 if (empty($cod_processo)) {
 	header('Location:../View/Processo.php');
@@ -9,9 +10,13 @@ if (empty($cod_processo)) {
 
 require_once '../Model/ClassProcesso.php';
 require_once '../Model/DAO/ClassProcessoDAO.php';
+
 $apagarProcesso = new ClassProcessoDAO(); // instanciando um objeto
 $processo = new ClassProcesso();
+
 $processo->setCod_processo($cod_processo);
+$processo->setCod_ibge($cod_ibge);
+
 
 $resultado = $apagarProcesso->apagarProcesso($processo); // chamando metodo para listar todos os usuários do banco
 

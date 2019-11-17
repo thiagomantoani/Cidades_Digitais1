@@ -73,7 +73,7 @@
                           <span class="d-flex">
                           <a href="<?php echo URL ?>View/LoteEditar.php?cod_lote=<?php echo $value['cod_lote'] ?>" class="btn btn-warning mr-1"> Editar
                           </a>
-                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarLote.php?cod_lote=<?php echo $value['cod_lote'] ?>')" class="btn btn-danger">Excluir</button> 
+                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarLote.php?cod_lote=<?php echo $value['cod_lote'] ?>&cnpj=<?php echo $value['cnpj'] ?>')" class="btn btn-danger">Excluir</button> 
                           </span>
                         </td>
 

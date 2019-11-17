@@ -13,7 +13,13 @@
     "Modulo" =>'<i class="fas fa-window-maximize"></i>',
     "Municipios" => '<i class="fas fa-globe-asia"></i>',
     "Pid"=> '<i class="fas fa-sliders-h"></i>',
-    "CdItens"=> '<i class="fas fa-sliders-h"></i>'
+    "Prefeitos"=> '<i class="fas fa-sliders-h"></i>',
+    "Processo"=> '<i class="fas fa-sliders-h"></i>',
+    "Reajuste"=> '<i class="fas fa-sliders-h"></i>',
+    "Telefone"=> '<i class="fas fa-sliders-h"></i>',
+    "Tipologia"=> '<i class="fas fa-sliders-h"></i>',
+    "Uacom"=> '<i class="fas fa-sliders-h"></i>',
+    "Usuario"=> '<i class="fas fa-sliders-h"></i>'
 
   ];
 

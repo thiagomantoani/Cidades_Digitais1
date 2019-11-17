@@ -27,7 +27,7 @@ class ClassLoteDAO {
     public function listarLote(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT lote.cod_lote, entidade.nome, lote.contrato, lote.dt_inicio_vig, lote.dt_final_vig, lote.dt_reajuste
+            $sql = "SELECT lote.cod_lote, entidade.nome, lote.cnpj, lote.contrato, lote.dt_inicio_vig, lote.dt_final_vig, lote.dt_reajuste
             FROM lote
             INNER JOIN entidade ON lote.cnpj = entidade.cnpj
             ORDER BY lote.cod_lote ASC";
@@ -43,12 +43,17 @@ class ClassLoteDAO {
     public function apagarLote(ClassLote $apagarLote) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "DELETE FROM lote WHERE cod_lote = ?";
+            $sql = "DELETE FROM lote WHERE cod_lote = ? AND cnpj = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $apagarLote->getCod_lote());
+            $stmt->bindValue(2, $apagarLote->getCnpj());
+
            
-            $stmt->execute();
+            $resultados = $stmt->execute();
+           // var_dump($apagarLote);
+            //die();
             return TRUE;
+
         } catch (PDOException $exc) {
             echo $exc->getMessage();
         }
@@ -78,6 +83,7 @@ class ClassLoteDAO {
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(1, $visualizarLote->getCod_lote());
+            
 
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
@@ -89,17 +95,17 @@ class ClassLoteDAO {
     public function update(ClassLote $editarLote) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE lote SET cnpj = ?, contrato = ?, dt_inicio_vig = ?, dt_final_vig = ?, dt_reajuste = ?
-            WHERE cod_lote = ? ";
+            $sql = "UPDATE lote SET contrato = ?, dt_inicio_vig = ?, dt_final_vig = ?, dt_reajuste = ?
+            WHERE cod_lote = ? AND cnpj = ? ";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $editarLote->getCnpj());
-            $stmt->bindValue(2, $editarLote->getContrato());
-            $stmt->bindValue(3, $editarLote->getDt_inicio_vig());
-            $stmt->bindValue(4, $editarLote->getDt_final_vig());
-            $stmt->bindValue(5, $editarLote->getDt_reajuste());
+            $stmt->bindValue(1, $editarLote->getContrato());
+            $stmt->bindValue(2, $editarLote->getDt_inicio_vig());
+            $stmt->bindValue(3, $editarLote->getDt_final_vig());
+            $stmt->bindValue(4, $editarLote->getDt_reajuste());
 
-            $stmt->bindValue(6, $editarLote->getCod_lote());
-           
+            $stmt->bindValue(5, $editarLote->getCod_lote());
+            $stmt->bindValue(6, $editarLote->getCnpj());
+
             $stmt->execute();
             return TRUE;
         } catch (PDOException $exc) {

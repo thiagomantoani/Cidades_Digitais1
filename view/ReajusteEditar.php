@@ -49,7 +49,27 @@
                   
                   <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
               
-                               
+                  <div class="form-group col-md-12">
+                    <label for="recipient-ano_ref" class="col-form-label">Ano:</label>
+                    <input disabled 
+                      value="<?php echo $ano_ref ?>"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-ano_ref">
+                  </div>              
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-cod_lote" class="col-form-label">Cód. Lote:</label>
+                    <input disabled 
+                      value="<?php echo $cod_lote ?>"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-cod_lote">
+                  </div> 
 
                   <div class="form-group col-md-12">
                     <label for="recipient-percentual" class="col-form-label"> Percentual:</label>

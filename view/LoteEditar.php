@@ -47,20 +47,16 @@
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
+                  <input name="cnpj" type="hidden" value="<?php echo $cnpj ?>"/>
 
-                <div class="form-group col-md-12">
-                <label for="recipient-cnpj" class="col-form-label">Cnpj:</label>
-                      <select name="cnpj" class="form-control" id="recipient-cnpj">
-                        <option value="">Selecionar Entidade</option>
-                        <?php 
-                          foreach($array_selectEntidade as $chave => $valor){
-                          ?>
-                          <option value="<?= $valor['cnpj'] ?>"><?= $valor['nome'] ?></option>
-                          <?php 
-                          }
-                        ?>
-                    </select>
-                </div>
+                  <div class="form-group col-md-4">
+                    <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
+                    <input disabled 
+                      value="<?php echo $cnpj ?>"
+                      type="text" 
+                      class="form-control"
+                      id="recipient-cnpj">
+                  </div>
 
                   <div class="form-group col-md-12">
                     <label for="recipient-contrato" class="col-form-label">Contrato:</label>

@@ -2,18 +2,24 @@
 session_start();
 
 $cod_lote = @$_GET["cod_lote"]; // id unico da tabela, chave primaria
+$cnpj = @$_GET["cnpj"];
 
 if (empty($cod_lote)) {
-	header('Location:../View/Lote.php');
+    header('Location:../View/Lote.php');
 }
 
 require_once '../Model/ClassLote.php';
 require_once '../Model/DAO/ClassLoteDAO.php';
+
 $apagarLote = new ClassLoteDAO(); // instanciando um objeto
 $lote = new ClassLote();
+
 $lote->setCod_lote($cod_lote);
+$lote->setCnpj($cnpj);
 
 $resultado = $apagarLote->apagarLote($lote); // chamando metodo para listar todos os usuários do banco
+var_dump($resultado);
+die;
 
 if($resultado) { // se existir algum municipio no banco então passar o array de dados para a variavel $array_dados
     $_SESSION['msg'] = '
