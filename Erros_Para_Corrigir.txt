@@ -19,16 +19,3 @@ ERROS A SEREM CORRIGIDOS DAS TABELAS QUE JÁ ESTÃO PRONTAS:
 - Lote: Excluir e Editar
 
 - Tipologia: Editar.
-
-- Contato:Editar
-
-- Telefone: Cadastrar, Excluir e Editar (vizualizar mostrar nome do contato) OK
-- Entidade: Editar - OK
-
-- Reajustes: Editar.
-
-- cd Itens: Editar, apenas.Utf-8 em cd_itens
- 
-- PID: Toda vez que insere registro em pid e encaminha para Ponto, se der erro na inserção de ponto, mesmo assim Pid é inserido. - Corrigir
-
-Processo: Chave dupla, corrigir erro de editar e excluir

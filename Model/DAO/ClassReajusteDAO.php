@@ -23,8 +23,7 @@ class ClassReajusteDAO {
         try {
             $pdo = Conexao::getInstance();
             $sql = "UPDATE reajuste SET  percentual = ? WHERE ano_ref = ? AND cod_lote = ? ";
-            $stmt = $pdo->prepare($sql);
-      //      
+            $stmt = $pdo->prepare($sql);    
             $stmt->bindValue(1, $editarReajuste->getPercentual());
 
             $stmt->bindValue(2, $editarReajuste->getAno_ref());
@@ -39,7 +38,9 @@ class ClassReajusteDAO {
     public function listarReajuste(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT ano_ref, cod_lote, percentual FROM reajuste ORDER BY ano_ref ASC";
+            $sql = "SELECT ano_ref, cod_lote, percentual
+            FROM reajuste
+            ORDER BY ano_ref ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 

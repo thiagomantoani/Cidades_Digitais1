@@ -5,7 +5,9 @@
  */
 
 class ClassLote {
-    private $cod_lote, $cnpj, $contrato, $dt_inicio_vig, $dt_final_vig, $dt_reajuste;
+    private $cod_lote, $cnpj;
+    private $contrato, $dt_inicio_vig;
+    private $dt_final_vig, $dt_reajuste;
                   
     function getCod_lote() {
         return $this->cod_lote;

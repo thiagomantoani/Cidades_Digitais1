@@ -46,21 +46,30 @@
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_processo" type="hidden" value="<?php echo $cod_processo ?>"/>
+                  <input name="cod_ibge" type="hidden" value="<?php echo $cod_ibge ?>"/>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Selecionar municipio</option>
-                      <?php 
-                        foreach($array_selectCd as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
+                    <label for="recipient-cod_processo" class="col-form-label">CÓD. Processo:</label>
+                    <input disabled 
+                      value="<?php echo $cod_processo ?>"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-cod_processo">
                   </div>
 
+                  <div class="form-group col-md-12">
+                    <label for="recipient-cod_ibge" class="col-form-label">Municipio:</label>
+                    <input disabled 
+                      value="<?php echo $cod_ibge ?>"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-cod_ibge">
+                  </div>
+                  
                   <div class="form-group col-md-12">
                     <label for="recipient-descricao" class="col-form-label">Descrição:</label>
                     <input 

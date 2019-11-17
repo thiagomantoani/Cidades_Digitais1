@@ -55,15 +55,16 @@
                         ?>
                         <tr>
                           <td><?php echo $value['cod_processo'] ?></td>
-                          <td><?php echo $value['cod_ibge'] ?></td>
+                          <td><?php echo $value['cod_ibge_dados'] ?></td>
                           <td><?php echo $value['descricao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                            <a href="<?php echo URL ?>View/processoEditar.php?cod_processo=<?php echo $value['cod_processo'] ?>" 
-                                class="btn btn-warning mr-1">
-                                Editar
-                              </a> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarProcesso.php?cod_processo=<?php echo $value['cod_processo'] ?>')" class="btn btn-danger">Excluir</button> 
+                            <a href="<?php echo URL ?>View/ProcessoEditar.php?cod_processo=<?php echo $value['cod_processo'] ?>&cod_ibge=<?php echo $value['cod_ibge'] ?>" class="btn btn-warning mr-1">
+                              Editar
+                            </a> 
+                            <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarProcesso.php?cod_processo=<?php echo $value['cod_processo'] ?>&cod_ibge=<?php echo $value['cod_ibge'] ?>')" class="btn btn-danger">
+                              Excluir
+                            </button>
                             </span>
                           </td>
                         </tr>
