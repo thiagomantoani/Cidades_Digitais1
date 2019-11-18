@@ -94,12 +94,18 @@ class ClassPontoDAO {
     public function apagarPonto(ClassPonto $apagarPonto) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "DELETE FROM ponto WHERE cod_ponto = ?";
+            $sql = "DELETE FROM ponto WHERE cod_ponto = ? AND cod_categoria = ? AND cod_ibge = ? AND cod_pid = ?" ;
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $apagarPonto->getCod_ponto());
-           
-            $stmt->execute();
-            return TRUE;
+            $stmt->bindValue(2, $apagarPonto->getCod_categoria());
+            $stmt->bindValue(3, $apagarPonto->getCod_ibge());
+            $stmt->bindValue(4, $apagarPonto->getCod_pid());
+            
+            $resultado = $stmt->execute();
+            var_dump($apagarPonto);
+            //die();
+            return $resultado;
+            
         } catch (PDOException $exc) {
             echo $exc->getMessage();
         }
