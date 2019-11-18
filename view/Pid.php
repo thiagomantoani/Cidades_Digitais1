@@ -47,7 +47,7 @@
               <table class="table">
                 <thead>
                   <tr>
-                     <th scope="col">Cód. Ponto</th>
+                    <th scope="col">Cód. Ponto</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Município</th>
                     <th scope="col">Endereço</th>
@@ -59,7 +59,7 @@
                   <?php
                     foreach ($array_dados as $key => $value) {
                      ?>
-                 m      <tr>
+                     <tr>
                         <td><?php echo $value['cod_ponto'] ?></td>
                         <td><?php echo $value['nome'] ?></td>
                         <td><?php echo $value['codigo_ibge'] ?></td>
@@ -79,7 +79,7 @@
                                 class="btn btn-warning mr-1">
                                 Editar Ponto
                           </a> 
-                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarPid.php?cod_pid=<?php echo $value['cod_pid'] ?>')" class="btn btn-danger">Excluir</button> 
+                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarPid.php?cod_pid=<?php echo $value['cod_pid'] ?>&cod_ponto=<?php echo $value['cod_ponto'] ?>&cod_categoria=<?php echo $value['cod_categoria'] ?>&cod_ibge=<?php echo $value['cod_ibge'] ?>&cod_pid=<?php echo $value['cod_pid'] ?>')" class="btn btn-danger">Excluir</button> 
                              
                           </span>
                         </td>

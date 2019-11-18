@@ -110,6 +110,9 @@ class ClassPidDAO {
             echo $exc->getMessage();
         }
     }
+
+    
+
     public function todosPid(){
         try {
             $pdo = Conexao::getInstance();
