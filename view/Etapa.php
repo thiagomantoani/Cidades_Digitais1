@@ -68,7 +68,10 @@
                         <td><?php echo $value['setor_resp'] ?></td>
                         <td> 
                         <span class="d-flex">
-                          <button type="button" class="btn btn-warning mr-1">Editar</button> 
+                        <a href="<?php echo URL ?>View/EtapaEditar.php?cod_etapa=<?php echo $value['cod_etapa'] ?>" 
+                          class="btn btn-warning mr-1">
+                          Editar
+                        </a>
                           <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarEtapa.php?cod_etapa=<?php echo $value['cod_etapa'] ?>')" class="btn btn-danger">Excluir</button> 
                           </span>
                         </td>

@@ -39,12 +39,12 @@ class ClassEtapaDAO {
     }
 
     // apagar registro pelo id
-    public function apagarEttapa(ClassEtapa $apagarEttapa) {
+    public function apagarEtapa(ClassEtapa $apagarEtapa) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "DELETE FROM etapa_cd WHERE cod_etapa = ?";
+            $sql = "DELETE FROM etapa WHERE cod_etapa = ?";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $apagarEttapa->getCod_etapa());
+            $stmt->bindValue(1, $apagarEtapa->getCod_etapa());
            
             $stmt->execute();
             return TRUE;
@@ -71,5 +71,25 @@ class ClassEtapaDAO {
             return $ex->getMessage();
         }
     }
+    public function visualizarEtapa(ClassEtapa $visualizarEtapa){
+        try {
+            $pdo = Conexao::getInstance();
+
+            $sql = "SELECT cod_etapa, descricao, duracao, depende, delay, setor_resp 
+            FROM etapa 
+            WHERE cod_etapa = ? 
+            LIMIT 1";
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $visualizarEtapa->getCod_etapa());
+
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
+
 
 }

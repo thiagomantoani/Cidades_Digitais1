@@ -13,9 +13,7 @@
 
         <div class="row mb-5">
           <div id="mainHeader" class="col-md-6 d-flex align-items-center">
-            <span id="mainHeaderIcon">
-            <i class="fas fa-globe-asia"></i>
-            </span>
+          
             <span>
               <h3 class="mb-0">Editar Prefeito</h3>
             </span>
@@ -46,19 +44,17 @@
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_prefeito" type="hidden" value="<?php echo $cod_prefeito ?>"/>
+                  <input name="cod_ibge" type="hidden" value="<?php echo $cod_ibge ?>"/>
 
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Selecionar municipio</option>
-                      <?php 
-                        foreach($array_selectMunicipios as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
+                  <div class="form-group col-md-4">
+                    <label for="recipient-cod_ibge" class="col-form-label">Cód IBGE:</label>
+                    <input disabled 
+                      value="<?php echo $cod_ibge ?>"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-cod_ibge">
                   </div>
 
                   <div class="form-group col-md-12">
@@ -161,19 +157,6 @@
 
             <div class="modal-body">
 
-            <div class="form-group col-md-12">
-                <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                  <option value="">Selecionar município</option>
-                  <?php 
-                    foreach($array_selectMunicipios as $chave => $valor){
-                    ?>
-                    <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
-                    <?php 
-                    }
-                  ?>
-                </select>
-            </div>
 
             <div class="form-group col-md-12">
               <label for="recipient-nome" class="col-form-label">Nome:</label>
