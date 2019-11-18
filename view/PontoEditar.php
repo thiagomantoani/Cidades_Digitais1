@@ -48,33 +48,37 @@
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_ponto" type="hidden" value="<?php echo $cod_ponto ?>"/>
-                
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Cód IBGE:</label>
+                  <input name="cod_ibge" type="hidden" value="<?php echo $cod_ibge ?>"/>
+                  <input name="cod_categoria" type="hidden" value="<?php echo $cod_categoria ?>"/>
+                  <input name="cod_pid" type="hidden" value="<?php echo $cod_pid ?>"/>
+                  
+                  <div class="form-group col-md-4">
+                    <label for="recipient-cod_ibge" class="col-form-label">Municipio:</label>
                     <input disabled 
-                      value="<?php echo $cod_ibge ?>"
+                      value="<?php echo $nome_municipio ?>"
                       placeholder=""
                       type="text" 
                       class="form-control"
                       maxlength="255" 
                       id="recipient-cod_ibge">
                   </div>
-                  <div class="form-group col-md-12">
-                  
-                    <label for="recipient-cod_categoria" class="col-form-label">Cód Categoria:</label>
+
+                 
+                  <div class="form-group col-md-4">
+                    <label for="recipient-descricao" class="col-form-label">Cód Categoria:</label>
                     <input disabled 
-                      value="<?php echo $cod_categoria ?>"
+                      value="<?php echo $descricao ?>"
                       placeholder=""
                       type="text" 
                       class="form-control"
                       maxlength="255" 
-                      id="recipient-cod_categoria">
+                      id="recipient-descricao">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-cod_pid" class="col-form-label">Cód Pid:</label>
                     <input disabled 
-                      value="<?php echo $cod_pid ?>"
+                      value="<?php echo $nome ?>"
                       placeholder=""
                       type="text" 
                       class="form-control"

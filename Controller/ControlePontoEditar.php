@@ -4,6 +4,9 @@ require_once '../Model/ClassPonto.php';
 require_once '../Model/DAO/ClassPontoDAO.php';
 
 $cod_ponto = @$_POST['cod_ponto'];
+$cod_ibge = @$_POST['cod_ibge'];
+$cod_categoria = @$_POST['cod_categoria'];
+$cod_pid = @$_POST['cod_pid'];
 $endereco = @$_POST['endereco'];
 $numero = @$_POST['numero'];
 $complemento = @$_POST['complemento'];
@@ -15,6 +18,9 @@ $longitude = @$_POST['longitude'];
 
 $novoPonto = new ClassPonto();
 $novoPonto->setCod_ponto($cod_ponto);
+$novoPonto->setCod_ibge($cod_ibge);
+$novoPonto->setCod_categoria($cod_categoria);
+$novoPonto->setCod_pid($cod_pid);
 $novoPonto->setEndereco($endereco);
 $novoPonto->setNumero($numero);
 $novoPonto->setComplemento($complemento);

@@ -36,8 +36,8 @@ $novoPonto->setLongitude($longitude);
 $classPontoDAO = new ClassPontoDAO();
 $ponto = $classPontoDAO->cadastrar($novoPonto);
 
-var_dump($ponto);
-die();
+//var_dump($ponto);
+//die();
 if($ponto == TRUE){
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">

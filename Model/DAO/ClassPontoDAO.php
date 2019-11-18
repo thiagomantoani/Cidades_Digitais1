@@ -30,8 +30,8 @@ class ClassPontoDAO {
     public function update(ClassPonto $editarPonto) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE ponto SET  endereco =? , numero = ?, complemento = ?, bairro = ?, cep = ?, latitude = ?, longitude = ?
-            WHERE cod_ponto = ?";
+            $sql = "UPDATE ponto SET  endereco = ?, numero = ?, complemento = ?, bairro = ?, cep = ?, latitude = ?, longitude = ?
+            WHERE cod_ponto = ? AND cod_ibge = ? AND cod_categoria = ? AND cod_pid = ? ";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $editarPonto->getEndereco());
             $stmt->bindValue(2, $editarPonto->getNumero());
@@ -42,7 +42,9 @@ class ClassPontoDAO {
             $stmt->bindValue(7, $editarPonto->getLongitude());
 
             $stmt->bindValue(8, $editarPonto->getCod_ponto());
-           
+            $stmt->bindValue(9, $editarPonto->getCod_ibge());
+            $stmt->bindValue(10, $editarPonto->getCod_categoria());
+            $stmt->bindValue(11, $editarPonto->getCod_pid());
            
             $stmt->execute();
             return TRUE;
@@ -70,7 +72,7 @@ class ClassPontoDAO {
         try {
             $pdo = Conexao::getInstance();
 
-            $sql = "SELECT ponto.* categoria.descricao ,municipio.nome_municipio, pid.nome 
+            $sql = "SELECT ponto.*, categoria.descricao,municipio.nome_municipio, pid.nome 
             FROM ponto 
             INNER JOIN categoria ON ponto.cod_categoria = categoria.cod_categoria
             INNER JOIN municipio ON ponto.cod_ibge = municipio.cod_ibge
