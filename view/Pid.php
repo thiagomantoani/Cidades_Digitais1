@@ -59,7 +59,7 @@
                   <?php
                     foreach ($array_dados as $key => $value) {
                      ?>
-                      <tr>
+                 m      <tr>
                         <td><?php echo $value['cod_ponto'] ?></td>
                         <td><?php echo $value['nome'] ?></td>
                         <td><?php echo $value['codigo_ibge'] ?></td>

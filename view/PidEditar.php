@@ -50,7 +50,7 @@
                   <input name="cod_pid" type="hidden" value="<?php echo $cod_pid ?>"/>
 
                  
-            <div class="form-group col-md-12">
+                 <div class="form-group col-md-12">
                     <label for="recipient-cod_ibge" class="col-form-label">Municipio:</label>
                     <input disabled 
                       value="<?php echo $nome_municipio ?>"

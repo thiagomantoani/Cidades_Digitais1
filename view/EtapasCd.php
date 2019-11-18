@@ -51,7 +51,6 @@
                     <th scope="col">Data de Início</th>
                     <th scope="col">Data de Fim</th>
                     <th scope="col">Responsável</th>
-                
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
@@ -126,12 +125,12 @@
                   <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_etapa" class="col-form-label">Código Etapa:</label>
-                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
+                    <select name="cod_etapa" class="form-control" id="recipient-cod_etapa">
                       <option value="">Selecionar Etapa</option>
                       <?php 
                         foreach($array_selectEtapa as $chave => $valor){
                         ?>
-                        <option value="<?= $valor['cod_etapa'] ?>"><?= $valor['setor_resp'] ?></option>
+                        <option value="<?= $valor['cod_etapa'] ?>"><?= $valor['cod_etapa'] ?></option>
                         <?php 
                         }
                       ?>

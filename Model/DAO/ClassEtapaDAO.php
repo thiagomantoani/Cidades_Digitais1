@@ -61,7 +61,9 @@ class ClassEtapaDAO {
     public function todosEtapa(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_etapa, setor_resp FROM etapa ORDER BY setor_resp ASC";
+            $sql = "SELECT cod_etapa, setor_resp
+            FROM etapa
+            ORDER BY setor_resp ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
