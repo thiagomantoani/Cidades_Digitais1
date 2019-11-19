@@ -1,12 +1,6 @@
 ERROS A SEREM CORRIGIDOS DAS TABELAS QUE JÁ ESTÃO PRONTAS:
 
-- EtapasCd:  cadastrar cod_etapa esta com erro na violação da chave Estrangeira. Fazer o código para Editar.
-
-- Uacom: Excluir e Editar.
-
-- Usuários: Editar
-
-- Assunto: Corrigir o cod_assunto (para auto incrementO), Editar.
+- EtapasCd:Editar.
 
 - Cd: Editar
 
