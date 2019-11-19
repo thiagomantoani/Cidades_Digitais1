@@ -4,14 +4,18 @@ require_once '../Model/ClassEtapas.php';
 require_once '../Model/DAO/ClassEtapasDAO.php';
 
 $cod_ibge = @$_GET['cod_ibge'];
+$cod_etapa = @$_GET['cod_etapa'];
 
 $visualizarEtapas = new ClassEtapas();
+
 $visualizarEtapas->setCod_ibge($cod_ibge);
+$visualizarEtapas->setCod_etapa($cod_etapa);
 
-$ver = new ClassEtapasDAO(); // instanciando um objeto
-$dados = $ver->visualizarEtapas($visualizarEtapas); // chamando metodo para listar todos os usuários do banco
 
-if($dados) { // se existir algum municipio no banco então passar o array de dados para a variavel $array_dados
+$ver = new ClassEtapasDAO();
+$dados = $ver->visualizarEtapas($visualizarEtapas);
+
+if($dados) {
     $array_dados = $dados[0];
     
     //var_dump($array_dados);

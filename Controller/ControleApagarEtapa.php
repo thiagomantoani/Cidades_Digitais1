@@ -15,7 +15,7 @@ $etapa->setCod_etapa($cod_etapa);
 
 $resultado = $apagarEtapa->apagarEtapa($etapa); // chamando metodo para listar todos os usuários do banco
 
-if($resultado) { // se existir algum municipio no banco então passar o array de dados para a variavel $array_dados
+if($resultado) { // se existir alguma etapa no banco então passar o array de dados para a variavel $array_dados
     $_SESSION['msg'] = '
         <div class="alert alert-success" role="alert">
             Registro apagado com sucesso!

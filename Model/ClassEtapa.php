@@ -1,9 +1,4 @@
 <?php
-/**
- * Description of ClassEtapa
- * @author Carol
- */
-
 class ClassEtapa {
     private $cod_etapa, $descricao, $duracao, $depende, $delay, $setor_resp;
 

@@ -25,7 +25,7 @@ $novoPrefeito->setExercicio($exercicio);
 $classPrefeitoDAO = new ClassPrefeitoDAO();
 $prefeito = $classPrefeitoDAO->update($novoPrefeito);
 
-//var_dump($municipio);
+//var_dump($prefeito);
 //die();
 
 if($prefeito == TRUE){

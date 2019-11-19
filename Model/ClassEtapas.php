@@ -1,10 +1,4 @@
 <?php
-/**
- * Description of ClassMunicipio
- *
- * @author Carol
- */
-
 class ClassEtapas {
     private $cod_ibge, $cod_etapa, $dt_inicio, $dt_fim, $responsavel;
                   

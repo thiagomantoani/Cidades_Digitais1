@@ -4,6 +4,7 @@ require_once '../Model/ClassEtapas.php';
 require_once '../Model/DAO/ClassEtapasDAO.php';
 
 
+
 $cod_ibge = @$_POST['cod_ibge'];
 $cod_etapa = @$_POST['cod_etapa'];
 $dt_inicio = @$_POST['dt_inicio'];
