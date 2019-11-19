@@ -21,6 +21,28 @@ class ClassCdDAO {
             echo $exc->getMessage();
         }
     }
+    public function update(ClassCd $editarCd) {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE cd
+            SET os_pe = ?, data_pe = ?, os_imp = ?, data_imp = ?
+            WHERE cod_ibge = ? AND cod_lote = ? ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $editarCd->getOs_pe());
+            $stmt->bindValue(2, $editarCd->getData_pe());
+            $stmt->bindValue(3, $editarCd->getOs_imp());
+            $stmt->bindValue(4, $editarCd->getData_imp());
+
+            $stmt->bindValue(5, $editarCd->getCod_ibge());
+            $stmt->bindValue(6, $editarCd->getCod_lote());
+           
+            $stmt->execute();
+            return TRUE;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
     
     public function listarCd(){
         try {
@@ -52,7 +74,25 @@ class ClassCdDAO {
         }
     }
 
+    public function visualizarCd(ClassCd $visualizarCd){
+        try {
+            $pdo = Conexao::getInstance();
 
+            $sql = "SELECT cod_ibge, cod_lote, os_pe, data_pe, os_imp, data_imp
+            FROM cd  
+            WHERE cod_ibge = ? AND cod_lote = ?";
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $visualizarCd->getCod_ibge());
+            $stmt->bindValue(2, $visualizarCd->getCod_lote());
+
+            $stmt->execute();
+            return $stmt->fetchAll(); 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
 
     public function todosCd(){
         try {
@@ -63,7 +103,7 @@ class ClassCdDAO {
             
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
-            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+            return $stmt->fetchAll();
         } catch (PDOException $ex) {
             return $ex->getMessage();
         }

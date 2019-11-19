@@ -79,8 +79,7 @@
                                 class="btn btn-warning mr-1">
                                 Editar Ponto
                           </a> 
-                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarPid.php?cod_pid=<?php echo $value['cod_pid'] ?>&cod_ponto=<?php echo $value['cod_ponto'] ?>&cod_categoria=<?php echo $value['cod_categoria'] ?>&cod_ibge=<?php echo $value['cod_ibge'] ?>&cod_pid=<?php echo $value['cod_pid'] ?>')" class="btn btn-danger">Excluir</button> 
-                             
+                        
                           </span>
                         </td>
 

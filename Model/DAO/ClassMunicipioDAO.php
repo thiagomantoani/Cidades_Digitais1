@@ -33,7 +33,9 @@ class ClassMunicipioDAO {
     public function update(ClassMunicipio $editarMunicipio) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE municipio SET nome_municipio = ?, populacao = ?, uf = ?, regiao = ?, cnpj = ?, dist_capital = ?, endereco =? , numero = ?, complemento = ?, bairro = ?, idhm = ?, latitude = ?, longitude = ? WHERE cod_ibge = ? ";
+            $sql = "UPDATE municipio
+            SET nome_municipio = ?, populacao = ?, uf = ?, regiao = ?, cnpj = ?, dist_capital = ?, endereco =? , numero = ?, complemento = ?, bairro = ?, idhm = ?, latitude = ?, longitude = ?
+            WHERE cod_ibge = ? ";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $editarMunicipio->getNome_municipio());
             $stmt->bindValue(2, $editarMunicipio->getPopulacao());

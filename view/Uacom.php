@@ -67,8 +67,11 @@
                         <td><?php echo $value['relato'] ?></td>
                         <td> 
                           <span class="d-flex">
-                            <button type="button" class="btn btn-warning mr-1">Editar</button>
-                            <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarUacom.php?cod_ibge=<?php echo $value['cod_ibge'] ?>')" class="btn btn-danger">Excluir</button> 
+                          <a href="<?php echo URL ?>View/UacomEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>&data=<?php echo $value['data'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar
+                          </a> 
+                            <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarUacom.php?cod_ibge=<?php echo $value['cod_ibge'] ?>&data=<?php echo $value['data'] ?>')" class="btn btn-danger">Excluir</button> 
                              
                           </span>
                         </td>
