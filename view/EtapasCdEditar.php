@@ -3,7 +3,7 @@
     include_once("_cabecalho.php");
 
     // Buscar todos os cadastros no banco
-    require_once("../Controller/ControleEtapasCdVisualizar.php");
+    require_once("../Controller/ControleEtapasVisualizar.php");
     // $array_dados
     ?>
     
@@ -12,12 +12,9 @@
 
         <div class="row mb-5">
           <div id="mainHeader" class="col-md-6 d-flex align-items-center">
-            <span id="mainHeaderIcon">
-            <i class="fas fa-globe-asia"></i>
-            </span>
-            <span>
+            
               <h3 class="mb-0">Editar Etapas Cidades Digitais</h3>
-              <small>Descrição</small>
+         
             </span>
           </div>
  
@@ -48,41 +45,39 @@
                   <input name="cod_ibge" type="hidden" value="<?php echo $cod_ibge ?>"/>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <input 
+                    <label for="recipient-cod_ibge" class="col-form-label">Cód. Ibge:</label>
+                    <input disabled 
                       value="<?php echo $cod_ibge ?>"
-                      name="cod_ibge"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="50" 
+                      maxlength="255" 
                       id="recipient-cod_ibge">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_etapa" class="col-form-label">Código Etapa:</label>
-                    <select name="cod_etapa" class="form-control" id="recipient-cod_etapa">
-                      <option value="">Código Etapa</option>
-                      <?php 
-                        foreach($array_selectEtapa as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_etapa'] ?>"><?= $valor['cod_etapa'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
+                    <label for="recipient-cod_etapa" class="col-form-label">Cód. Etapa:</label>
+                    <input disabled 
+                      value="<?php echo $cod_etapa ?>"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
+                      id="recipient-cod_etapa">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-dt_inicio" class="col-form-label">Data de Início:</label>
+                    <label for="recipient-dt_inicio" class="col-form-label">Data Início:</label>
                     <input 
                       value="<?php echo $dt_inicio ?>"
                       name="dt_inicio"
                       placeholder=""
                       type="date" 
                       class="form-control"
+                      maxlength=""
                       id="recipient-dt_inicio">
                   </div>
+
 
                   <div class="form-group col-md-12">
                     <label for="recipient-dt_fim" class="col-form-label">Data de Fim:</label>
@@ -148,33 +143,7 @@
 
                 <!-- Input cod_ibge -->
                 <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Código IBGE:</label>
-                    <select name="cod_ibge" class="form-control" id="recipient-cod_ibge">
-                      <option value="">Selecionar municipio</option>
-                      <?php 
-                        foreach($array_selectMunicipios as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_ibge'] ?>"><?= $valor['nome_municipio'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_etapa" class="col-form-label">Código Etapa:</label>
-                    <select name="cod_etapa" class="form-control" id="recipient-cod_etapa">
-                      <option value="">Código Etapa</option>
-                      <?php 
-                        foreach($array_selectEtapa as $chave => $valor){
-                        ?>
-                        <option value="<?= $valor['cod_etapa'] ?>"><?= $valor['cod_etapa'] ?></option>
-                        <?php 
-                        }
-                      ?>
-                    </select>
-                  </div>
+                 
 
                   <div class="form-group col-md-12">
                     <label for="recipient-dt_inicio" class="col-form-label">Data de Início:</label>
@@ -183,7 +152,7 @@
                       placeholder=""
                       type="date" 
                       class="form-control"
-                      id="recipient-populacao">
+                      id="recipient-dt_inicio">
                   </div>
 
                   <div class="form-group col-md-12">
@@ -193,7 +162,7 @@
                       placeholder=""
                       type="date" 
                       class="form-control"
-                      id="recipient-uf">
+                      id="recipient-dt_fim">
                   </div>
 
                   <div class="form-group col-md-12">
@@ -204,7 +173,7 @@
                       type="text" 
                       class="form-control"
                       maxlength="" 
-                      id="recipient-regiao">
+                      id="recipient-responsavel">
                   </div>
                 </div>
 

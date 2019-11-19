@@ -17,7 +17,7 @@ $novoEtapa->setCod_etapa($cod_etapa);
 $novoEtapa->setDescricao($descricao);
 $novoEtapa->setDuracao($duracao);
 $novoEtapa->setDepende($depende);
-$novoEtapa->setdelay($Delay);
+$novoEtapa->setDelay($delay);
 $novoEtapa->setSetor_resp($setor_resp);
 
 

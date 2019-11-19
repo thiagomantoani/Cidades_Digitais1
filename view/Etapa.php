@@ -114,16 +114,7 @@
 
                 <!-- Input cod_ibge -->
                 <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_etapa" class="col-form-label">Código Etapa:</label>
-                    <input 
-                      name="cod_etapa"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_etapa">
-                  </div>
+               
 
                   <div class="form-group col-md-12">
                     <label for="recipient-descricao" class="col-form-label">Descrição:</label>

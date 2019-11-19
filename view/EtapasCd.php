@@ -69,7 +69,11 @@
                         <td><?php echo $value['responsavel'] ?></td>
                         <td> 
                           <span class="d-flex">
-                            <button type="button" class="btn btn-warning mr-1">Editar</button> <button type="button" class="btn btn-danger">Excluir</button> 
+                          <a href="<?php echo URL ?>View/EtapasCdEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>&cod_etapa=<?php echo $value['cod_etapa'] ?>" 
+                          class="btn btn-warning mr-1">
+                          Editar
+                        </a>
+                            <button type="button" class="btn btn-danger">Excluir</button> 
                           </span>
                         </td>
 

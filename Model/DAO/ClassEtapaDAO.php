@@ -25,6 +25,26 @@ class ClassEtapaDAO {
             echo $exc->getMessage();
         }
     }
+    public function update(ClassEtapa $editarEtapa) {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE etapa SET descricao = ?, duracao = ?, depende = ?, delay = ?, setor_resp = ?
+             WHERE cod_etapa = ? ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $editarEtapa->getDescricao());
+            $stmt->bindValue(2, $editarEtapa->getDuracao());
+            $stmt->bindValue(3, $editarEtapa->getDepende());
+            $stmt->bindValue(4, $editarEtapa->getDelay());
+            $stmt->bindValue(5, $editarEtapa->getSetor_resp());
+
+            $stmt->bindValue(6, $editarEtapa->getCod_etapa());
+           
+            $stmt->execute();
+            return TRUE;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
     
     public function listarEtapa(){
         try {

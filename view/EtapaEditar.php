@@ -45,12 +45,13 @@
 
                   <div class="form-group col-md-12">
                     <label for="recipient-cod_etapa" class="col-form-label">Cód. Etapa:</label>
-                    <input 
+                    <input disabled 
                       value="<?php echo $cod_etapa ?>"
+                      name="cod_etapa"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="14"
+                      maxlength="255" 
                       id="recipient-cod_etapa">
                   </div>
                   
@@ -65,7 +66,6 @@
                       maxlength="45"
                       id="recipient-descricao">
                   </div>
-                    
 
                   <div class="form-group col-md-12">
                     <label for="recipient-duracao" class="col-form-label">Duração:</label>
@@ -80,75 +80,39 @@
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-numero" class="col-form-label">Número:</label>
+                    <label for="recipient-depende" class="col-form-label">Depende:</label>
                     <input 
-                      value="<?php echo $numero ?>"
-                      name="text"
+                      value="<?php echo $depende ?>"
+                      name="depende"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      maxlength="10"
-                      id="recipient-numero">
+                      maxlength=""
+                      id="recipient-depende">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-bairro" class="col-form-label">Bairro:</label>
+                    <label for="recipient-delay" class="col-form-label">Delay:</label>
                     <input 
-                      value="<?php echo $bairro ?>"
-                      name="bairro"
+                      value="<?php echo $delay ?>"
+                      name="delay"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      maxlength="100"
-                      id="recipient-bairro">
+                      maxlength=""
+                      id="recipient-delay">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cep" class="col-form-label">Cep:</label>
+                    <label for="recipient-setor_resp" class="col-form-label">Setor Resp:</label>
                     <input 
-                      value="<?php echo $cep ?>"
-                      name="cep"
+                      value="<?php echo $setor_resp ?>"
+                      name="setor_resp"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="8"
-                      id="recipient-cep">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-nome_municipio" class="col-form-label">Nome Município:</label>
-                    <input 
-                      value="<?php echo $nome_municipio ?>"
-                      name="nome_municipio"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="50"
-                      id="recipient-nome_municipio">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-uf" class="col-form-label">UF:</label>
-                    <input 
-                      value="<?php echo $uf ?>"
-                      name="uf"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="2"
-                      id="recipient-uf">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-observacao" class="col-form-label">Observação:</label>
-                    <input 
-                      value="<?php echo $observacao ?>"
-                      name="observacao"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="1000"
-                      id="recipient-observacao">
+                      maxlength="45"
+                      id="recipient-setor_resp">
                   </div>
 
                 </div>
@@ -156,7 +120,7 @@
             </div>
 
             <div class="modal-footer">
-              <a href="<?php echo URL ?>View/Entidade.php" class="btn btn-secondary">Cancelar</a>
+              <a href="<?php echo URL ?>View/Etapa.php" class="btn btn-secondary">Cancelar</a>
               <button type="submit" class="btn btn-primary">
                 Salvar
               </button>
@@ -177,57 +141,46 @@
 
 
     <!-- Modal de Cadastro -->
-    <div class="modal fade cadastrar-entidade-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myEntidadeModalLabel" aria-hidden="true">
+    <div class="modal fade cadastrar-etapa-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myEtapaModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           
           <div class="modal-header">
-            <h5 class="modal-title" id="myEntidadeModalLabel">
+            <h5 class="modal-title" id="myEtapaModalLabel">
               <i class="far fa-plus-square"></i>
-              Cadastrar Entidade
+              Cadastrar Etapa
             </h5>
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleEntidadeEditar.php" method="post">
+          <form action="../Controller/ControleEtapaEditar.php" method="post">
 
             <div class="modal-body">
             <div class="form-group col-md-12">
-                    <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
+                    <label for="recipient-descricao" class="col-form-label">Descrição:</label>
                     <input 
-                      name="cnpj"
+                      name="descricao"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="14" 
-                      id="recipient-cnpj">
+                      maxlength="45" 
+                      id="recipient-descricao">
                   </div>
                   
                   <div class="form-group col-md-12">
-                    <label for="recipient-nome" class="col-form-label">Nome:</label>
+                    <label for="recipient-duracao" class="col-form-label">Duração:</label>
                     <input 
-                      name="nome"
+                      name="duracao"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      maxlength="50" 
-                      id="recipient-nome">
+                      maxlength="" 
+                      id="recipient-duracao">
                   </div>
                     
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-endereco" class="col-form-label">Endereço:</label>
-                    <input 
-                      name="endereco"
-                      placeholder=""
-                      type="text" 
-                      class="form-control"
-                      maxlength="100" 
-                      id="recipient-endereco">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-depende" class="col-form-label">Número:</label>
+                    <label for="recipient-depende" class="col-form-label">Depende:</label>
                     <input 
                       name="depende"
                       placeholder=""
