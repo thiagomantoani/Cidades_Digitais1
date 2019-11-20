@@ -39,18 +39,17 @@
           ?>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleAssuntoEditar.php" method="post">
+          <form action="../Controller/ControleCdEditar.php" method="post">
 
-            <div class="modal-body">
+            <div class="form-row">
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_ibge" type="hidden" value="<?php echo $cod_ibge ?>"/>
-                  <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-cod_ibge" class="col-form-label">Municipio:</label>
                     <input disabled 
-                      value="<?php echo $nome_municipio ?>"
+                      value="<?php echo $cod_ibge ?>"
                       placeholder=""
                       type="text" 
                       class="form-control"
@@ -58,14 +57,15 @@
                       id="recipient-cod_ibge">
                   </div>
                   
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-cod_lote" class="col-form-label">Cód. Lote:</label>
-                    <input disabled 
+                    <input
                       value="<?php echo $cod_lote ?>"
+                      name="cod_lote"
                       placeholder=""
-                      type="text" 
+                      type="number" 
                       class="form-control"
-                      maxlength="255" 
+                      maxlength="" 
                       id="recipient-cod_lote">
                   </div>
 
@@ -159,6 +159,8 @@
           <form action="../Controller/ControleCdEditar.php" method="post">
 
             <div class="modal-body">
+
+            
 
             <div class="form-group col-md-12">
                     <label for="recipient-os_pe" class="col-form-label">Ordem de Serviço P.E:</label>

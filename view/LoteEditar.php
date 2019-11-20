@@ -43,18 +43,30 @@
           <!-- FORMULARIO -->
           <form action="../Controller/ControleLoteEditar.php" method="post">
 
-            <div class="modal-body">
+          <div class="form-row">
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_lote" type="hidden" value="<?php echo $cod_lote ?>"/>
-                  <input name="cnpj" type="hidden" value="<?php echo $cnpj ?>"/>
-
+                 
+                 
                   <div class="form-group col-md-4">
-                    <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
+                    <label for="recipient-cod_lote" class="col-form-label">Cód. Lote:</label>
                     <input disabled 
-                      value="<?php echo $cnpj ?>"
+                      value="<?php echo $cod_lote ?>"
                       type="text" 
                       class="form-control"
+                      id="recipient-cod_lote">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="recipient-cnpj" class="col-form-label">Entidade:</label>
+                    <input 
+                      value="<?php echo $cnpj ?>"
+                      name="cnpj"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength="255" 
                       id="recipient-cnpj">
                   </div>
 
@@ -147,33 +159,22 @@
           <!-- FORMULARIO -->
           <form action="../Controller/ControleLoteEditar.php" method="post">
 
-            <div class="modal-body">
+           
+            <div class="form-row">
 
             <div class="form-group col-md-12">
-                <label for="recipient-cod_lote" class="col-form-label">Código Lote:</label>
-                <input
-                name="cod_lote"
-                placeholder=""
-                type="number"
-                class="form-control"
-                maxlength="11"
-                id="recipient-cod_lote">
-              </div>
-
-                <div class="form-group col-md-12">
-                    <label for="recipient-cod_contato" class="col-form-label">Cnpj:</label>
-                    <select name="cod_contato" class="form-control" id="recipient-cod_contato">
-                      <option value="">Selecionar Contato</option>
+                <label for="recipient-cnpj" class="col-form-label">Cnpj:</label>
+                      <select name="cnpj" class="form-control" id="recipient-cnpj">
+                      <option value="">Selecionar Entidade</option>
                       <?php 
-                        foreach($array_selectContato as $chave => $valor){
-                      ?>
-                      <option value="<?= $valor['cod_contato'] ?>"><?= $valor['nome'] ?></option>
-                      <?php 
-                      }
+                        foreach($array_selectEntidade as $chave => $valor){
+                        ?>
+                        <option value="<?= $valor['cnpj'] ?>"><?= $valor['nome'] ?></option>
+                        <?php 
+                        }
                       ?>
                     </select>
-                </div>
-              
+              </div>
 
                   <div class="form-group col-md-12">
                       <label for="recipient-contrato" class="col-form-label">Contrato:</label>
@@ -197,6 +198,7 @@
                     maxlength="2"
                     id="recipient-dt_inicio_vig">
                 </div>
+                
                 <div class="form-group col-md-12">
                       <label for="recipient-dt_final_vig" class="col-form-label">Data final da Vigência:</label>
                       <input

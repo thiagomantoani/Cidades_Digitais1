@@ -43,8 +43,9 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">Codigo da Tipologia</th>
+                      <th scope="col">Código da Tipologia</th>
                       <th scope="col">Descrição</th>
+                      <th scope="col">Ações</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -58,8 +59,11 @@
                           <td><?php echo $value['descricao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <button type="button" class="btn btn-warning mr-1">Editar</button> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarTipologia.php?cod_tipologia=<?php echo $value['cod_tipologia'] ?>')" class="btn btn-danger">Excluir</button> 
+                            <a href="<?php echo URL ?>View/TipologiaEditar.php?cod_tipologia=<?php echo $value['cod_tipologia'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar
+                              </a>
+                               <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarTipologia.php?cod_tipologia=<?php echo $value['cod_tipologia'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
                         </tr>

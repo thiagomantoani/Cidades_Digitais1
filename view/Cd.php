@@ -56,12 +56,12 @@
                   </thead>
                   <tbody>
                   <?php
-                  //svar_dump($array_dados);
+                  //var_dump($array_dados);
                   //die();
                     foreach($array_dados as $key => $value) {
                         ?>
                         <tr>
-                          <td><?php echo $value['cod_ibge'] ?></td>
+                          <td><?php echo $value['ibge'] ?></td>
                           <td><?php echo $value['cod_lote'] ?></td>
                           <td><?php echo $value['os_pe'] ?></td>
                           <td><?php echo $value['data_pe'] ?></td>
@@ -69,10 +69,10 @@
                           <td><?php echo $value['data_imp'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <a href="<?php echo URL ?>View/CdEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>&cod_lote=<?php echo $value['cod_lote'] ?>" 
+                            <a href="<?php echo URL ?>View/CdEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
                                 class="btn btn-warning mr-1">
                                 Editar
-                              </a> 
+                              </a>
                               <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarCd.php?cod_ibge=<?php echo $value['cod_ibge'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
@@ -134,6 +134,7 @@
                       ?>
                     </select>
                   </div>
+                  
                   <div class="form-group col-md-12">
                     <label for="recipient-os_pe" class="col-form-label">Ordem de Serviço P.E:</label>
                     <input

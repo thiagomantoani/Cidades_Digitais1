@@ -25,16 +25,17 @@ class ClassCdDAO {
         try {
             $pdo = Conexao::getInstance();
             $sql = "UPDATE cd
-            SET os_pe = ?, data_pe = ?, os_imp = ?, data_imp = ?
-            WHERE cod_ibge = ? AND cod_lote = ? ";
+            SET  cod_lote = ?, os_pe = ?, data_pe = ?, os_imp = ?, data_imp = ?
+            WHERE cod_ibge = ?";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $editarCd->getOs_pe());
-            $stmt->bindValue(2, $editarCd->getData_pe());
-            $stmt->bindValue(3, $editarCd->getOs_imp());
-            $stmt->bindValue(4, $editarCd->getData_imp());
+            $stmt->bindValue(1, $editarCd->getCod_lote());
+            $stmt->bindValue(2, $editarCd->getOs_pe());
+            $stmt->bindValue(3, $editarCd->getData_pe());
+            $stmt->bindValue(4, $editarCd->getOs_imp());
+            $stmt->bindValue(5, $editarCd->getData_imp());
 
-            $stmt->bindValue(5, $editarCd->getCod_ibge());
-            $stmt->bindValue(6, $editarCd->getCod_lote());
+            $stmt->bindValue(6, $editarCd->getCod_ibge());
+            
            
             $stmt->execute();
             return TRUE;
@@ -47,10 +48,11 @@ class ClassCdDAO {
     public function listarCd(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',cd.cod_ibge) AS cod_ibge,cd.cod_lote,cd.os_pe,cd.data_pe,cd.os_imp,cd.data_imp 
+            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',cd.cod_ibge) AS ibge,
+            cd.cod_lote,cd.os_pe,cd.data_pe,cd.os_imp,cd.data_imp, municipio.cod_ibge, cd.cod_ibge
             FROM cd 
             INNER JOIN municipio ON cd.cod_ibge = municipio.cod_ibge
-            ORDER BY cod_ibge ASC";
+            ORDER BY ibge ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
@@ -78,15 +80,13 @@ class ClassCdDAO {
         try {
             $pdo = Conexao::getInstance();
 
-            $sql = "SELECT cod_ibge, cod_lote, os_pe, data_pe, os_imp, data_imp
-            FROM cd  
-            WHERE cod_ibge = ? AND cod_lote = ?";
-
+            $sql = "SELECT CONCAT(municipio.nome_municipio,  ' - ' , municipio.uf,': ',cd.cod_ibge) AS ibge,
+            cd.*, municipio.cod_ibge
+            FROM cd 
+            INNER JOIN municipio ON cd.cod_ibge = municipio.cod_ibge
+            WHERE cd.cod_ibge = ?";
             $stmt = $pdo->prepare($sql);
-
             $stmt->bindValue(1, $visualizarCd->getCod_ibge());
-            $stmt->bindValue(2, $visualizarCd->getCod_lote());
-
             $stmt->execute();
             return $stmt->fetchAll(); 
         } catch (PDOException $ex) {

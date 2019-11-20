@@ -13,9 +13,6 @@ $dados = $ver->visualizarEtapa($visualizarEtapa);
 
 if($dados) { 
     $array_dados = $dados[0];
-    
-    //var_dump($array_dados);
-    //die;
 } else {
     $_SESSION['msg'] = '
         <div class="alert alert-danger" role="alert">

@@ -46,12 +46,12 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Código Lote</th>
-                    <th scope="col">CNPJ</th>
+                    <th scope="col">Cód. Lote</th>
+                    <th scope="col">Entidade</th>
                     <th scope="col">Contrato</th>
                     <th scope="col">Data Inicio Vigência</th>
-                    <th scope="col">Data Final da Vigência</th>
-                    <th scope="col">Data reajuste</th>
+                    <th scope="col">Data Final da Vig.</th>
+                    <th scope="col">Data Reaj.</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
@@ -73,7 +73,7 @@
                           <span class="d-flex">
                           <a href="<?php echo URL ?>View/LoteEditar.php?cod_lote=<?php echo $value['cod_lote'] ?>" class="btn btn-warning mr-1"> Editar
                           </a>
-                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarLote.php?cod_lote=<?php echo $value['cod_lote'] ?>&cnpj=<?php echo $value['cnpj'] ?>')" class="btn btn-danger">Excluir</button> 
+                          <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarLote.php?cod_lote=<?php echo $value['cod_lote'] ?>')" class="btn btn-danger">Excluir</button> 
                           </span>
                         </td>
 
@@ -126,7 +126,7 @@
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="recipient-cnpj" class="col-form-label">Cnpj:</label>
-                                   <select name="cnpj" class="form-control" id="recipient-cnpj">
+                      <select name="cnpj" class="form-control" id="recipient-cnpj">
                       <option value="">Selecionar Entidade</option>
                       <?php 
                         foreach($array_selectEntidade as $chave => $valor){

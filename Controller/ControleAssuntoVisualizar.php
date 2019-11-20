@@ -21,5 +21,5 @@ if($dados) {
             Erro! Não foi possível visualizar os dados.
         </div>
     ';
-    header('Location:../View/Uacom.php');
+    header('Location:../View/Assunto.php');
 }

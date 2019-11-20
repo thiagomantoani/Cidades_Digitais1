@@ -1,12 +1,7 @@
 <?php
-/**
- * Description of ClassTipologia
- * @author Carol
- */
 require_once 'Conexao.php';
 class ClassTipologiaDAO {
-  //  var_dump($cadastrarTipologia);
-    //die();
+
     public function cadastrar(ClassTipologia $cadastrarTipologia) {
         try {
             $pdo = Conexao::getInstance();
@@ -23,10 +18,29 @@ class ClassTipologiaDAO {
         }
     }
     
+    public function update(ClassTipologia $editarTipologia) {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE tipologia
+            SET descricao = ? WHERE cod_tipologia = ? ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $editarTipologia->getDescricao());
+
+            $stmt->bindValue(2, $editarTipologia->getCod_tipologia());
+           
+            $stmt->execute();
+            return TRUE;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
     public function listarTipologia(){
         try {
             $pdo = Conexao::getInstance();
-            $sql = "SELECT cod_tipologia, descricao FROM tipologia ORDER BY cod_tipologia ASC";
+            $sql = "SELECT cod_tipologia, descricao
+            FROM tipologia
+            ORDER BY cod_tipologia ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(); 
@@ -34,7 +48,23 @@ class ClassTipologiaDAO {
             return $ex->getMessage();
         }
     }
+    public function visualizarTipologia(ClassTipologia $visualizarTipologia){
+        try {
+            $pdo = Conexao::getInstance();
 
+            $sql = "SELECT cod_tipologia, descricao
+            FROM tipologia
+            WHERE cod_tipologia = ? ";
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindValue(1, $visualizarTipologia->getCod_tipologia());
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
     public function apagarTipologia(ClassTipologia $apagarTipologia) {
         try {
             $pdo = Conexao::getInstance();

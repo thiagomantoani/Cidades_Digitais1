@@ -10,7 +10,6 @@
     "Etapa" => '<i class="fas fa-align-justify"></i>',
     "EtapasCd" => '<i class="fas fa-list-ol"></i>',
     "Lote" =>'<i class="fas fa-clone"></i>',
-    "Modulo" =>'<i class="fas fa-window-maximize"></i>',
     "Municipios" => '<i class="fas fa-globe-asia"></i>',
     "Pid"=> '<i class="fas fa-sliders-h"></i>',
     "Prefeitos"=> '<i class="fas fa-sliders-h"></i>',
