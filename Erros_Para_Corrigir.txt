@@ -7,7 +7,7 @@ ERROS A SEREM CORRIGIDOS DAS TABELAS QUE JÁ ESTÃO PRONTAS:
 - Etapa: Excluir e Editar.
 
 - Uacom: Excluir e Editar.
-
+ss
 - Usuários: Editar
 
 - Assunto: Corrigir o cod_assunto (para auto incrementO), Editar.
