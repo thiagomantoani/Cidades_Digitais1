@@ -3,7 +3,9 @@
     include_once("_cabecalho.php");
 
     // Buscar todos os cadastros no banco
-    require_once("../Controller/ControleEtapasVisualizar.php");
+    require_once("../Controller/ControleUacomVisualizar.php");
+
+    require_once("../Controller/ControleContatoSelect.php");
     // $array_dados
     ?>
     
@@ -12,9 +14,12 @@
 
         <div class="row mb-5">
           <div id="mainHeader" class="col-md-6 d-flex align-items-center">
-            
-              <h3 class="mb-0">Editar Etapas Cidades Digitais</h3>
-         
+            <span id="mainHeaderIcon">
+            <i class="fas fa-globe-asia"></i>
+            </span>
+            <span>
+              <h3 class="mb-0">Editar Uacom</h3>
+             
             </span>
           </div>
  
@@ -37,15 +42,16 @@
           ?>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleEtapasCdEditar.php" method="post">
+          <form action="../Controller/ControleUacomEditar.php" method="post">
 
             <div class="modal-body">
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_ibge" type="hidden" value="<?php echo $cod_ibge ?>"/>
+                  <input name="data" type="hidden" value="<?php echo $data ?>"/>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_ibge" class="col-form-label">Cód. Ibge:</label>
+                    <label for="recipient-cod_ibge" class="col-form-label">Cód. IBGE:</label>
                     <input disabled 
                       value="<?php echo $cod_ibge ?>"
                       placeholder=""
@@ -54,57 +60,48 @@
                       maxlength="255" 
                       id="recipient-cod_ibge">
                   </div>
-
+                  
                   <div class="form-group col-md-12">
-                    <label for="recipient-cod_etapa" class="col-form-label">Cód. Etapa:</label>
+                    <label for="recipient-data" class="col-form-label">Data:</label>
                     <input disabled 
-                      value="<?php echo $cod_etapa ?>"
+                      value="<?php echo $data ?>"
                       placeholder=""
                       type="text" 
                       class="form-control"
                       maxlength="255" 
-                      id="recipient-cod_etapa">
+                      id="recipient-data">
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-dt_inicio" class="col-form-label">Data Início:</label>
+                    <label for="recipient-titulo" class="col-form-label">Título:</label>
                     <input 
-                      value="<?php echo $dt_inicio ?>"
-                      name="dt_inicio"
-                      placeholder=""
-                      type="date" 
-                      class="form-control"
-                      maxlength=""
-                      id="recipient-dt_inicio">
-                  </div>
-
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-dt_fim" class="col-form-label">Data de Fim:</label>
-                    <input 
-                      value="<?php echo $dt_fim ?>"
-                      name="dt_fim"
-                      placeholder=""
-                      type="date" 
-                      class="form-control"
-                      id="recipient-dt_fim">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-responsavel" class="col-form-label">Responsável:</label>
-                    <input 
-                      value="<?php echo $responsavel ?>"
-                      name="responsavel"
+                      value="<?php echo $titulo ?>"
+                      name="titulo"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="" 
-                      id="recipient-responsavel">
+                      maxlength="45" 
+                      id="recipient-titulo">
                   </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="recipient-relato" class="col-form-label">Relato:</label>
+                    <input 
+                      value="<?php echo $relato ?>"
+                      name="relato"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      maxlength=""
+                      id="recipient-relato">
+                  </div>
+
+                </div>
+
             </div>
 
             <div class="modal-footer">
-              <a href="<?php echo URL ?>View/EtapasCd.php" class="btn btn-secondary">Cancelar</a>
+              <a href="<?php echo URL ?>View/Uacom.php" class="btn btn-secondary">Cancelar</a>
               <button type="submit" class="btn btn-primary">
                 Salvar
               </button>
@@ -125,55 +122,44 @@
 
 
     <!-- Modal de Cadastro -->
-    <div class="modal fade cadastrar-etapas-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myEtapasModalLabel" aria-hidden="true">
+    <div class="modal fade cadastrar-uacom-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myUacomModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           
           <div class="modal-header">
-            <h5 class="modal-title" id="myEtapasModalLabel">
+            <h5 class="modal-title" id="myUacomModalLabel">
               <i class="far fa-plus-square"></i>
-              Cadastrar Etapas Cidades Digitais
+              Cadastrar Uacom
             </h5>
           </div>
 
           <!-- FORMULARIO -->
-          <form action="../Controller/ControleEtapasCdEditar.php" method="post">
+          <form action="../Controller/ControleUacomEditar.php" method="post">
 
             <div class="modal-body">
 
-                <!-- Input cod_ibge -->
-                <div class="form-row">
-                 
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-dt_inicio" class="col-form-label">Data de Início:</label>
+              
+                
+                <div class="form-group col-md-12">
+                    <label for="recipient-titulo" class="col-form-label">Título:</label>
                     <input 
-                      name="dt_inicio"
-                      placeholder=""
-                      type="date" 
-                      class="form-control"
-                      id="recipient-dt_inicio">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-dt_fim" class="col-form-label">Data de Fim:</label>
-                    <input 
-                      name="dt_fim"
-                      placeholder=""
-                      type="date" 
-                      class="form-control"
-                      id="recipient-dt_fim">
-                  </div>
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-responsavel" class="col-form-label">Responsável:</label>
-                    <input 
-                      name="responsavel"
+                      name="titulo"
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="" 
-                      id="recipient-responsavel">
+                      ]maxlength="45"
+                      id="recipient-titulo">
+                  </div>
+                  
+                  <div class="form-group col-md-12">
+                    <label for="recipient-relato" class="col-form-label">Relato:</label>
+                    <input 
+                      name="relato"
+                      placeholder=""
+                      type="text" 
+                      class="form-control"
+                      ]maxlength=""
+                      id="recipient-relato">
                   </div>
                 </div>
 

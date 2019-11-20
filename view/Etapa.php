@@ -68,7 +68,10 @@
                         <td><?php echo $value['setor_resp'] ?></td>
                         <td> 
                         <span class="d-flex">
-                          <button type="button" class="btn btn-warning mr-1">Editar</button> 
+                        <a href="<?php echo URL ?>View/EtapaEditar.php?cod_etapa=<?php echo $value['cod_etapa'] ?>" 
+                          class="btn btn-warning mr-1">
+                          Editar
+                        </a>
                           <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarEtapa.php?cod_etapa=<?php echo $value['cod_etapa'] ?>')" class="btn btn-danger">Excluir</button> 
                           </span>
                         </td>
@@ -111,16 +114,7 @@
 
                 <!-- Input cod_ibge -->
                 <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_etapa" class="col-form-label">Código Etapa:</label>
-                    <input 
-                      name="cod_etapa"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="" 
-                      id="recipient-cod_etapa">
-                  </div>
+               
 
                   <div class="form-group col-md-12">
                     <label for="recipient-descricao" class="col-form-label">Descrição:</label>

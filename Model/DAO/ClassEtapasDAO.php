@@ -19,6 +19,25 @@ class ClassEtapasDAO {
             echo $exc->getMessage();
         }
     }
+
+    public function update(ClassEtapas $editarEtapas) {
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "UPDATE etapa SET dt_inicio = ?, dt_fim = ?, responsavel = ?
+            WHERE cod_ibge = ? AND cod_etapa = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(1, $editarEtapas->getDt_inicio());
+            $stmt->bindValue(2, $editarEtapas->getDt_fim());
+            $stmt->bindValue(3, $editarEtapas->getResponsavel());
+
+            $stmt->bindValue(4, $editarEtapas->getCod_ibge());
+            $stmt->bindValue(5, $editarEtapas->getCod_etapa());
+            $stmt->execute();
+            return TRUE;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
     
     public function listarEtapas(){
         try {
@@ -35,21 +54,21 @@ class ClassEtapasDAO {
     }
 
 
-    public function visualizarEtapasCd(ClassEtapasCd $visualizarEtapasCd){
+    public function visualizarEtapas(ClassEtapas $visualizarEtapas){
         try {
             $pdo = Conexao::getInstance();
 
             $sql = "SELECT cod_ibge, cod_etapa, dt_inicio, dt_fim, responsavel 
-            FROM etapa 
-            WHERE cod_ibge = ? 
-            LIMIT 1";
+            FROM etapas_cd
+            WHERE cod_ibge = ?  AND cod_etapa = ?";
 
             $stmt = $pdo->prepare($sql);
 
-            $stmt->bindValue(1, $visualizarEtapasCd->getCod_ibge());
+            $stmt->bindValue(1, $visualizarEtapas->getCod_ibge());
+            $stmt->bindValue(2, $visualizarEtapas->getCod_etapa());
 
             $stmt->execute();
-            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+            return $stmt->fetchAll();
         } catch (PDOException $ex) {
             return $ex->getMessage();
         }
@@ -71,4 +90,17 @@ class ClassEtapasDAO {
         }
     }
 
+    public function todosEtapa(){
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT cod_etapa, setor_resp
+            FROM etapa
+            ORDER BY setor_resp ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
 }

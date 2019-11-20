@@ -69,7 +69,7 @@
                           <td><?php echo $value['data_imp'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <a href="<?php echo URL ?>View/CdEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>" 
+                              <a href="<?php echo URL ?>View/CdEditar.php?cod_ibge=<?php echo $value['cod_ibge'] ?>&cod_lote=<?php echo $value['cod_lote'] ?>" 
                                 class="btn btn-warning mr-1">
                                 Editar
                               </a> 

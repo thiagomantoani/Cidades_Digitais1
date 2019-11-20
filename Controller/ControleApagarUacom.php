@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$data = @$_GET["data"]; // id unico da tabela, chave primaria
+$cod_ibge = @$_GET["cod_ibge"];
+$data = @$_GET["data"];
 
 if (empty($data)) {
 	header('Location:../View/Uacom.php');
@@ -11,6 +12,7 @@ require_once '../Model/ClassUacom.php';
 require_once '../Model/DAO/ClassUacomDAO.php';
 $apagarUacom = new ClassUacomDAO(); // instanciando um objeto
 $uacom = new ClassUacom();
+$uacom->setCod_ibge($cod_ibge);
 $uacom->setData($data);
 
 $resultado = $apagarUacom->apagarUacom($uacom); // chamando metodo para listar todos os usuários do banco

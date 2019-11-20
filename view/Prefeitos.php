@@ -74,8 +74,11 @@
                           <td><?php echo $value['exercicio'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <button type="button" class="btn btn-warning mr-1">Editar</button> 
-                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarPrefeitos.php?cod_prefeito=<?php echo $value['cod_prefeito'] ?>')" class="btn btn-danger">Excluir</button> 
+                            <a href="<?php echo URL ?>View/PrefeitosEditar.php?cod_prefeito=<?php echo $value['cod_prefeito'] ?>&cod_ibge=<?php echo $value['cod_ibge'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar
+                              </a>
+                              <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarPrefeitos.php?cod_prefeito=<?php echo $value['cod_prefeito'] ?>&cod_ibge=<?php echo $value['cod_ibge'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
 

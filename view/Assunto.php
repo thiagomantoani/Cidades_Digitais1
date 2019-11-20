@@ -58,7 +58,10 @@
                           <td><?php echo $value['descricao'] ?></td>
                           <td> 
                             <span class="d-flex">
-                              <button type="button" class="btn btn-warning mr-1">Editar</button> 
+                            <a href="<?php echo URL ?>View/AssuntoEditar.php?cod_assunto=<?php echo $value['cod_assunto'] ?>" 
+                                class="btn btn-warning mr-1">
+                                Editar
+                          </a>
                               <button onclick="apagarDados('<?php echo URL ?>Controller/ControleApagarAssunto.php?cod_assunto=<?php echo $value['cod_assunto'] ?>')" class="btn btn-danger">Excluir</button> 
                             </span>
                           </td>
@@ -94,20 +97,11 @@
 
                 <!-- Input cod_assunto -->
                 <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="recipient-cod_assunto" class="col-form-label">Código assunto:</label>
-                    <input 
-                      name="cod_assunto"
-                      placeholder=""
-                      type="number" 
-                      class="form-control"
-                      maxlength="11" 
-                      id="recipient-cod_assunto">
-                  </div>
+                 
 
                  
                   <div class="form-group col-md-12">
-                    <label for="recipient-descricao" class="col-form-label">Descricao:</label>
+                    <label for="recipient-descricao" class="col-form-label">Descrição:</label>
                     <input 
                       name="descricao"
                       placeholder=""
