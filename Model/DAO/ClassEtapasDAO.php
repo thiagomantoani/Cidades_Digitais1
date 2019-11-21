@@ -23,7 +23,8 @@ class ClassEtapasDAO {
     public function update(ClassEtapas $editarEtapas) {
         try {
             $pdo = Conexao::getInstance();
-            $sql = "UPDATE etapa SET dt_inicio = ?, dt_fim = ?, responsavel = ?
+            $sql = "UPDATE etapas_cd
+            SET dt_inicio = ?, dt_fim = ?, responsavel = ?
             WHERE cod_ibge = ? AND cod_etapa = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $editarEtapas->getDt_inicio());
@@ -94,7 +95,7 @@ class ClassEtapasDAO {
         try {
             $pdo = Conexao::getInstance();
             $sql = "SELECT cod_etapa, setor_resp
-            FROM etapa
+            FROM etapas
             ORDER BY setor_resp ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();

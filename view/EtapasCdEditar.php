@@ -4,7 +4,8 @@
 
     // Buscar todos os cadastros no banco
     require_once("../Controller/ControleEtapasVisualizar.php");
-    // $array_dados
+    require_once("../Controller/ControleCdSelect.php");
+    require_once("../Controller/ControleEtapaSelect.php");
     ?>
     
     <!-- Conteudo -->
@@ -39,12 +40,13 @@
           <!-- FORMULARIO -->
           <form action="../Controller/ControleEtapasCdEditar.php" method="post">
 
-            <div class="modal-body">
+            <div class="form-row">
 
                   <!-- Chave primaria para saber qual registro editar do banco | input hidden para que o usuario não visualize -->
                   <input name="cod_ibge" type="hidden" value="<?php echo $cod_ibge ?>"/>
+                  <input name="cod_etapa" type="hidden" value="<?php echo $cod_etapa ?>"/>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-cod_ibge" class="col-form-label">Cód. Ibge:</label>
                     <input disabled 
                       value="<?php echo $cod_ibge ?>"
@@ -55,7 +57,7 @@
                       id="recipient-cod_ibge">
                   </div>
 
-                  <div class="form-group col-md-12">
+                  <div class="form-group col-md-4">
                     <label for="recipient-cod_etapa" class="col-form-label">Cód. Etapa:</label>
                     <input disabled 
                       value="<?php echo $cod_etapa ?>"
@@ -67,7 +69,7 @@
                   </div>
 
                   <div class="form-group col-md-12">
-                    <label for="recipient-dt_inicio" class="col-form-label">Data Início:</label>
+                    <label for="recipient-dt_inicio" class="col-form-label">dt_inicio:</label>
                     <input 
                       value="<?php echo $dt_inicio ?>"
                       name="dt_inicio"
@@ -78,15 +80,15 @@
                       id="recipient-dt_inicio">
                   </div>
 
-
                   <div class="form-group col-md-12">
                     <label for="recipient-dt_fim" class="col-form-label">Data de Fim:</label>
                     <input 
                       value="<?php echo $dt_fim ?>"
                       name="dt_fim"
                       placeholder=""
-                      type="date" 
+                      type="datet" 
                       class="form-control"
+                      maxlength=""
                       id="recipient-dt_fim">
                   </div>
 
@@ -98,7 +100,7 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="" 
+                      maxlength="45" 
                       id="recipient-responsavel">
                   </div>
             </div>
@@ -144,17 +146,16 @@
                 <!-- Input cod_ibge -->
                 <div class="form-row">
                  
-
-                  <div class="form-group col-md-12">
-                    <label for="recipient-dt_inicio" class="col-form-label">Data de Início:</label>
-                    <input 
+                <div class="form-group col-md-12">
+                      <label for="recipient-dt_inicio" class="col-form-label">Data de Ínicio:</label>
+                      <input
                       name="dt_inicio"
                       placeholder=""
-                      type="date" 
+                      type="date"
                       class="form-control"
+                      maxlength="19"
                       id="recipient-dt_inicio">
-                  </div>
-
+                </div>
                   <div class="form-group col-md-12">
                     <label for="recipient-dt_fim" class="col-form-label">Data de Fim:</label>
                     <input 
@@ -162,7 +163,8 @@
                       placeholder=""
                       type="date" 
                       class="form-control"
-                      id="recipient-dt_fim">
+                      maxlength="19"
+                      id="recipient-uf">
                   </div>
 
                   <div class="form-group col-md-12">
@@ -172,7 +174,7 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="" 
+                      maxlength="45" 
                       id="recipient-responsavel">
                   </div>
                 </div>

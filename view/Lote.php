@@ -161,8 +161,7 @@
               </div>
 
               <div class="form-group col-md-12">
-                <label for="recipient-dt_final_vig"
-                class="col-form-label">Data final da Vigência:</label>
+                <label for="recipient-dt_final_vig" class="col-form-label">Data final da Vigência:</label>
                 <input
                 name="dt_final_vig"
                 placeholder=""

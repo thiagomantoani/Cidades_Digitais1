@@ -1,5 +1,4 @@
 ﻿ERROS A SEREM CORRIGIDOS DAS TABELAS QUE JA ESTAO PRONTAS:
 
-- EtapasCd:Editar.
 
-- Lote: Excluir e Editar
+

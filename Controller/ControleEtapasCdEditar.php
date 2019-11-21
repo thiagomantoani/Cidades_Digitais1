@@ -13,15 +13,15 @@ $responsavel = @$_POST['responsavel'];
 
 
 
-$novaetapa = new ClassEtapas();
-$novaetapa->setCod_ibge($cod_ibge);
-$novaetapa->setCod_etapa($cod_etapa);
-$novaetapa->setDt_inicio($dt_inicio);
-$novaetapa->setDt_fim($dt_fim);
-$novaetapa->setResponsavel($responsavel);
+$novaEtapa = new ClassEtapas();
+$novaEtapa->setCod_ibge($cod_ibge);
+$novaEtapa->setCod_etapa($cod_etapa);
+$novaEtapa->setDt_inicio($dt_inicio);
+$novaEtapa->setDt_fim($dt_fim);
+$novaEtapa->setResponsavel($responsavel);
 
 $classEtapasDAO = new ClassEtapasDAO();
-$etapas = $classEtapasDAO->cadastrar($novaetapa);
+$etapas = $classEtapasDAO->update($novaEtapa);
 
 
 //var_dump($etapas);
