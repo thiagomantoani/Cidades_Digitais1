@@ -65,6 +65,17 @@ class ClassUacomDAO {
             echo $exc->getMessage();
         }
     }
+    public function todosCd(){
+        try {
+            $pdo = Conexao::getInstance();
+            $sql = "SELECT cod_ibge, nome_municipio FROM municipio ORDER BY nome_municipio ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(); // fetchAll() retorna um array contendo varios dados. 
+        } catch (PDOException $ex) {
+            return $ex->getMessage();
+        }
+    }
 
     public function todosCd(){
         try {
