@@ -148,7 +148,8 @@
                       placeholder=""
                       type="date" 
                       class="form-control"
-                      id="recipient-populacao">
+                      maxlength=""
+                      id="recipient-dt_inicio">
                   </div>
 
                   <div class="form-group col-md-12">
@@ -158,7 +159,8 @@
                       placeholder=""
                       type="date" 
                       class="form-control"
-                      id="recipient-uf">
+                      maxlength=""
+                      id="recipient-dt_fim">
                   </div>
 
                   <div class="form-group col-md-12">
@@ -168,8 +170,8 @@
                       placeholder=""
                       type="text" 
                       class="form-control"
-                      maxlength="" 
-                      id="recipient-regiao">
+                      maxlength="45" 
+                      id="recipient-responsavel">
                   </div>
                
                 </div>

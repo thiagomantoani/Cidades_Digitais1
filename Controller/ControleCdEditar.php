@@ -22,12 +22,12 @@ $novoCd->setData_pe($data_pe);
 $novoCd->setOs_imp($os_imp);
 $novoCd->setData_imp($data_imp);
 
-
+//var_dump($novoCd);
+//die();
 $classCdDAO = new ClassCdDAO();
 $cd = $classCdDAO->update($novoCd);
 
-//var_dump($cd);
-//die();
+
 
 if($cd == TRUE){
     $_SESSION['msg'] = '

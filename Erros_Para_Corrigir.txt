@@ -1,11 +1,4 @@
-ERROS A SEREM CORRIGIDOS DAS TABELAS QUE J� EST�O PRONTAS:
+﻿ERROS A SEREM CORRIGIDOS DAS TABELAS QUE JA ESTAO PRONTAS:
 
-- EtapasCd:Editar.
 
-- Cd: Editar
 
-- Modulo: Cadastrar, Excluir e Editar
-
-- Lote: Excluir e Editar
-
-- Tipologia: Editar.

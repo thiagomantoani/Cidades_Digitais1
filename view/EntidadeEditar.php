@@ -196,7 +196,7 @@
           <form action="../Controller/ControleEntidadeEditar.php" method="post">
 
             <div class="modal-body">
-            <div class="form-group col-md-12">
+                <div class="form-group col-md-12">
                     <label for="recipient-cnpj" class="col-form-label">CNPJ:</label>
                     <input 
                       name="cnpj"
