@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `assunto`
 --
 
-DROP TABLE IF EXISTS `assunto`;
+
 CREATE TABLE IF NOT EXISTS `assunto` (
   `cod_assunto` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) DEFAULT NULL,
@@ -512,7 +512,14 @@ CREATE TABLE IF NOT EXISTS `etapa` (
   `delay` int(11) DEFAULT NULL,
   `setor_resp` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cod_etapa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `etapa`
+--
+
+INSERT INTO `etapa` (`cod_etapa`, `descricao`, `duracao`, `depende`, `delay`, `setor_resp`) VALUES
+(1, 'descricao teste', 2, 2, 2, 'Carol');
 
 -- --------------------------------------------------------
 
@@ -1560,7 +1567,15 @@ CREATE TABLE IF NOT EXISTS `prefeitos` (
   `exercicio` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cod_prefeito`),
   KEY `fk_prefeitos_municipio1_idx` (`cod_ibge`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `prefeitos`
+--
+
+INSERT INTO `prefeitos` (`cod_prefeito`, `cod_ibge`, `nome`, `cpf`, `rg`, `partido`, `exercicio`) VALUES
+(1, 1100023, 'Joao', '0236528741', '142536', 'PSOL', 'Prefeito'),
+(3, 1300607, 'Francisco', '51515646', '544654656', 'PSDB', 'Prefeito');
 
 -- --------------------------------------------------------
 
@@ -1750,6 +1765,14 @@ CREATE TABLE IF NOT EXISTS `uacom` (
   KEY `fk_uacom_cd1_idx` (`cod_ibge`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `uacom`
+--
+
+INSERT INTO `uacom` (`cod_ibge`, `data`, `titulo`, `relato`) VALUES
+(1100023, '2019-10-07 00:00:00', 'tituloteste', 'teste'),
+(1507805, '2019-10-07 18:45:46', 'teste', 'relato teste');
+
 -- --------------------------------------------------------
 
 --
@@ -1818,11 +1841,6 @@ ALTER TABLE `cd_itens`
 
 --
 -- Limitadores para a tabela `contato`
---
-ALTER TABLE `contato`
-  ADD CONSTRAINT `fk_contato_cd1` FOREIGN KEY (`cod_ibge`) REFERENCES `cd` (`cod_ibge`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_contato_entidade1` FOREIGN KEY (`cnpj`) REFERENCES `entidade` (`cnpj`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
 --
 -- Limitadores para a tabela `empenho`
 --
